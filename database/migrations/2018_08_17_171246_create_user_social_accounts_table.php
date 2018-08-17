@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostalCodesTable extends Migration
+class CreateUserSocialAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreatePostalCodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('postal_codes', function (Blueprint $table) {
+        Schema::create('user_social_accounts', function (Blueprint $table) {
             $table->increments('id');
-            $table->decimal('codigopostalid',5,0)->unsigned();
-            $table->decimal('poblacionid',3,0)->unsigned();
-            $table->decimal('provinciaid',2,0)->unsigned();
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('provider');
+            $table->string('provider_uid');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreatePostalCodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('postal_codes');
+        Schema::dropIfExists('user_social_accounts');
     }
 }

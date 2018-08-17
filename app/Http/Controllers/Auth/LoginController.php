@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
+use App\User;
+use App\Client;
+use App\UserSocialAccount;
+use Illuminate\Http\Request;
+
 class LoginController extends Controller
 {
     /*
@@ -37,6 +42,13 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+
+    public function logout(Request $request){
+        auth()->logout();
+        session()->flush();
+
+        return redirect('/login');
+    }
     public function redirectToProvider(string $driver){
 
         return Socialite::driver($driver)->redirect();
@@ -51,7 +63,7 @@ class LoginController extends Controller
         $user = null;
         $success = true;
         $email = $socialUser->email;
-        $check = User::whereMail($email)->first();
+        $check = User::where('email',$email)->first();
         if($check){
             $user=$check;
         }else{
@@ -66,9 +78,9 @@ class LoginController extends Controller
                     "provider" => $driver,
                     "provider_uid" => $socialUser->id
                 ]);
-                /*Cliente::create([
+                Client::create([
                     'user_id'=> $user_id
-                ]);*/
+                ]);
 
             }catch(\Exception $exception){
                 $success = $exception->getMessage();
@@ -78,7 +90,7 @@ class LoginController extends Controller
         //dd($socialUser);
         if($success === true){
             \DB::commit();
-            auth()->LoginUsingId($user_id);
+            auth()->LoginUsingId($user->id);
             return redirect(route('home'));
         }
         session()->flash('message',['danger',$success]);

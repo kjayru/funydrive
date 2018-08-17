@@ -18,12 +18,12 @@ class CreateUserTable extends Migration
             $table->unsignedInteger('role_id')->default(Role::CLIENT);
             $table->foreign('role_id')->references('id')->on('roles');
             $table->string('name');
-            $table->string('lastname');
+            $table->string('lastname')->nullable();
             $table->string('email')->unique();
             $table->string('google_id')->nullable();
             $table->string('facebook_id')->nullable();
             $table->string('picture')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->integer('status')->default(1);
             $table->timestamps();

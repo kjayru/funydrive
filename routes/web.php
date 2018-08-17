@@ -14,9 +14,9 @@ Route::get('login/{driver}','Auth\LoginController@redirectToProvider')->name('so
 Route::get('login/{driver}/callback','Auth\LoginController@handleProviderCallback');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
-
+Route::get('/getpostal/{code}','HomeController@getPostal');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

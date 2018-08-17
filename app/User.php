@@ -26,4 +26,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function navigation(){
+        return auth()->check() ? auth()->user()->role->name : 'guest';
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(\App\Role::class);
+    }
+
+    public function socialAccount(){
+        return $this->hasOne(\App\UserSocialAccount::class);
+    }
 }

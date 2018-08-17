@@ -3,19 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\PostalCode;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
+   
     /**
      * Show the application dashboard.
      *
@@ -23,6 +15,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
         return view('home');
+    }
+
+    public function getPostal($code){
+        $postals = PostalCode::where('codigopostalid',$code);
     }
 }

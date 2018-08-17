@@ -10,4 +10,8 @@ class Role extends Model
     const ASSOCIATED = 2;
     const CLIENT = 3;
 
+    public function users(){
+        return $this->hasMany(User::class);
+    }
+
 }
