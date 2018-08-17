@@ -12,7 +12,6 @@
         "laravel/framework": "5.6.*",
         "laravel/socialite": "^3.1",
         "laravel/tinker": "^1.0",
-        "tcg/voyager": "^1.1",
         "yajra/laravel-datatables-oracle": "~8.0"
     },
     "require-dev": {

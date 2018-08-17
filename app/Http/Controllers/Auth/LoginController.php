@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Socialite;
 class LoginController extends Controller
 {
     /*
@@ -42,7 +42,46 @@ class LoginController extends Controller
         return Socialite::driver($driver)->redirect();
     }
     public function handleProviderCallback(string $driver){
+        if(!request()->has('code') || request()->has('denied')){
+            session()->flash('message',['danger',__('Inicio de sesión cancelado')]);
+            return redirect('login');
+        }
         $socialUser = Socialite::driver($driver)->user();
-        dd($socialite);
+
+        $user = null;
+        $success = true;
+        $email = $socialUser->email;
+        $check = User::whereMail($email)->first();
+        if($check){
+            $user=$check;
+        }else{
+            \DB::beginTransaction();
+            try{
+              $user =   User::create([
+                    "name"=>$socialUser->name,
+                    "email"=>$email
+                ]);
+                UserSocialAccount::create([
+                    "user_id" => $user->id,
+                    "provider" => $driver,
+                    "provider_uid" => $socialUser->id
+                ]);
+                /*Cliente::create([
+                    'user_id'=> $user_id
+                ]);*/
+
+            }catch(\Exception $exception){
+                $success = $exception->getMessage();
+                \DB::rollback();
+            }
+        }
+        //dd($socialUser);
+        if($success === true){
+            \DB::commit();
+            auth()->LoginUsingId($user_id);
+            return redirect(route('home'));
+        }
+        session()->flash('message',['danger',$success]);
+        return redirect('login');
     }
 }
