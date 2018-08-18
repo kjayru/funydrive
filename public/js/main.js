@@ -3,25 +3,28 @@ const btnzip = document.getElementById("zipcode");
 let num = 0;
 let total = 0;
 btnzip.addEventListener('keyup',function(e){
-    console.log(e.keyCode);
-    num +=1;
-    conteo(num);
+   
+   
+    if(num<4){
+        num +=1;
+        console.log(num);
+    }else{
+        console.log('ejecuta..');
+        num = 0;
+        total = 0;
+       conteo();
+    }
     
 });
 
-function conteo(num){
-  total = num;
-    if(total===5){
+function conteo(){     
         consultacode();
-    }
 }
 
 let boxmsg = document.querySelector('.box-msn');
 function consultacode(){
     let codigo = document.getElementById("zipcode").value;
-    let num = 0;
-    let total = 0;
-    conteo(num);
+    
     let url = `/getpostal/${codigo}`;
 
     fetch(url).then(function(response){
