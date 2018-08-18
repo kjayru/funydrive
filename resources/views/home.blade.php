@@ -18,7 +18,7 @@
                         <form action="">
                             <div class="form-group">
                                 <label for="zipcode">ZIP CODE</label>
-                                <input type="text" id="zipcode" class="form-control" >
+                                <input type="text" id="zipcode" class="form-control" maxlength="5" >
                             </div>
                         </form>
                     </div>
