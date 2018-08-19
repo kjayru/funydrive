@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\PostalCode;
 use App\Poblacion;
 use App\Provincia;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Mapper;
+
 class HomeController extends Controller
 {
    
@@ -16,8 +20,26 @@ class HomeController extends Controller
      */
     public function index()
     {
+     
+        $list1 = DB::table('makes')
+                ->offset(0)
+                ->limit(33)->orderBy('name', 'asc')->get();
         
-        return view('home');
+        $list2 = DB::table('makes')
+                ->offset(34)
+                ->limit(59)->orderBy('name', 'asc')->get();
+                
+        $list3 = DB::table('makes')
+                ->offset(60)
+                ->limit(85)->orderBy('name', 'asc')->get();
+
+        $list4 = DB::table('makes')
+                ->offset(86)
+                ->limit(144)->orderBy('name', 'asc')->get();
+
+
+                Mapper::map(53.381128999999990000, -1.470085000000040000);
+        return view('home',['list1'=>$list1,'list2'=>$list2,'list3'=>$list3,'list4'=>$list4]);
     }
 
     public function getPostal($code){
