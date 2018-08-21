@@ -39,7 +39,10 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{ asset('js/main.js') }}" defer></script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_API_KEY') }}" ></script>
+    <script src="{{ asset('js/main.js?v=5') }}" defer></script>
    
 </body>
 </html>

@@ -38,7 +38,7 @@ class HomeController extends Controller
                 ->limit(144)->orderBy('name', 'asc')->get();
 
 
-                Mapper::map(53.381128999999990000, -1.470085000000040000);
+                
         return view('home',['list1'=>$list1,'list2'=>$list2,'list3'=>$list3,'list4'=>$list4]);
     }
 
@@ -49,8 +49,11 @@ class HomeController extends Controller
         if($postal){
             $poblacion = $postal->poblacion->poblacion;
             $provincia = $postal->provincia->provincia;
+            $ineid = $postal->poblacion->ineid;
+            $lat = $postal->poblacion->lat;
+            $lon = $postal->poblacion->lon;
             
-            $datos = ['rpta'=>'ok','poblacion'=>$poblacion,'provincia'=>$provincia];
+            $datos = ['rpta'=>'ok','poblacion'=>$poblacion,'provincia'=>$provincia,'ineid'=>$ineid,'lat'=>$lat,'lon'=>$lon];
            
             return response()->json($datos);
 

@@ -33,8 +33,8 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                            <div class="map" id="map">
-                                    {!! Mapper::render() !!}
+                            <div class="map" id="canvas">
+                                   
                             </div>
                     </div>
                     <a href="#" class="btn btn-primary btn-lg btn-confirmar" style="display:none;">{{ __('Confirm ZIP CODE')}}</a>
@@ -263,4 +263,5 @@
         </div>
     </div>
 </div>
+
 @endsection
