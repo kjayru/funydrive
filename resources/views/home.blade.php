@@ -21,36 +21,30 @@
                 <div class="card-body">
                    <h3 class="g-section-header-text">{{__('Enter your location')}}</h3>
                    <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <form action="">
                             <div class="form-group ">
                                 <label  for="zipcode">ZIP CODE</label>
                                 <input type="text" id="zipcode" class="form-control" maxlength="5" >
                             </div>
                         </form>
-                    </div>
-                    <div class="col-md-6">
                         <div class="box-msn" style="display:none;">
-                            {{ __("Great! we have certified mobile mechanics in")}}
+                                {{ __("Great! we have certified mobile mechanics in")}}
                         </div>
+                    </div>
+                    <div class="col-md-8">
+                            <div class="map" id="map">
+                                    {!! Mapper::render() !!}
+                            </div>
                     </div>
                     <a href="#" class="btn btn-primary btn-lg btn-confirmar" style="display:none;">{{ __('Confirm ZIP CODE')}}</a>
                 </div>                   
                 </div>
             </div>
 
-            <div class="card" id="zip-map">
-                <div class="card-header"></div>
-                <div class="card-body">
+            
 
-                    
-                    <div class="map" id="map">
-                        {!! Mapper::render() !!}
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" id="tipocar">
+            <div class="card" id="tipocar" style="display:none">
                 <div class="card-header">{{ __('Select your car')}}</div>
                 <div class="card-body">
                     <div class="bd-car-selection-car-option">{{ __('Make') }}</div>
@@ -147,7 +141,7 @@
             </div>
 
 
-            <div class="card" id="services">
+            <div class="card" id="services" style="display:none">
                     <div class="card-header">{{ __('Select your Services')}}</div>
                     <div class="card-body">
                         <div class="service-selection">
@@ -185,7 +179,7 @@
                     </div>
             </div>
 
-            <div class="card">
+            <div class="card" id="detalle" style="display:none">
                 <div class="card-header">
                         <h3 class="g-section-header-text pull-left">{{__('Enter your location')}}</h3>
                         <div class="bd-service-options-container pull-right" >
