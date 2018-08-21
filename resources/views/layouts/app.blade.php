@@ -41,7 +41,7 @@
     </div>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_API_KEY') }}" ></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_API_KEY') }}&libraries=places" ></script>
     <script src="{{ asset('js/main.js?v=5') }}" defer></script>
    
 </body>

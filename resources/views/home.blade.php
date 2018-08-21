@@ -47,9 +47,11 @@
             <div class="card" id="tipocar" style="display:none">
                 <div class="card-header">{{ __('Select your car')}}</div>
                 <div class="card-body">
+                <div class="botones">
                     <div class="bd-car-selection-car-option">{{ __('Make') }}</div>
-                    <div class="bd-car-selection-car-option">{{ __('2016') }}</div>
-                    <div class="bd-car-selection-car-option">{{ __('RLX') }}</div>
+                    
+                </div>
+                
                     <div class="bd-car-selection-container">
                         <div class="bd-car-selection-container">
                             <span class="bd-car-selection-step-name">{{ __('Make')}}</span>
@@ -90,7 +92,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="bd-car-selection-container">
+                        <div class="bd-car-selection-container" style="display:none">
                                 <span class="bd-car-selection-step-name">{{ __('Year')}}</span>
                             <div class="bd-car-selection-flex-container" id="box2">
                                     <ul class="bd-car-selection-flex-column">
@@ -122,7 +124,7 @@
                                    
                             </div>
                         </div>
-                        <div class="bd-car-selection-container">
+                        <div class="bd-car-selection-container" style="display:none">
                                 <span class="bd-car-selection-step-name">{{ __('Model')}}</span>
                             <div class="bd-car-selection-flex-container" id="box3">
                                     <ul class="bd-car-selection-flex-column">

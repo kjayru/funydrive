@@ -38,6 +38,7 @@ function consultacode(){
                 boxmsg.innerHTML= `Great! We have certified mobile mechanics in ${data.poblacion}, ${data.provincia}`;
                 document.querySelector(".btn-confirmar").style.display='block';
                 zipmapa(data);
+                document.getElementById("tipocar").style.display = 'block';
            }else{
                 boxmsg.innerHTML= `${data.mensaje}`;   
            }
@@ -50,8 +51,10 @@ function consultacode(){
 
 /**mapas */
 
+var map, infoWindow;
+
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('canvas'), {
+     map = new google.maps.Map(document.getElementById('canvas'), {
         
         center: {lat: -34.397, lng: 150.644},
         zoom: 11
@@ -60,7 +63,8 @@ function initMap() {
   
    
 
-    var infoWindow = new google.maps.InfoWindow({map: map});
+     infoWindow = new google.maps.InfoWindow({map: map});
+    
     
 
    
@@ -69,16 +73,60 @@ function initMap() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
             };
-
+    
+            
             infoWindow.setPosition(pos);
             infoWindow.setContent('tu localización');
             map.setCenter(pos);
+
+
+
+        //places start
+          map = new google.maps.Map(document.getElementById('canvas'), {
+            center: pos,
+            zoom: 15
+          });
+
+        var infowindow = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(map);
+            service.nearbySearch({
+            location: pos,
+            radius: 500,
+            type: ['car_repair']
+            }, callback);
+
+        
+            function callback(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                  for (var i = 0; i < results.length; i++) {
+                    createMarker(results[i]);
+                  }
+                }
+              }
+        
+            function createMarker(place) {
+                var placeLoc = place.geometry.location;
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: place.geometry.location
+                    });
+        
+                google.maps.event.addListener(marker, 'click', function() {
+                  infowindow.setContent(place.name);
+                  infowindow.open(map, this);
+                });
+            }
+            //end places
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
+
+       
+
+
     } else {
     // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
@@ -113,15 +161,15 @@ $.ajax({
 function zipmapa(provincia){
     let latitud = parseFloat(provincia.lon);
     let longitud = parseFloat(provincia.lat);
-    var position = {lat: latitud ,lng: longitud };
+    var pos = {lat: latitud ,lng: longitud };
    // var position = {lat: -2.712437310, lng: 42.939811580};
-    console.log(position);
+   
     var map = new google.maps.Map(document.getElementById('canvas'),{
         zoom:14,
-        center:position
+        center:pos
     });
    
-
+  /*
     var contentString = '<div id="content">'+
     '<div id="siteNotice">'+
     '</div>'+
@@ -137,14 +185,52 @@ function zipmapa(provincia){
 
    
     var marker = new google.maps.Marker({
-        position: position,
+        position: pos,
         map:map,
         title: provincia.provincia
     });
 
     marker.addListener('click',function(){
         infowindow.open(map, marker);
-    });
+    });*/
+
+
+    //places start
+    map = new google.maps.Map(document.getElementById('canvas'), {
+        center: pos,
+        zoom: 15
+      });
+
+    var infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+        location: pos,
+        radius: 500,
+        type: ['car_repair']
+        }, callback);
+
+    
+        function callback(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+              for (var i = 0; i < results.length; i++) {
+                createMarker(results[i]);
+              }
+            }
+          }
+    
+        function createMarker(place) {
+            var placeLoc = place.geometry.location;
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: place.geometry.location
+                });
+    
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(place.name);
+              infowindow.open(map, this);
+            });
+        }
+        //end places
 
 }
 function puntos(provincia){
