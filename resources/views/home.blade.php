@@ -33,9 +33,7 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                            <div class="map" id="canvas">
-                                   
-                            </div>
+                            
                     </div>
                     <a href="#" class="btn btn-primary btn-lg btn-confirmar" style="display:none;">{{ __('Confirm ZIP CODE')}}</a>
                 </div>                   
@@ -204,6 +202,9 @@
         </div>
 <!-- side-->
         <div class="col-md-4">
+                <div class="map" id="canvas">
+                                   
+                </div>
             <div class="card">
                 <div class="card-header bd-sidebar-price-box">
                     <div class="row">
