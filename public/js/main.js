@@ -36,7 +36,7 @@ function consultacode(){
             boxmsg.style.display = "block";
            if(data.rpta==='ok'){
                 boxmsg.innerHTML= `Great! We have certified mobile mechanics in ${data.poblacion}, ${data.provincia}`;
-                document.querySelector(".btn-confirmar").style.display='block';
+                document.querySelector(".btn-confirmar").style.display='inline-block';
                 zipmapa(data);
                 document.getElementById("tipocar").style.display = 'block';
            }else{

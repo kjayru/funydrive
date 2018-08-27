@@ -21,21 +21,23 @@
                 <div class="card-body">
                    <h3 class="g-section-header-text">{{__('Enter your location')}}</h3>
                    <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <form action="">
                             <div class="form-group ">
                                 <label  for="zipcode">ZIP CODE</label>
                                 <input type="text" id="zipcode" class="form-control" maxlength="5" >
                             </div>
                         </form>
+                    </div>
+                    <div class="col-md-6">
                         <div class="box-msn" style="display:none;">
                                 {{ __("Great! we have certified mobile mechanics in")}}
                         </div>
                     </div>
-                    <div class="col-md-8">
-                            
+                    <div class="col-md-12">
+                        <a href="#" class="btn btn-primary btn-lg btn-confirmar" style="display:none;">{{ __('Confirm ZIP CODE')}}</a>   
                     </div>
-                    <a href="#" class="btn btn-primary btn-lg btn-confirmar" style="display:none;">{{ __('Confirm ZIP CODE')}}</a>
+                    
                 </div>                   
                 </div>
             </div>
