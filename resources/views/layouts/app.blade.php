@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/main.css?v=12') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css?v=13') }}">
 </head>
 <body>
     <div id="app">

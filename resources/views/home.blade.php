@@ -175,7 +175,9 @@
                                     <div class="bd-service-list bd-service-list--categories">
                                         <div class="bd-service-list--items">
                                             <ul>
-                                                <li>popular service</li>
+                                                @foreach($servicios as $service)
+                                                <li data-id="{{ $service->id }}">{{$service->name}}</li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
@@ -184,10 +186,10 @@
                                         <div class="bd-service-list--category">
                                             {{ __('Popular services')}}
                                         </div>
-                                        <div class="bd-service-list--service">
-                                                <div class="bd-icon-service-plus pull-left">
-                                                </div>
-                                                <span>Change Oil and Filter</span>
+                                        <div id="contsubs">
+                                            
+                                           
+                                            
                                         </div>
                                         
                                     </div>

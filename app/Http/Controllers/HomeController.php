@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Mapper;
 use App\MakeYear;
 use App\Modelo;
+use App\Service;
+
 class HomeController extends Controller
 {
    
@@ -38,9 +40,9 @@ class HomeController extends Controller
                 ->offset(86)
                 ->limit(144)->orderBy('name', 'asc')->get();
 
-
+        $servicios = Service::orderBy('name','asc')->get();
                 
-        return view('home',['list1'=>$list1,'list2'=>$list2,'list3'=>$list3,'list4'=>$list4]);
+        return view('home',['list1'=>$list1,'list2'=>$list2,'list3'=>$list3,'list4'=>$list4,'servicios'=>$servicios]);
     }
 
     public function getPostal($code){
@@ -80,5 +82,13 @@ class HomeController extends Controller
         }
 
         return response()->json(['rpta'=>'error','mensaje'=>'no existe modelos para el año elegido']);
+    }
+
+    public function getservice($id){
+        $subservices = Service::where('parent_id',$id)->get();
+        if($subservices){
+            return response()->json(['rpta'=>'ok','data'=>$subservices]);
+        }
+        return response()->json(['rpta'=>'error','mensaje'=>'no contiene subservicios']);
     }
 }

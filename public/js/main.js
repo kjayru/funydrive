@@ -61,6 +61,7 @@ var make='';
 var yearcar = '';
 var modelcar = '';
 var listmodel = '';
+var listserv ='';
 $("#box1 li").on('click',function(){
     idmake = $(this).data('id');
     make = $(this).data('make');
@@ -99,7 +100,7 @@ $("#box2 li").on('click',function(){
             $("#box2").hide();
             $("#box3").fadeIn(350);
         }else{
-            alert(response.error);
+            alert(response.mensaje);
         }
     })
     
@@ -112,6 +113,36 @@ $(document).on('click','#mimodelo li',function(){
     $("#box3").hide();
     $("#seccioncar").hide();
     $("#services").fadeIn(350);
+});
+
+$(".bd-service-list--items li").click(function(){
+    let idservice = $(this).data("id");
+    let token = document.getElementsByName('_token')[0].value;
+    let datosend = ({'idservice':idservice,'_token':token,'_method':'GET'});
+    let url =`/getservice/${idservice}/edit`;
+    fetch(url)
+    .then(res=>res.json())
+    .catch(error =>console.error('error',error))
+    .then(response=>{
+        console.log(response);
+        if(response.rpta=="ok"){
+            $("#contsubs").html("");
+            $.each(response.data,function(i,e){
+                listserv = listserv+`<div class="bd-service-list--service">
+                <div class="bd-icon-service-plus pull-left">
+                </div>
+                <span>${e.name}</span>
+                </div>`;
+            });
+             $("#contsubs").html(listserv);
+            
+          
+        }else{
+            alert(response.mensaje);
+        }
+    })
+    
+
 });
 /**mapas */
 
