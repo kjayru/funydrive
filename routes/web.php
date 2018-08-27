@@ -15,6 +15,7 @@ Route::get('login/{driver}/callback','Auth\LoginController@handleProviderCallbac
 
 Route::get('/', 'HomeController@index');
 Route::get('/getpostal/{code}','HomeController@getPostal');
+Route::post('/getmodel','HomeController@getModel');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

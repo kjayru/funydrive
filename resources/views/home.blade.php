@@ -49,14 +49,14 @@
                 <div class="card-body">
                 <div class="botones">
                     <div class="bd-car-selection-car-option">{{ __('Make') }}</div>
-                    
+                   
                 </div>
                 
-                    <div class="bd-car-selection-container">
-                        <div class="bd-car-selection-container">
+                    <div class="bd-car-selection-container"  id="seccioncar">
+                        <div class="bd-car-selection-container" id="box1">
                             <span class="bd-car-selection-step-name">{{ __('Make')}}</span>
-                            <div class="bd-car-selection-flex-container" id="box1">
-                                <ul class="bd-car-selection-flex-column">
+                            <div class="bd-car-selection-flex-container" >
+                                <ul class="bd-car-selection-flex-column ">
                                     <li class="filter">
                                         <span>A-G</span>
                                     </li>
@@ -92,15 +92,15 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="bd-car-selection-container" style="display:none">
+                        <div class="bd-car-selection-container" style="display:none" id="box2">
                                 <span class="bd-car-selection-step-name">{{ __('Year')}}</span>
-                            <div class="bd-car-selection-flex-container" id="box2">
+                            <div class="bd-car-selection-flex-container" >
                                     <ul class="bd-car-selection-flex-column">
                                         <li class="filter">
                                             <span>2010-2107</span>
                                         </li>
                                         @for($i=2017; $i>=2010; $i--)
-                                        <li>{{ $i }}</li>
+                                        <li data-year="{{ $i }}">{{ $i }}</li>
                                         @endfor
                                     </ul>
     
@@ -109,7 +109,7 @@
                                             <span>2004-2009</span>
                                         </li>
                                         @for($i=2009; $i>=2004; $i--)
-                                        <li>{{ $i }}</li>
+                                        <li data-year="{{ $i }}">{{ $i }}</li>
                                         @endfor
                                     </ul>
                                     <ul class="bd-car-selection-flex-column">
@@ -117,23 +117,40 @@
                                                 <span>2001-2004</span>
                                             </li>
                                             @for($i=2004; $i>=2001; $i--)
-                                            <li>{{ $i }}</li>
+                                            <li data-year="{{ $i }}">{{ $i }}</li>
                                             @endfor
                                     </ul>
     
                                    
                             </div>
                         </div>
-                        <div class="bd-car-selection-container" style="display:none">
+                        <div class="bd-car-selection-container" style="display:none" id="box3">
                                 <span class="bd-car-selection-step-name">{{ __('Model')}}</span>
                             <div class="bd-car-selection-flex-container" id="box3">
-                                    <ul class="bd-car-selection-flex-column">
+                                    <ul class="bd-car-selection-flex-column" id="mimodelo">
                                        
                                         
                                         <li>ILX</li>
                                        
                                     </ul>
-                                   
+                                    <ul class="bd-car-selection-flex-column" id="mimodelo2">
+                                       
+                                        
+                                        <li></li>
+                                       
+                                    </ul>
+                                    <ul class="bd-car-selection-flex-column" id="mimodelo3">
+                                       
+                                        
+                                        <li></li>
+                                       
+                                    </ul>
+                                    <ul class="bd-car-selection-flex-column" id="mimodelo4">
+                                       
+                                        
+                                        <li></li>
+                                       
+                                    </ul>
                             </div>
 
                         </div>
@@ -268,5 +285,7 @@
         </div>
     </div>
 </div>
-
+<form id="datatool">
+    @csrf
+</form>
 @endsection

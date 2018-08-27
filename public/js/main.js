@@ -38,7 +38,7 @@ function consultacode(){
                 boxmsg.innerHTML= `Great! We have certified mobile mechanics in ${data.poblacion}, ${data.provincia}`;
                 document.querySelector(".btn-confirmar").style.display='inline-block';
                 zipmapa(data);
-                document.getElementById("tipocar").style.display = 'block';
+               
            }else{
                 boxmsg.innerHTML= `${data.mensaje}`;   
            }
@@ -49,6 +49,70 @@ function consultacode(){
         });
 }
 
+$(".btn-confirmar").on('click',function(){
+    document.getElementById("tipocar").style.display = 'block';
+    $('html, body').animate({
+        scrollTop: $("#tipocar").offset().top
+    }, 350);
+});
+//global vars
+var idmake = '';
+var make='';
+var yearcar = '';
+var modelcar = '';
+var listmodel = '';
+$("#box1 li").on('click',function(){
+    idmake = $(this).data('id');
+    make = $(this).data('make');
+    $("#box1").hide();
+    $("#box2").fadeIn(350);
+
+    
+});
+
+$("#box2 li").on('click',function(){
+    yearcar = $(this).data('year');
+    $(".botones").append(`<div class="bd-car-selection-car-option">${yearcar}</div>`);
+
+    //envian peticion
+    token = document.getElementsByName('_token')[0].value;
+    let datosend = ({'idmake':idmake,'_token':token,'year':yearcar,'_method':'POST'});
+    let url='/getmodel';
+    fetch(url,{
+        method:'POST',
+        body:JSON.stringify(datosend),
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    .then(res=>res.json())
+    .catch(error =>console.error('error',error))
+    .then(response=>{
+        console.log(response);
+        if(response.rpta=="ok"){
+          
+            $.each(response.data,function(i,e){
+                listmodel = listmodel+`<li data-nombre="${e.name}" data-id="${e.id}">${e.name}</li>`;
+            });
+             $("#mimodelo").html(listmodel);
+            
+            $("#box2").hide();
+            $("#box3").fadeIn(350);
+        }else{
+            alert(response.error);
+        }
+    })
+    
+});
+
+$(document).on('click','#mimodelo li',function(){
+    let idmodelo = $(this).data('id');
+  let nombre =   $(this).data('nombre');
+    $(".botones").append(`<div class="bd-car-selection-car-option">${nombre}</div>`);
+    $("#box3").hide();
+    $("#seccioncar").hide();
+    $("#services").fadeIn(350);
+});
 /**mapas */
 
 var map, infoWindow;

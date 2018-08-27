@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/main.css?v=10') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css?v=12') }}">
 </head>
 <body>
     <div id="app">
@@ -42,7 +42,7 @@
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_API_KEY') }}&libraries=places" ></script>
-    <script src="{{ asset('js/main.js?v=6') }}" defer></script>
+    <script src="{{ asset('js/main.js?v=9') }}" defer></script>
    
 </body>
 </html>

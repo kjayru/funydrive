@@ -9,7 +9,8 @@ use App\Provincia;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Mapper;
-
+use App\MakeYear;
+use App\Modelo;
 class HomeController extends Controller
 {
    
@@ -64,5 +65,20 @@ class HomeController extends Controller
         }
 
         return response()->json(['rpta'=>'error','mensaje'=>'no existe el codigo postal']);
+    }
+
+    public function getModel(Request $request){
+
+        $dato = MakeYear::where([
+            ['year','=',$request->year],
+            ['make_id','=',$request->idmake]
+        ])->first();
+
+        if($dato){
+        $modelos = Modelo::where('makeyear_id',$dato->id)->get();
+        return response()->json(['rpta'=>'ok','data'=>$modelos]);
+        }
+
+        return response()->json(['rpta'=>'error','mensaje'=>'no existe modelos para el año elegido']);
     }
 }
