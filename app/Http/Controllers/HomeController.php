@@ -40,7 +40,7 @@ class HomeController extends Controller
                 ->offset(86)
                 ->limit(144)->orderBy('name', 'asc')->get();
 
-        $servicios = Service::orderBy('name','asc')->get();
+        $servicios = Service::whereNull('parent_id')->orderBy('name','asc')->get();
                 
         return view('home',['list1'=>$list1,'list2'=>$list2,'list3'=>$list3,'list4'=>$list4,'servicios'=>$servicios]);
     }
@@ -78,17 +78,24 @@ class HomeController extends Controller
 
         if($dato){
         $modelos = Modelo::where('makeyear_id',$dato->id)->get();
-        return response()->json(['rpta'=>'ok','data'=>$modelos]);
+
+            if(count($modelos)>0){
+                return response()->json(['rpta'=>'ok','data'=>$modelos]);
+            }else{
+                return response()->json(['rpta'=>'error','mensaje'=>'no existe modelos para el año elegido']);
+            }
+       
         }
 
-        return response()->json(['rpta'=>'error','mensaje'=>'no existe modelos para el año elegido']);
+        
     }
 
     public function getservice($id){
         $subservices = Service::where('parent_id',$id)->get();
-        if($subservices){
+        if(count($subservices)>0){
             return response()->json(['rpta'=>'ok','data'=>$subservices]);
+        }else{
+        return response()->json(['rpta'=>'error','mensaje'=>'NO CONTIENE SERVICIOS']);
         }
-        return response()->json(['rpta'=>'error','mensaje'=>'no contiene subservicios']);
     }
 }

@@ -463,3 +463,64 @@ body{
     overflow-y: scroll;
     height: 349px;
 }
+.bd-service-tabs-container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.bd-service--tab {
+    width: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    padding: 20px 0;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+    border: 1px solid #e7ebeb;
+    font-size: 12px;
+    color: #6d7579;
+    font-family: "proxima-nova",Avenir,"Helvetica-Neue","Helvetica","Arial",sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.bd-service--tab__active {
+    background-color: #FAFBFC;
+    color: #363946;
+    border-bottom: 1px solid #FAFBFC;
+    z-index: 1;
+}
+
+h4.respuestas {
+    color: red;
+    font-weight: bolder;
+}

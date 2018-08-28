@@ -40,7 +40,7 @@ function consultacode(){
                 zipmapa(data);
                
            }else{
-                boxmsg.innerHTML= `${data.mensaje}`;   
+               $(".respuestas").html(`${data.mensaje}`);   
            }
         })
         .catch(function(error){
@@ -96,11 +96,12 @@ $("#box2 li").on('click',function(){
                 listmodel = listmodel+`<li data-nombre="${e.name}" data-id="${e.id}">${e.name}</li>`;
             });
              $("#mimodelo").html(listmodel);
-            
+             $(".respuestas").html('');
             $("#box2").hide();
             $("#box3").fadeIn(350);
         }else{
-            alert(response.mensaje);
+           
+            $(".respuestas").html(response.mensaje); 
         }
     })
     
@@ -126,19 +127,21 @@ $(".bd-service-list--items li").click(function(){
     .then(response=>{
         console.log(response);
         if(response.rpta=="ok"){
-            $("#contsubs").html("");
+            $("#contsubs").html('');
+            listserv='';
             $.each(response.data,function(i,e){
                 listserv = listserv+`<div class="bd-service-list--service">
                 <div class="bd-icon-service-plus pull-left">
                 </div>
-                <span>${e.name}</span>
+                <span data-id="${e.id}" data-name="${e.name}">${e.name}</span>
                 </div>`;
             });
              $("#contsubs").html(listserv);
-            
+             $(".respuestas").html('');
           
         }else{
-            alert(response.mensaje);
+            $(".respuestas").html(response.mensaje); 
+            $("#contsubs").html('');
         }
     })
     
@@ -393,8 +396,25 @@ var infoWindowContent =  valor.marker;
 return infoWindowContent;
 }
 
+$(document).ready(function(){
+    $("#zipcode").bind({
+        
+        paste: function(){
+            conteo();
+        }
+        
+    });
+
+    $("#zipcode").on('click',function(e){
+        if (e.ctrlKey && e.keyCode == 13) {
+            conteo();
+          }
+    });
+
+
+});
 
 (function() {
     initMap();
- 
+    
  })();

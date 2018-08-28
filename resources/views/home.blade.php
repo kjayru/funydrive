@@ -7,6 +7,7 @@
             <h1>{{__('Answer a few simple questions to get a quote.')}}</h1>
             <p>{{ __('Service at your home or office 7 days a week Fair and trasparent pricing')}}</p>
         </div>
+
         <div class="col-md-8">
             <div class="card" id="zip-locator">
                 <div class="card-header">
@@ -160,11 +161,20 @@
             </div>
 
 
-            <div class="card" id="services" style="display:none">
+      <div class="card" id="services" style="display:none">
                     <div class="card-header">{{ __('Select your Services')}}</div>
                     <div class="card-body">
+
                         <div class="service-selection">
-                            <h4>{{ __('REPAIR & MAINTENANCE SERVICES')}}</h4>
+                          <div class="bd-service-tabs-container">
+                            <div class="bd-service--tab bd-service--tab__active">
+                              <h4>{{ __('REPAIR & MAINTENANCE SERVICES')}}</h4>
+                            </div>
+                            <div class="bd-service--tab ">
+                                    <h4 class="respuestas"></h4>
+                            </div>                                      
+                          
+                        </div>   
                             <form class="cd-form floating-labels js" >
                                 <div class="form-group" >
                                     <label for="cd-search" >{{ __('search') }}</label>
