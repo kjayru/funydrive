@@ -62,6 +62,7 @@ var yearcar = '';
 var modelcar = '';
 var listmodel = '';
 var listserv ='';
+var namesubservice = '';
 $("#box1 li").on('click',function(){
     idmake = $(this).data('id');
     make = $(this).data('make');
@@ -145,6 +146,17 @@ $(".bd-service-list--items li").click(function(){
         }
     })
     
+
+});
+
+$(document).on('click',".bd-service-list--service span",function(){
+    let id = $(this).data('id');
+    let nombre = $(this).data('name');
+    namesubservice = nombre;
+
+    $("#services").hide();
+
+    $("#detalle").fadeIn(350);
 
 });
 /**mapas */

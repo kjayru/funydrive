@@ -524,3 +524,112 @@ h4.respuestas {
     color: red;
     font-weight: bolder;
 }
+.green-info-box {
+    display: block;
+    width: 100%;
+    padding: 15px 15px;
+    background: #e9f5e8;
+    border: 1px solid #70C06B;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.green-info-box .exclamation-circle {
+    color: #70C06B;
+    text-align: center;
+    border-radius: 20px;
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    border: 1px solid #70C06B;
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+    margin-right: 8px;
+}
+.green-info-box h1, .green-info-box h2, .green-info-box h3, .green-info-box h4, .green-info-box h5, .green-info-box h6, .green-info-box p, .green-info-box a {
+    color: #489c42;
+    overflow: hidden;
+}
+.green-info-box p {
+    font-size: 12px;
+}
+
+h5 {
+    font-family: "proxima-nova",Avenir,"Helvetica-Neue","Helvetica","Arial",sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.143em;
+    color: #4A5155;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.bd-time--header__value p {
+    font-family: "proxima-nova",Avenir,"Helvetica-Neue","Helvetica","Arial",sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #6d7579;
+}
+.bd-time--header__value p, .bd-time--header__value h5, .bd-time--header__value img {
+    display: inline-block;
+}
+.bd-time--header__value {
+    display: inline-block;
+    margin-right: 20px;
+    width: 100%;
+}
+.bd-time--header--innerpadding {
+    padding: 15px 20px;
+}
+.bd-time--header {
+    position: relative;
+    border: 1px solid #e7ebeb;
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+    z-index: 3;
+    background-color: #fff;
+    width: 100%;
+    background: #fff;
+}
+.bd-time--header .bd-small-circle-tooltip {
+    cursor: default;
+    position: relative;
+    color: #fff;
+    font-size: 12px;
+    background-color: #C4C4C4;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 2px 0;
+    text-align: center;
+    border-radius: 50px;
+    vertical-align: middle;
+}
+.bd-time--header .bd-small-circle-tooltip .bd-tooltip-est {
+    font-size: 12px;
+    transition: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    background-color: #1E7BE2;
+    width: 140px;
+    padding: 5px;
+    border-radius: 3px;
+    bottom: 40px;
+    left: calc(50% - 70px);
+}
+.bd-time--header .bd-small-circle-tooltip {
+    cursor: default;
+    position: relative;
+    color: #fff;
+    font-size: 12px;
+    background-color: #C4C4C4;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 2px 0;
+    text-align: center;
+    border-radius: 50px;
+    vertical-align: middle;
+}
