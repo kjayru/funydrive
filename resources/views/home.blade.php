@@ -8,7 +8,7 @@
             <p>{{ __('Service at your home or office 7 days a week Fair and trasparent pricing')}}</p>
         </div>
 
-        <div class="col-md-8">
+    <div class="col-md-12 col-sm-12 col-lg-8">
             <div class="card" id="zip-locator">
                 <div class="card-header">
                     @if(!Auth::check())
@@ -240,7 +240,7 @@
                             <div class="col-md-12">
                                 <div class="green-info-box">
                                     <div class="exclamation-circle">!</div>
-                                    <p>You're just in time! Our earliest available times are likely to be sold out soon.</p>
+                                    <p>Youre just in time! Our earliest available times are likely to be sold out soon.</p>
                                 </div>
                             </div>
                         </div>
@@ -269,401 +269,212 @@
                                 <div>
                                    <div class="row bd-time-earliest row-flex-centered">
                                       <div class="col-sm-6">
-                                         <p data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.0.0.0.0">Earliest Available Time</p>
-                                         <h5 data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.0.0.0.1">
-                                            <div data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.0.0.0.1.0"><span data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.0.0.0.1.0.0">Tomorrow, </span><time datetime="2018-08-29T00:00:00-05:00" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.0.0.0.1.0.1">August 29</time><span data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.0.0.0.1.0.2"> - </span><span data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.0.0.0.1.0.3">12:15 PM</span></div>
+                                         <p>Earliest Available Time</p>
+                                         <h5>
+                                            <div><span>Tomorrow, </span><time datetime="2018-08-29T00:00:00-05:00">12:15 PM</span></div>
                                          </h5>
                                       </div>
-                                      <div class="col-sm-6" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.0.0.1"><button type="button" class="btn-orange-fill" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.0.0.1.0">Select Earliest Time</button></div>
+                                      <div class="col-sm-6"><button type="button" class="btn-orange-fill">Select Earliest Time</button></div>
                                    </div>
-                                   <div class="row bd-time-earliest__spacing" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.0.1">
-                                      <div class="col-xs-12 text-center" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.0.1.0">
-                                         <div class="bd-optional-services__text bd-time-earliest__text" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.0.1.0.0">or choose a different time</div>
-                                         <div class="bd-optional-services__line" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.0.1.0.1"></div>
+                                   <div class="row bd-time-earliest__spacing">
+                                      <div class="col-xs-12 text-center">
+                                         <div class="bd-optional-services__text bd-time-earliest__text">or choose a different time</div>
+                                         <div class="bd-optional-services__line"></div>
                                       </div>
                                    </div>
                                 </div>
-                                <div class="spacet-20" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1">
-                                   <div class="bd-time--zone__single" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0">
-                                      <div class="bd-time--zone__day" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.0">
-                                         <div class="appointment-date-header" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.0.0"></div>
-                                         <h5 data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.0.1"><time datetime="2018-08-29T00:00:00-05:00" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.0.1.0">Wednesday, August 29</time></h5>
+                                <div class="spacet-20">
+                                   <div class="bd-time--zone__single">
+                                      <div class="bd-time--zone__day">
+                                         <div class="appointment-date-header"></div>
+                                         <h5><time datetime="2018-08-29T00:00:00-05:00">Wednesday, August 29</time></h5>
                                       </div>
-                                      <div class="bd-timeline" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1">
-                                         <div class="slotlist" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0">
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$0">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$0.0"></div>
+                                      <div class="bd-timeline">
+                                         <div class="slotlist">
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$1">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$1.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled" ></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$2">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$2.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled" ></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$3">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$3.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled" ></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$4">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$4.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$5">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$5.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled" ></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$6">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$6.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$7">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$7.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$8">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$8.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$9">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$9.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$10">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$10.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled" ></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$11">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$11.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$12">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$12.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$13">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$13.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$14">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$14.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$15">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$15.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$16">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$16.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$17">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$17.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$18">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$18.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$19">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$19.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$20">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$20.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$21">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$21.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$22">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$22.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$23">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$23.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$24">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$24.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$25">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$25.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$26">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$26.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$27">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$27.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$28">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$28.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$29">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$29.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$30">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$30.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$31">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$31.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$32">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$32.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$33">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$33.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$34">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$34.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$35">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$35.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$36">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$36.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$37">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$37.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$38">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$38.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$39">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$39.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$40">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$40.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$41">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$41.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$42">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$42.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$43">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$43.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$44">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$44.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$45">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$45.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$46">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$46.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$47">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$47.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$48">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$48.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$49">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$49.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$50">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$50.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$51">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$51.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$52">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$52.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$53">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$53.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$54">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$54.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$55">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.1.0.$55.0"></div>
+                                            <div class="wrapper">
+                                               <div class="slot bd-timeline--hour__disabled"></div>
                                             </div>
                                          </div>
                                       </div>
-                                      <div class="bd-timeline__hours" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.2">
-                                         <ul data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.2.0">
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.2.0.0">7AM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.2.0.1">9AM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.2.0.2">11AM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.2.0.3">1PM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.2.0.4">3PM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.2.0.5">5PM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.2.0.6">7PM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$0.2.0.7">9PM</li>
+                                      <div class="bd-timeline__hours">
+                                         <ul>
+                                            <li>7AM</li>
+                                            <li>9AM</li>
+                                            <li>11AM</li>
+                                            <li>1PM</li>
+                                            <li>3PM</li>
+                                            <li>5PM</li>
+                                            <li>7PM</li>
+                                            <li>9PM</li>
                                          </ul>
                                       </div>
                                    </div>
-                                   <div class="bd-time--zone__single" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1">
-                                      <div class="bd-time--zone__day" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.0">
-                                         <div class="appointment-date-header" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.0.0"></div>
-                                         <h5 data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.0.1"><time datetime="2018-08-30T00:00:00-05:00" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.0.1.0">Thursday, August 30</time></h5>
-                                      </div>
-                                      <div class="bd-timeline" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1">
-                                         <div class="slotlist" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0">
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$0">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$0.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$1">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$1.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$2">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$2.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$3">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$3.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$4">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$4.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$5">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$5.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$6">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$6.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$7">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$7.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$8">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$8.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$9">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$9.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$10">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$10.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$11">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$11.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$12">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$12.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$13">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$13.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$14">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$14.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$15">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$15.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$16">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$16.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$17">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$17.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$18">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$18.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$19">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$19.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$20">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$20.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$21">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$21.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$22">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$22.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$23">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$23.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$24">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$24.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$25">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$25.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$26">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$26.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$27">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$27.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$28">
-                                               <div class="slot" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$28.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$29">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$29.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$30">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$30.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$31">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$31.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$32">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$32.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$33">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$33.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$34">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$34.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$35">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$35.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$36">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$36.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$37">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$37.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$38">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$38.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$39">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$39.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$40">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$40.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$41">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$41.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$42">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$42.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$43">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$43.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$44">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$44.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$45">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$45.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$46">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$46.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$47">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$47.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$48">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$48.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$49">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$49.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$50">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$50.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$51">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$51.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$52">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$52.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$53">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$53.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$54">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$54.0"></div>
-                                            </div>
-                                            <div class="wrapper" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$55">
-                                               <div class="slot bd-timeline--hour__disabled" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.1.0.$55.0"></div>
-                                            </div>
-                                         </div>
-                                      </div>
-                                      <div class="bd-timeline__hours" data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.2">
-                                         <ul data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.2.0">
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.2.0.0">7AM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.2.0.1">9AM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.2.0.2">11AM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.2.0.3">1PM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.2.0.4">3PM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.2.0.5">5PM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.2.0.6">7PM</li>
-                                            <li data-reactid=".0.1.2.1.0.1.0.0.4.1.0.0.2.1.2.0.1.0.2.1.1.$1.2.0.7">9PM</li>
-                                         </ul>
-                                      </div>
-                                   </div>
+                                  
                                  
                                 </div>
                              </div>
@@ -671,9 +482,9 @@
                 </div>
             </div>
 
-        </div>
+    </div>
 <!-- side-->
-        <div class="col-md-4">
+    <div class="col-lg-4 hidden-sm hidden-md">
                 <div class="map" id="canvas">
                                    
                 </div>
