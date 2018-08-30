@@ -294,67 +294,37 @@
                                       <div class="bd-timeline">
                                          <div class="slotlist">
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled" ></div>
+                                               <div class="slot" ></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled" ></div>
+                                               <div class="slot" ></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled" ></div>
+                                               <div class="slot" ></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled" ></div>
+                                               <div class="slot" ></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled" ></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot" ></div>
                                             </div>
                                             <div class="wrapper">
                                                <div class="slot"></div>
@@ -381,85 +351,115 @@
                                                <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot "></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot "></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
                                             </div>
                                             <div class="wrapper">
-                                               <div class="slot bd-timeline--hour__disabled"></div>
+                                               <div class="slot"></div>
+                                            </div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
+                                            </div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
+                                            </div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
+                                            </div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
+                                            </div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
+                                            </div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
+                                            </div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
+                                            </div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
+                                            </div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
+                                            </div>
+                                            <div class="wrapper">
+                                               <div class="slot"></div>
                                             </div>
                                          </div>
                                       </div>

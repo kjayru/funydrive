@@ -14,12 +14,33 @@ btnzip.addEventListener('keyup',function(e){
         total = 0;
        conteo();
     }
-    
+     
+    if(e.keyCode == 13)
+    {
+        e.preventDefault();
+       
+        return false;
+        
+        
+    }
+    console.log(e.keycode);
 });
+$('#zipcode').on('keyup keypress', function(e) {
+    var keyCode = e.keyCode || e.which;
+    if (keyCode === 13) { 
+      e.preventDefault();
+      return false;
+    }
+  });
 
 function conteo(){     
         consultacode();
 }
+
+$(".slot").click(function(e){
+    $(".slot").removeClass('bd-timeline--hour__disabled');
+    $(this).addClass('bd-timeline--hour__disabled');
+});
 
 let boxmsg = document.querySelector('.box-msn');
 function consultacode(){
