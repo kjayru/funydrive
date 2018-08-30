@@ -274,10 +274,12 @@
                                             <div><span>Tomorrow, </span><time datetime="2018-08-29T00:00:00-05:00">12:15 PM</span></div>
                                          </h5>
                                       </div>
-                                      <div class="col-sm-6"><button type="button" class="btn-orange-fill">Select Earliest Time</button></div>
+                                      <div class="col-sm-6">
+                                          <button type="button" class="btn-orange-fill">Select Earliest Time</button>
+                                      </div>
                                    </div>
                                    <div class="row bd-time-earliest__spacing">
-                                      <div class="col-xs-12 text-center">
+                                      <div class="col-xs-12 col-sm-12 text-center">
                                          <div class="bd-optional-services__text bd-time-earliest__text">or choose a different time</div>
                                          <div class="bd-optional-services__line"></div>
                                       </div>

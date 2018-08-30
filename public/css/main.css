@@ -399,13 +399,15 @@ input, button, select, textarea {
     z-index: 2;
     position: relative;
     padding-right: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .bd-optional-services__line {
-    position: absolute;
-    top: 50%;
-    height: 1px;
-    width: 100%;
-    background-color: #e7ebeb;
+    /* position: absolute; */
+    /* top: 50%; */
+    /* height: 1px; */
+    /* width: 100%; */
+    /* background-color: #e7ebeb; */
 }
 .bd-optional-services {
     position: relative;
@@ -740,11 +742,12 @@ h5 {
 }
 .bd-time-earliest {
     display: block;
-    padding: 14px 10px;
+    padding: 17px 10px;
     background-color: #fff;
     border: 1px solid #e7ebeb;
     margin: 10px 30px 0 30px;
     border-radius: 4px;
+    height: 89px;
 }
 .bd-time-earliest p {
     margin-top: 4px;
@@ -802,4 +805,24 @@ p {
 }
 .bd-time-earliest p {
     margin-top: 4px;
+}
+.bd-time-earliest__spacing {
+    margin-bottom: -30px;
+    margin-left: 15px;
+    margin-right: 45px;
+}
+.bd-time-earliest__text {
+    background-color: #FAFBFC;
+}
+.bd-optional-services__line {
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    width: 100%;
+    /* background-color: #e7ebeb; */
+}
+@media (min-width: 768px){
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
+    }
 }
