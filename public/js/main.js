@@ -25,7 +25,7 @@ btnzip.addEventListener('keyup',function(e){
     }
     console.log(e.keycode);
 });
-$('#zipcode').on('keyup keypress', function(e) {
+$(document).on('keyup keypress','#zipcode', function(e) {
     var keyCode = e.keyCode || e.which;
     if (keyCode === 13) { 
       e.preventDefault();
@@ -33,6 +33,10 @@ $('#zipcode').on('keyup keypress', function(e) {
     }
   });
 
+  $("#btnservice").on('click',function(){
+      $(this).hide();
+      $("#appoint").fadeIn();
+  });
 function conteo(){     
         consultacode();
 }
@@ -174,7 +178,7 @@ $(document).on('click',".bd-service-list--service span",function(){
     let id = $(this).data('id');
     let nombre = $(this).data('name');
     namesubservice = nombre;
-
+    $(".g-section-header-text").html(namesubservice);
     $("#services").hide();
 
     $("#detalle").fadeIn(350);

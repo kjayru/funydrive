@@ -227,15 +227,19 @@
                                 <span>{{ __('Your service is backed by our 12-month, 12,000-mile warranty.')}} </span>
                             </p>
                         </div>
+                        <div class="col-md-4">
+                            <button type="button" id="btnservice" class="btn-orange-fill">Continue</button>
+                        </div>
                 </div>
             </div>
 
 
-            <div class="card" id="appoint" >
+            <div class="card" id="appoint" style="display: none">
                 <div class="card-header">
                         {{__('Select the time of your appointment')}}
                 </div>
                 <div class="card-body">
+                    <div class="bd-time-container">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="green-info-box">
@@ -271,7 +275,7 @@
                                       <div class="col-sm-6">
                                          <p>Earliest Available Time</p>
                                          <h5>
-                                            <div><span>Tomorrow, </span><time datetime="2018-08-29T00:00:00-05:00">12:15 PM</span></div>
+                                            <div><span>Tomorrow, </span><time datetime="2018-08-29T00:00:00-05:00">07:00 AM</span></div>
                                          </h5>
                                       </div>
                                       <div class="col-sm-6">
@@ -289,7 +293,7 @@
                                    <div class="bd-time--zone__single">
                                       <div class="bd-time--zone__day">
                                          <div class="appointment-date-header"></div>
-                                         <h5><time datetime="2018-08-29T00:00:00-05:00">Wednesday, August 29</time></h5>
+                                         <h5><time datetime="2018-08-29T00:00:00-05:00">{{ date("l, F d") }}</time></h5>
                                       </div>
                                       <div class="bd-timeline">
                                          <div class="slotlist">
@@ -481,7 +485,10 @@
                                 </div>
                              </div>
                         
-                </div>
+                
+                        </div>
+
+                    </div>
             </div>
 
     </div>
