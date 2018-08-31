@@ -44,6 +44,8 @@ function conteo(){
 $(".slot").click(function(e){
     $(".slot").removeClass('bd-timeline--hour__disabled');
     $(this).addClass('bd-timeline--hour__disabled');
+    $("#appoint").hide();
+    $("#fr-contact").fadeIn();
 });
 
 let boxmsg = document.querySelector('.box-msn');
@@ -63,6 +65,7 @@ function consultacode(){
                 boxmsg.innerHTML= `Great! We have certified mobile mechanics in ${data.poblacion}, ${data.provincia}`;
                 document.querySelector(".btn-confirmar").style.display='inline-block';
                 zipmapa(data);
+                $("#sidebar-zip").html(`${codigo} - ${data.poblacion}`);
                
            }else{
                $(".respuestas").html(`${data.mensaje}`);   
@@ -93,14 +96,13 @@ $("#box1 li").on('click',function(){
     make = $(this).data('make');
     $("#box1").hide();
     $("#box2").fadeIn(350);
-
+    $(".ymake").html(make);
     
 });
 
 $("#box2 li").on('click',function(){
     yearcar = $(this).data('year');
-    $(".botones").append(`<div class="bd-car-selection-car-option">${yearcar}</div>`);
-
+    
     //envian peticion
     token = document.getElementsByName('_token')[0].value;
     let datosend = ({'idmake':idmake,'_token':token,'year':yearcar,'_method':'POST'});
@@ -117,7 +119,7 @@ $("#box2 li").on('click',function(){
     .then(response=>{
         console.log(response);
         if(response.rpta=="ok"){
-          
+            $(".yyear").remove();
             $.each(response.data,function(i,e){
                 listmodel = listmodel+`<li data-nombre="${e.name}" data-id="${e.id}">${e.name}</li>`;
             });
@@ -125,9 +127,11 @@ $("#box2 li").on('click',function(){
              $(".respuestas").html('');
             $("#box2").hide();
             $("#box3").fadeIn(350);
+            $(".botones").append(`<div class="bd-car-selection-car-option yyear">${yearcar}</div>`);
+
         }else{
            
-            $(".respuestas").html(response.mensaje); 
+            alert(response.mensaje); 
         }
     })
     
@@ -136,11 +140,30 @@ $("#box2 li").on('click',function(){
 $(document).on('click','#mimodelo li',function(){
     let idmodelo = $(this).data('id');
   let nombre =   $(this).data('nombre');
-    $(".botones").append(`<div class="bd-car-selection-car-option">${nombre}</div>`);
+    $(".botones").append(`<div class="bd-car-selection-car-option ymodel">${nombre}</div>`);
     $("#box3").hide();
     $("#seccioncar").hide();
+    $("#sidebar-car").html(`${make} ${yearcar}, ${nombre}`);
+    //price or cost service
+    $(".bd-sidebar-price-box__price span").html('75');
     $("#services").fadeIn(350);
 });
+
+$(document).on('click','.ymake',function(){
+    console.log("makee");
+    $("#box1").fadeIn();
+    $("#box2").hide();
+    $("#box3").hide();
+});
+$(document).on('click','.yyear',function(){
+    $("#box2").fadeIn();
+    $("#box3").hide();
+});
+$(document).on('click','.ymodel',function(){
+    $("#box3").hide();
+    $("#services").fadeIn();
+});
+
 
 $(".bd-service-list--items li").click(function(){
     let idservice = $(this).data("id");
@@ -184,6 +207,8 @@ $(document).on('click',".bd-service-list--service span",function(){
     $("#detalle").fadeIn(350);
 
 });
+
+
 /**mapas */
 
 var map, infoWindow;
@@ -368,6 +393,19 @@ function zipmapa(provincia){
         //end places
 
 }
+$(".icon input").keyup(function(e){
+    console.log("enveii");
+    $(this).parent().children('label').addClass('float');
+});
+
+$(".icon input").focusout(function(e){
+    if($(this).val.length>0){}else{
+        $(this).parent().children('label').removeClass('float');
+    }
+   
+    
+});
+
 function puntos(provincia){
 
 var map = new google.maps.Map(document.getElementById('canvas'), mapOptions);

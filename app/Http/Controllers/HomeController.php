@@ -75,8 +75,8 @@ class HomeController extends Controller
             ['year','=',$request->year],
             ['make_id','=',$request->idmake]
         ])->first();
-
-        if($dato){
+           
+        if(!is_null($dato)){
         $modelos = Modelo::where('makeyear_id',$dato->id)->get();
 
             if(count($modelos)>0){
@@ -85,6 +85,8 @@ class HomeController extends Controller
                 return response()->json(['rpta'=>'error','mensaje'=>'no existe modelos para el año elegido']);
             }
        
+        }else{
+            return response()->json(['rpta'=>'error','mensaje'=>'no existe modelos para el año elegido']);  
         }
 
         

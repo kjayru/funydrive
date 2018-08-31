@@ -49,7 +49,7 @@
                 <div class="card-header">{{ __('Select your car')}}</div>
                 <div class="card-body">
                 <div class="botones">
-                    <div class="bd-car-selection-car-option">{{ __('Make') }}</div>
+                    <div class="bd-car-selection-car-option ymake">{{ __('Make') }}</div>
                    
                 </div>
                 
@@ -490,6 +490,48 @@
 
                     </div>
             </div>
+
+
+            <section class="row bd-section bd-section--payment bd-section" id="fr-contact" style="display:none" >
+                    <div class="col-xs-12 col-md-12" >
+                       <div class="shadow-box-fill bd-box-padding" >
+                          <h3 class="g-section-header-text1">Your contact information</h3>
+                          <div class="row spacet-10">
+                             <div class="col-sm-6">
+                                <div class="cd-form floating-labels js" >
+                                   <div class="icon" >
+                                       <label for="contactName" class="cd-label" >Full name</label>
+                                       <input id="contactName" class="user" type="text" value="" >
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="col-sm-6" >
+                                <div class="cd-form floating-labels js" >
+                                   <div class="icon" >
+                                       <label for="contactEmail" class="cd-label">Email</label>
+                                       <input id="contactEmail" class="email" type="text" value="">
+                                    </div>
+                                </div>
+                             </div>
+                          </div>
+                          <div class="row spacet-10">
+                             <div class="col-sm-6">
+                                <div class="cd-form floating-labels js">
+                                   <div class="icon">
+                                       <label for="contactPhone" class="cd-label">Phone number</label>
+                                       <input id="contactPhone" class="phonenumber" type="text" value=""></div>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+
+                       <div class="row">
+                           <div class="col-sm-5 col-centered">
+                               <div class="btn-orange-fill spacet-20">Continue</div>
+                            </div>
+                        </div>
+                    </div>
+                 </section>
 
     </div>
 <!-- side-->

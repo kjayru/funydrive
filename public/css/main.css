@@ -56,7 +56,7 @@ input, button, select, textarea {
     font-weight: 600;
 }
 .cd-form h4, .cd-form .cd-label {
-    font-size: 1.4rem;
+    font-size: 0.7rem;
     color: #9aaec3;
     margin-bottom: 10px;
 }
@@ -856,4 +856,77 @@ p {
     background-repeat: no-repeat;
     padding-left: 20px;
     margin-bottom: 5px;
+}
+.bd-section--payment {
+    margin-bottom: 20px;
+}
+.bd-box-padding {
+    padding: 30px;
+}
+.shadow-box-fill {
+    display: block;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    margin-bottom: 10px;
+    z-index: 99;
+    border: 1px solid #e7ebeb;
+}
+
+.floating-labels .icon .cd-label {
+    left: 63px;
+}
+.floating-labels .icon:last-child, .floating-labels .no-icon:last-child {
+    margin: 10px 0;
+}
+.cd-form .icon input, .cd-form .icon select, .cd-form .icon textarea {
+    padding-left: 54px !important;
+}
+.cd-form .email {
+    background: url(../img/cd-icon-email.svg) no-repeat 16px center;
+}
+.cd-form .phonenumber {
+    background: url(../img/cd-icon-phone.svg) no-repeat 16px center;
+}
+.cd-form .user {
+    background: url(../img/cd-icon-user.svg) no-repeat 16px center;
+}
+.floating-labels .cd-label {
+    position: absolute;
+    top: 22px;
+    left: 16px;
+    font-size: 0.7rem;
+    cursor: text;
+    -webkit-transition: top 0.2s,left 0.2s,font-size 0.2s;
+    -moz-transition: top 0.2s,left 0.2s,font-size 0.2s;
+    transition: top 0.2s,left 0.2s,font-size 0.2s;
+}
+.cd-form input[type="text"], .cd-form input[type="email"], .cd-form input[type="password"], .cd-form input[type="number"], .cd-form input[type="tel"], .cd-form textarea, .cd-form select {
+    padding: 12px;
+    border: 1px solid #dae1e9;
+    background-color: #fff;
+    border-radius: .25em;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.08);
+}
+@media only screen and (min-width: 600px){
+.cd-form input[type="text"], .cd-form input[type="email"], .cd-form input[type="password"], .cd-form input[type="number"], .cd-form input[type="tel"], .cd-form textarea, .cd-form select {
+    padding: 7px;
+}
+}
+.cd-form input[type="text"], .cd-form input[type="email"], .cd-form input[type="password"], .cd-form input[type="number"], .cd-form input[type="tel"], .cd-form textarea, .cd-form select, .cd-form legend {
+    display: block;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+.floating-labels .cd-label.float {
+    font-size: 0.7rem;
+    top: -14px;
+    left: 16px !important;
 }
