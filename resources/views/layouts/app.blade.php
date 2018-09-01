@@ -43,7 +43,7 @@
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_API_KEY') }}&libraries=places" ></script>
-    <script src="{{ asset('js/main.js?v=18') }}" defer></script>
+    <script src="{{ asset('js/main.js?v=19') }}" defer></script>
    
 </body>
 </html>

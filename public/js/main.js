@@ -46,6 +46,7 @@ $(".slot").click(function(e){
     $(this).addClass('bd-timeline--hour__disabled');
     $("#appoint").hide();
     $("#fr-contact").fadeIn();
+    $("#notes").fadeIn();
 });
 
 let boxmsg = document.querySelector('.box-msn');

@@ -930,3 +930,9 @@ p {
     top: -14px;
     left: 16px !important;
 }
+.bd-section-mechanic-notes--active {
+    visibility: visible;
+    opacity: 1;
+   
+    margin-bottom: 40px;
+}
