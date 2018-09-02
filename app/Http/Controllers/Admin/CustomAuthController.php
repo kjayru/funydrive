@@ -12,7 +12,6 @@ use App\Role;
 use Socialite;
 use App\Requirement;
 
-
 class CustomAuthController extends Controller
 {
     use AuthenticatesUsers;
@@ -20,8 +19,6 @@ class CustomAuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest:admin')->except('logout');
-    
-        //$this->middleware('auth:admin',['only'=>'redirectToProvider']);
 	
 		
     }

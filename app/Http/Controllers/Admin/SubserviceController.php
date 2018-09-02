@@ -10,15 +10,10 @@ class SubserviceController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('web');
-       
-       
+        $this->middleware('web');   
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
+
     public function index()
     {
        

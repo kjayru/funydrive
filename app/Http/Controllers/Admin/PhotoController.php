@@ -8,7 +8,8 @@ use App\Photo;
 
 class PhotoController extends Controller
 {
-   
+  
+    //destroy function
     public function destroy($id)
     {
         $photo = Photo::find($id);

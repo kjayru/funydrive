@@ -58,11 +58,7 @@ class ResetPasswordController extends Controller
         return Password::broker('Users');
     }
 
-    /**
-     * Get the guard to be used during password reset.
-     *
-     * @return \Illuminate\Contracts\Auth\StatefulGuard
-     */
+    
     protected function guard()
     { 
         return Auth::guard('admin');

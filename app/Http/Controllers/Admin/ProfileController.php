@@ -38,15 +38,7 @@ class ProfileController extends Controller
         return View('admin.asociados.profile',['usuario'=>$usuario,'admin_id'=>$user_id,'profile'=>$profile,'photos'=>$photos,'phones'=>$phones,'dias'=>$dias,'vacaciones'=>$vacaciones]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -57,18 +49,7 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         
-/*
-        $this->validate($request,[
-            'tradename' => 'required',
-            'contact' => 'required',
-            'email' => 'required',
-            'pageweb' => 'required',
-            'address' => 'required',
-            'latitud' => 'required',
-            'longitud' => 'required',
-            
-        ]);
-*/
+
         $profile = new Profile;
         $profile->admin_id = $request->admin_id;
         $profile->tradename = $request->tradename;
