@@ -30,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -64,6 +64,7 @@ class LoginController extends Controller
         $success = true;
         $email = $socialUser->email;
         $check = User::where('email',$email)->first();
+        dd("entro aqui");
         if($check){
             $user=$check;
         }else{

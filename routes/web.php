@@ -21,3 +21,28 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+Route::resource('admin/profile','Admin\ProfileController');
+Route::resource('admin/servicios','Admin\ServiceController');
+Route::resource('admin/photo','Admin\PhotoController');
+
+Route::resource('admin/solicitudes','Admin\SolicitudesController');
+
+Route::get('admin/categorias','Admin\ServiceController@getcategory')->name('admin.categorias');
+Route::post('admin/setcat','Admin\ServiceController@setcategory');
+Route::put('admin/updatecat/{id}','Admin\ServiceController@updatecategory');
+Route::delete('admin/borrarcat/{id}','Admin\ServiceController@borrarcat');
+
+
+Route::put('admin/estado/{id}','Admin\ProfileController@estado');
+Route::put('admin/estadocat/{id}','Admin\ServiceController@estadocat');
+Route::put('admin/estadoparent/{id}','Admin\ServiceController@estadoparent');
+
+//super
+Route::resource('admin/listclientes','Admin\ListclientController');
+Route::resource('admin/listasociados','Admin\ListpartnerController');
+Route::resource('admin/listsolicitudes','Admin\ListrequestController');
+Route::resource('admin/entorno','Admin\EnvironmentController');
+
+Route::get('/admin','AdminController@index');

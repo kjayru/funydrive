@@ -33,10 +33,25 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(\App\Role::class);
+        return $this->belongsTo('App\Role');
     }
 
     public function socialAccount(){
-        return $this->hasOne(\App\UserSocialAccount::class);
+        return $this->hasOne(UserSocialAccount::class);
+    }
+
+    public function profile()
+    {
+        return $this->hasOne('App\Profile');
+    }
+
+    public function registers()
+    {
+        return $this->hasMany('App\Register');
+    }
+
+    public function requirement()
+    {
+        return $this->hasMany('App\Requirement');
     }
 }
