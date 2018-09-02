@@ -16,7 +16,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/home';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -39,11 +39,11 @@ class LoginController extends Controller
             {
                 return redirect('admin/home');
 
-            }elseif($role->name == 'usuario'){
+            }elseif($role->name == 'client'){
 
                 return redirect('admin/usuario');
             }
-			elseif($role->name == 'asociado'){
+			elseif($role->name == 'associated'){
 
                 return redirect('admin/profile');
             }

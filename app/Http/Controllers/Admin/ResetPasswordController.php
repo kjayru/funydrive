@@ -55,7 +55,7 @@ class ResetPasswordController extends Controller
 
     public function broker()
     {
-        return Password::broker('admins');
+        return Password::broker('Users');
     }
 
     /**
@@ -64,7 +64,7 @@ class ResetPasswordController extends Controller
      * @return \Illuminate\Contracts\Auth\StatefulGuard
      */
     protected function guard()
-    {
+    { 
         return Auth::guard('admin');
     }
 
