@@ -21,7 +21,14 @@
     <!-- Styles -->
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo e(asset('css/base.css')); ?>">
+    <link rel="stylesheet" href="/lib/datepicker/css/bootstrap-datetimepicker.css">
     <link rel="stylesheet" href="<?php echo e(asset('css/main.css?v=25')); ?>">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+
+    <script type="text/javascript" src="/lib/datepicker/js/bootstrap-datetimepicker.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -41,9 +48,10 @@
         </main>
     </div>
 
-
+    
 <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo e(env('GOOGLE_API_KEY')); ?>&libraries=places" ></script>
-    <script src="<?php echo e(asset('js/main.js?v=19')); ?>" defer></script>
+
+<script src="<?php echo e(asset('js/main.js?v=21')); ?>" defer></script>
    
 </body>
 </html>

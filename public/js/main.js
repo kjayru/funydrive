@@ -494,3 +494,12 @@ $(document).ready(function(){
     initMap();
     
  })();
+
+ $(document).ready(function(){
+ 
+    $('#datetimepicker1').datetimepicker({
+        inline: true,
+        sideBySide: true
+    });
+   
+});

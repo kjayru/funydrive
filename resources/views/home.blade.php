@@ -269,223 +269,12 @@
 
                         <!--horas-->
 
-                        <div class="bd-time--zone" >
-                                <div>
-                                   <div class="row bd-time-earliest row-flex-centered">
-                                      <div class="col-sm-6">
-                                         <p>Earliest Available Time</p>
-                                         <h5>
-                                            <div><span>Tomorrow, </span><time datetime="2018-08-29T00:00:00-05:00">07:00 AM</span></div>
-                                         </h5>
-                                      </div>
-                                      <div class="col-sm-6">
-                                          <button type="button" class="btn-orange-fill">Select Earliest Time</button>
-                                      </div>
-                                   </div>
-                                   <div class="row bd-time-earliest__spacing">
-                                      <div class="col-xs-12 col-sm-12 text-center">
-                                         <div class="bd-optional-services__text bd-time-earliest__text">or choose a different time</div>
-                                         <div class="bd-optional-services__line"></div>
-                                      </div>
-                                   </div>
+                            <div class="bd-time--zone" >
+                                <div class="form-group">
+                                    <div id="datetimepicker1"></div> 
                                 </div>
-                                <div class="spacet-20">
-                                   <div class="bd-time--zone__single">
-                                      <div class="bd-time--zone__day">
-                                         <div class="appointment-date-header"></div>
-                                         <h5><time datetime="2018-08-29T00:00:00-05:00">{{ date("l, F d") }}</time></h5>
-                                      </div>
-                                      <div class="bd-timeline">
-                                         <div class="slotlist">
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot" ></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot" ></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot" ></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot" ></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot" ></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot "></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot "></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                            <div class="wrapper">
-                                               <div class="slot"></div>
-                                            </div>
-                                         </div>
-                                      </div>
-                                      <div class="bd-timeline__hours">
-                                         <ul>
-                                            <li>7AM</li>
-                                            <li>9AM</li>
-                                            <li>11AM</li>
-                                            <li>1PM</li>
-                                            <li>3PM</li>
-                                            <li>5PM</li>
-                                            <li>7PM</li>
-                                            <li>9PM</li>
-                                         </ul>
-                                      </div>
-                                   </div>
-                                  
-                                 
-                                </div>
-                             </div>
-                        
-                
+
+                            </div>
                         </div>
 
                     </div>
@@ -549,6 +338,28 @@
                                 </div>
                              </div>
                           </div>
+
+
+                          <div class="form-group">
+                            <label for="imagen">Imagen</label>
+                            <input type="file" class="form-control" name="imagen1">
+                    </div>
+                    <div class="form-group">
+                            <label for="imagen">Imagen</label>
+                            <input type="file" class="form-control" name="imagen2">
+                    </div>
+                    <div class="form-group">
+                            <label for="imagen">Imagen</label>
+                            <input type="file" class="form-control" name="imagen3">
+                    </div>
+                    <div class="form-group">
+                            <label for="imagen">Imagen</label>
+                            <input type="file" class="form-control" name="imagen4">
+                    </div>
+                    <div class="form-group">
+                            <label for="imagen">Imagen</label>
+                            <input type="file" class="form-control" name="imagen5">
+                    </div>
                        </div>
 
                        <div class="row">
