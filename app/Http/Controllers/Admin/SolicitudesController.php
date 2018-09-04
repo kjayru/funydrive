@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Requirement;
-use App\Admin;
+use App\User;
 use App\Register;
 
 class SolicitudesController extends Controller

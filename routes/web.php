@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+Route::post('/admin/registrowork','Admin\RegisterController@registrowork')->name('admin.registrowork');
 
 Route::resource('admin/profile','Admin\ProfileController');
 Route::resource('admin/servicios','Admin\ServiceController');

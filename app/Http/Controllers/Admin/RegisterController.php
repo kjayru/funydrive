@@ -5,7 +5,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use App\Workshop;
 class RegisterController extends Controller
 {
     /*
@@ -98,6 +98,11 @@ class RegisterController extends Controller
     protected function guard()
     {
         return Auth::guard();
+    }
+
+
+    public function registrowork(Request $request){
+
     }
 
 }

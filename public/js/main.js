@@ -41,12 +41,12 @@ function conteo(){
         consultacode();
 }
 
-$(".slot").click(function(e){
+$(".btn-fecha").click(function(e){
     $(".slot").removeClass('bd-timeline--hour__disabled');
     $(this).addClass('bd-timeline--hour__disabled');
     $("#appoint").hide();
-    $("#fr-contact").fadeIn();
     $("#notes").fadeIn();
+    
 });
 
 let boxmsg = document.querySelector('.box-msn');
@@ -210,6 +210,10 @@ $(document).on('click',".bd-service-list--service span",function(){
 });
 
 
+$(".btn-notas").on('click',function(e){
+    e.preventDefault();
+});
+
 /**mapas */
 
 var map, infoWindow;
@@ -221,8 +225,6 @@ function initMap() {
         zoom: 11
            
     });
-  
-   
 
      infoWindow = new google.maps.InfoWindow({map: map});
     
@@ -248,14 +250,14 @@ function initMap() {
         //places start
           map = new google.maps.Map(document.getElementById('canvas'), {
             center: pos,
-            zoom: 15
+            zoom: 11
           });
 
         var infowindow = new google.maps.InfoWindow();
             var service = new google.maps.places.PlacesService(map);
             service.nearbySearch({
             location: pos,
-            radius: 500,
+            radius: 1000,
             type: ['car_repair']
             }, callback);
 
@@ -272,12 +274,13 @@ function initMap() {
                 var placeLoc = place.geometry.location;
                     var marker = new google.maps.Marker({
                         map: map,
-                        position: place.geometry.location
+                        position: placeLoc
                     });
         
                 google.maps.event.addListener(marker, 'click', function() {
                   infowindow.setContent(place.name);
                   infowindow.open(map, this);
+                  console.log(place.geometry.);
                 });
             }
             //end places
@@ -329,32 +332,7 @@ function zipmapa(provincia){
         zoom:14,
         center:pos
     });
-   
-  /*
-    var contentString = '<div id="content">'+
-    '<div id="siteNotice">'+
-    '</div>'+
-    '<h1 id="firstHeading" class="firstHeading">Ubicación</h1>'+
-    '<div id="bodyContent">'+
-    '<p>'+provincia.poblacion+'</p>'+
-    '</div>'+
-    '</div>';
-
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-
-   
-    var marker = new google.maps.Marker({
-        position: pos,
-        map:map,
-        title: provincia.provincia
-    });
-
-    marker.addListener('click',function(){
-        infowindow.open(map, marker);
-    });*/
-
+  
 
     //places start
     map = new google.maps.Map(document.getElementById('canvas'), {
@@ -362,11 +340,21 @@ function zipmapa(provincia){
         zoom: 15
       });
 
+      var marker = new google.maps.Marker({
+        position: pos,
+        map:map,
+        title: 'Estoy aqui'
+    });
+
+    marker.addListener('click',function(){
+        infowindow.open(map, marker);
+    });
+
     var infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
         location: pos,
-        radius: 500,
+        radius: 1000,
         type: ['car_repair']
         }, callback);
 
@@ -383,12 +371,13 @@ function zipmapa(provincia){
             var placeLoc = place.geometry.location;
                 var marker = new google.maps.Marker({
                     map: map,
-                    position: place.geometry.location
+                    position: placeLoc
                 });
     
             google.maps.event.addListener(marker, 'click', function() {
               infowindow.setContent(place.name);
               infowindow.open(map, this);
+              console.log(place.geometry.location);
             });
         }
         //end places
@@ -496,10 +485,12 @@ $(document).ready(function(){
  })();
 
  $(document).ready(function(){
- 
+    var minDateTime =  new Date();
     $('#datetimepicker1').datetimepicker({
         inline: true,
-        sideBySide: true
+        sideBySide: true,
+        
+        minDate: minDateTime,
     });
    
 });
