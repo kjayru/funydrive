@@ -255,13 +255,8 @@
                                    <div class="bd-time--header__value">
                                       <div class="row-flex-centered">
                                          <div class="col-sm-6">
-                                            <p>Estimated service time:&nbsp;</p>
-                                            <h5 ><span>45 mins</span>
-                                                <span>&nbsp;</span></h5>
-                                            <div class="bd-small-circle-tooltip">
-                                               <div class="bd-tooltip-est">Time required for all services to be done.</div>
-                                               <span>?</span>
-                                            </div>
+                                            
+                                           
                                          </div>
                                       </div>
                                    </div>
@@ -276,7 +271,13 @@
                                 </div>
 
                             </div>
-                        </div>
+
+                            <div class="row">
+                                <div class="col-sm-5 col-centered">
+                                    <div class="btn-orange-fill spacet-20 btn-fecha">Continue</div>
+                                 </div>
+                             </div>
+                    </div>
 
                     </div>
             </div>
@@ -299,12 +300,40 @@
                             <div class="col-xs-12 col-md-12">
                                 <div class="cd-form floating-labels spacet-10">
                                     <div class="no-icon">
-                                        <textarea class="small-textarea" placeholder="Add any notes that may be useful for the mechanic to know."></textarea>
+                                        <textarea name="anotacion" class="small-textarea" placeholder="Add any notes that may be useful for the mechanic to know."></textarea>
                                     </div>
                                 </div>
                                
+
+                                <div class="form-group">
+                                    <label for="imagen">Imagen</label>
+                                    <input type="file" class="form-control" name="imagen1">
+                                </div>
+                                <div class="form-group">
+                                        <label for="imagen">Imagen</label>
+                                        <input type="file" class="form-control" name="imagen2">
+                                </div>
+                                <div class="form-group">
+                                        <label for="imagen">Imagen</label>
+                                        <input type="file" class="form-control" name="imagen3">
+                                </div>
+                                <div class="form-group">
+                                        <label for="imagen">Imagen</label>
+                                        <input type="file" class="form-control" name="imagen4">
+                                </div>
+                                <div class="form-group">
+                                        <label for="imagen">Imagen</label>
+                                        <input type="file" class="form-control" name="imagen5">
+                                </div>
                             </div>
                         </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-5 col-centered">
+                                <div class="btn-orange-fill spacet-20 btn-notas">Continue</div>
+                             </div>
+                         </div>
                     </div>
             </section>
            
@@ -341,31 +370,12 @@
                           </div>
 
 
-                          <div class="form-group">
-                            <label for="imagen">Imagen</label>
-                            <input type="file" class="form-control" name="imagen1">
-                    </div>
-                    <div class="form-group">
-                            <label for="imagen">Imagen</label>
-                            <input type="file" class="form-control" name="imagen2">
-                    </div>
-                    <div class="form-group">
-                            <label for="imagen">Imagen</label>
-                            <input type="file" class="form-control" name="imagen3">
-                    </div>
-                    <div class="form-group">
-                            <label for="imagen">Imagen</label>
-                            <input type="file" class="form-control" name="imagen4">
-                    </div>
-                    <div class="form-group">
-                            <label for="imagen">Imagen</label>
-                            <input type="file" class="form-control" name="imagen5">
-                    </div>
+                    
                        </div>
 
                        <div class="row">
                            <div class="col-sm-5 col-centered">
-                               <div class="btn-orange-fill spacet-20">Continue</div>
+                               <div class="btn-orange-fill spacet-20 btn-contact">Continue</div>
                             </div>
                         </div>
                     </div>
@@ -443,6 +453,17 @@
 </div>
 <form id="datatool">
     <?php echo csrf_field(); ?>
+ 
+    <input type="hidden" name="codepostal" id="codepostal">
+    <input type="hidden" name="makecar" id="makecar">
+    <input type="hidden" name="modelcar" id="modelcar">
+    <input type="hidden" name="yearcar" id="yearcar">
+    <input type="hidden" name="service" id="service">
+    <input type="hidden" name="subdservice" id="subservice">
+    <input type="hidden" name="datework" id="datework">
+    <input type="hidden" name="price" id="price">
+    <input type="hidden" name="latitud" id="latitud">
+    <input type="hidden" name="longitud" id="longitud">                                       
 </form>
 <?php $__env->stopSection(); ?>
 
