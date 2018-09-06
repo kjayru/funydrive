@@ -1,11 +1,15 @@
 <?php
 namespace App\Http\Controllers\Admin;
 
-use App\User;
+
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Workshop;
+use Illuminate\Support\Facades\Auth;
+
+use App\User;
+use App\Workshoporder;
+use App\Workshopassociationorders;
+
 class RegisterController extends Controller
 {
     /*
@@ -18,91 +22,52 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-    use RegistersUsers;
+   
 
    
-    protected $redirectTo = 'admin/';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    
     public function __construct()
     {
-        $this->middleware('guest:admin');
+        $this->middleware('auth:web');
     }
-
-    public function showRegistrationForm()
-    {
-        return view('admin.register');
+    public function index(){
+        dd("inicio ");
     }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'lastname' => 'required|string|max:200',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Admin
-     */
-    protected function create(array $data)
-    {
-        return Admin::create([
-            'name' => $data['name'],
-            'lastname' => $data['lastname'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
-
-
-
-    /**
-     * Handle a registration request for the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function register(Request $request)
-    {
-        $this->validator($request->all())->validate();
-
-        event(new Registered($user = $this->create($request->all())));
-
-        $this->guard()->login($user);
-
-        return $this->registered($request, $user)
-                        ?: redirect($this->redirectPath());
-    }
-
-    /**
-     * Get the guard to be used during registration.
-     *
-     * @return \Illuminate\Contracts\Auth\StatefulGuard
-     */
-    protected function guard()
-    {
-        return Auth::guard();
-    }
+   
 
 
     public function registrowork(Request $request){
+        
+      $order_id = Workshoporder::random_str('20');
+      $user_id = Auth::id();
+   
+      $workshop = new Workshoporder;
 
+        $workshop->user_id = $user_id;   
+        $workshop->user_name = $request->user_name;
+        $workshop->phone_number = $request->phone_number;
+        
+        $workshop->order_id = $order_id;
+        $workshop->cause = $request->service;
+        $workshop->detail_cause = $request->nota;
+        $workshop->detail = $request->nota;
+        $workshop->request_date = $request->fechaservicio;
+        
+        $workshop->status = '1';
+        $workshop->valoration = $request->price;
+        $workshop->amount= $request->price;
+        $workshop->latitude = $request->latitud;
+        $workshop->longitude = $request->longitud;
+        /*$workshop->picture_1 = $order_id;
+        $workshop->picture_2 = $order_id;
+        $workshop->picture_3 = $order_id;
+        $workshop->picture_4 = $order_id;
+        $workshop->picture_5 = $order_id;*/
+
+        $workshop->save();
+
+      return response()->json(['rpta'=>'registro paso satisfactorio']);
+     
     }
 
 }

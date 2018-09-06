@@ -17,32 +17,30 @@ Route::get('/', 'HomeController@index');
 Route::get('/getpostal/{code}','HomeController@getPostal');
 Route::post('/getmodel','HomeController@getModel');
 Route::get('/getservice/{id}/edit','HomeController@getservice');
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/admin/registrowork','Admin\RegisterController@registrowork')->name('admin.registrowork');
 
-Route::resource('admin/profile','Admin\ProfileController');
-Route::resource('admin/servicios','Admin\ServiceController');
-Route::resource('admin/photo','Admin\PhotoController');
+Auth::routes();
 
-Route::resource('admin/solicitudes','Admin\SolicitudesController');
-
-Route::get('admin/categorias','Admin\ServiceController@getcategory')->name('admin.categorias');
-Route::post('admin/setcat','Admin\ServiceController@setcategory');
-Route::put('admin/updatecat/{id}','Admin\ServiceController@updatecategory');
-Route::delete('admin/borrarcat/{id}','Admin\ServiceController@borrarcat');
-
-
-Route::put('admin/estado/{id}','Admin\ProfileController@estado');
-Route::put('admin/estadocat/{id}','Admin\ServiceController@estadocat');
-Route::put('admin/estadoparent/{id}','Admin\ServiceController@estadoparent');
-
-//super
-Route::resource('admin/listclientes','Admin\ListclientController');
-Route::resource('admin/listasociados','Admin\ListpartnerController');
-Route::resource('admin/listsolicitudes','Admin\ListrequestController');
-Route::resource('admin/entorno','Admin\EnvironmentController');
-
-Route::get('/admin','AdminController@index');
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/','AdminController@index');
+    Route::get('/registrowork','Admin\RegisterController@index');
+    Route::post('/registrowork','Admin\RegisterController@registrowork');    
+    Route::resource('/profile','Admin\ProfileController');
+    Route::resource('/servicios','Admin\ServiceController');
+    Route::resource('/photo','Admin\PhotoController');  
+    Route::resource('/solicitudes','Admin\SolicitudesController');  
+    Route::get('/categorias','Admin\ServiceController@getcategory')->name('admin.categorias');
+    Route::post('/setcat','Admin\ServiceController@setcategory');
+    Route::put('/updatecat/{id}','Admin\ServiceController@updatecategory');
+    Route::delete('/borrarcat/{id}','Admin\ServiceController@borrarcat');  
+    Route::put('/estado/{id}','Admin\ProfileController@estado');
+    Route::put('/estadocat/{id}','Admin\ServiceController@estadocat');
+    Route::put('/estadoparent/{id}','Admin\ServiceController@estadoparent');
+    
+    //super
+    Route::resource('/listclientes','Admin\ListclientController');
+    Route::resource('/listasociados','Admin\ListpartnerController');
+    Route::resource('/listsolicitudes','Admin\ListrequestController');
+    Route::resource('/entorno','Admin\EnvironmentController');
+});

@@ -197,9 +197,7 @@
                                             {{ __('Popular services')}}
                                         </div>
                                         <div id="contsubs">
-                                            
-                                           
-                                            
+
                                         </div>
                                         
                                     </div>
@@ -266,7 +264,9 @@
 
                             <div class="bd-time--zone" >
                                 <div class="form-group">
-                                    <div id="datetimepicker1"></div> 
+                                    <div id="datetimepicker1">
+                                            <input type='hidden' class="form-control" name="timepicker" id="fechaservicio" />
+                                    </div> 
                                 </div>
 
                             </div>
@@ -295,8 +295,12 @@
                                 </div>
                             </div>
                         </div>
+                        <form action="/admin/registrowork" method="POST" enctype="multipart/form-data" id="fr-worked">
+                            @csrf
                         <div class="row">
-                            <div class="col-xs-12 col-md-12">
+
+                           
+                                <div class="col-xs-12 col-md-12">
                                 <div class="cd-form floating-labels spacet-10">
                                     <div class="no-icon">
                                         <textarea name="anotacion" class="small-textarea" placeholder="Add any notes that may be useful for the mechanic to know."></textarea>
@@ -325,6 +329,22 @@
                                         <input type="file" class="form-control" name="imagen5">
                                 </div>
                             </div>
+
+                                <input type="hidden" name="codepostal" id="codepostal">
+                                <input type="hidden" name="makecar" id="makecar">
+                                <input type="hidden" name="modelcar" id="modelcar">
+                                <input type="hidden" name="yearcar" id="yearcar">
+                                <input type="hidden" name="service" id="service">
+                                <input type="hidden" name="subdservice" id="subservice">
+                                <input type="hidden" name="datework" id="datework">
+                                <input type="hidden" name="price" id="price">
+                                <input type="hidden" name="latitud" id="latitud">
+                                <input type="hidden" name="longitud" id="longitud"> 
+                                <input type="hidden" name="namestore" id="namestore"> 
+                                <input type="hidden" name="fechaservicio" id="fechaservicio"> 
+
+                           
+
                         </div>
 
 
@@ -333,7 +353,9 @@
                                 <div class="btn-orange-fill spacet-20 btn-notas">Continue</div>
                              </div>
                          </div>
-                    </div>
+                    
+                        </form>
+                     </div>
             </section>
            
             <section class="row bd-section bd-section--payment bd-section" id="fr-contact" style="display:none" >
@@ -450,15 +472,6 @@
 <form id="datatool">
     @csrf
  
-    <input type="hidden" name="codepostal" id="codepostal">
-    <input type="hidden" name="makecar" id="makecar">
-    <input type="hidden" name="modelcar" id="modelcar">
-    <input type="hidden" name="yearcar" id="yearcar">
-    <input type="hidden" name="service" id="service">
-    <input type="hidden" name="subdservice" id="subservice">
-    <input type="hidden" name="datework" id="datework">
-    <input type="hidden" name="price" id="price">
-    <input type="hidden" name="latitud" id="latitud">
-    <input type="hidden" name="longitud" id="longitud">                                       
+                                         
 </form>
 @endsection
