@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edg
@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Scripts -->
 
@@ -22,32 +22,32 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/base.css')); ?>">
     <link rel="stylesheet" href="/lib/datepicker/css/bootstrap-datetimepicker.css">
-    <link rel="stylesheet" href="{{ asset('css/main.css?v=29') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/main.css?v=29')); ?>">
  
     
 </head>
 <body>
     <div id="app">
-       @include('partials.navigation')
+       <?php echo $__env->make('partials.navigation', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <main class="py-4">
-            @if(session('message'))
+            <?php if(session('message')): ?>
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         <div class="alert alert-{ session('message')[0] }}">
-                        <h3>{{ __('Mensaje informativo') }}</h3>
-                        <p>{{ session('message')[1] }}</p>
+                        <h3><?php echo e(__('Mensaje informativo')); ?></h3>
+                        <p><?php echo e(session('message')[1]); ?></p>
                         </div>
                     </div>
                 </div>
-            @endif
-            @yield('content')
+            <?php endif; ?>
+            <?php echo $__env->yieldContent('content'); ?>
         </main>
     </div>
 
     
-<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_API_KEY') }}&libraries=places" ></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo e(env('GOOGLE_API_KEY')); ?>&libraries=places" ></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -57,7 +57,7 @@
 
     <script type="text/javascript" src="/lib/datepicker/js/bootstrap-datetimepicker.min.js"></script>
 
-<script src="{{ asset('js/main.js?v=26') }}" defer></script>
+<script src="<?php echo e(asset('js/main.js?v=26')); ?>" defer></script>
    
 </body>
 </html>

@@ -5,25 +5,48 @@ let total = 0;
 let clatitud = "";
 let clongitud = "";
 let namestore = "";
-btnzip.addEventListener("keyup", function(e) {
-  if (num < 4) {
-    num += 1;
-    console.log(num);
-  } else {
-    console.log("ejecuta..");
-    num = 0;
-    total = 0;
-    conteo();
-  }
+btnzip.addEventListener("keypress", function (event) {
 
-  if (e.keyCode == 13) {
-    e.preventDefault();
+  if (event.which != 8 && isNaN(String.fromCharCode(event.which))) {
+    event.preventDefault(); //stop character from entering input  
+
+  } else {
+    
+    num = num + 1;
+  }
+});
+
+btnzip.addEventListener("keyup",function(event){
+  if (num > 4) {
+
+    console.log("ejecuta..");
+   
+    consultacode();
+  }
+});
+
+$(document).on("keydown","#zipcode",function (event) {
+  var letter = String.fromCharCode(event.which);
+  if (event.keyCode == 32) {
+    event.preventDefault();
+    return false;
+  }
+  if (event.keyCode == 46) {
+    num = num - 1;
+  }
+  if (event.keyCode == 8) {
+    num = num - 1;
+  }
+  if (event.keyCode === 13) {
+    event.preventDefault();
 
     return false;
   }
-  console.log(e.keycode);
+
 });
-$(document).on("keyup keypress", "#zipcode", function(e) {
+
+
+$(document).on("keyup keypress", "#zipcode", function (e) {
   var keyCode = e.keyCode || e.which;
   if (keyCode === 13) {
     e.preventDefault();
@@ -31,20 +54,29 @@ $(document).on("keyup keypress", "#zipcode", function(e) {
   }
 });
 
-$("#btnservice").on("click", function() {
+$(document).on("cut copy paste", "#zipcode", function (e) {
+  e.preventDefault();
+});
+
+
+
+$("#btnservice").on("click", function () {
   $(this).hide();
   $("#appoint").fadeIn();
 });
+
 function conteo() {
   consultacode();
 }
 
-$(".btn-fecha").click(function(e) {
+$(".btn-fecha").click(function (e) {
   $(".slot").removeClass("bd-timeline--hour__disabled");
   $(this).addClass("bd-timeline--hour__disabled");
 
   let fechaservicio = $("#fechaservicio").val();
-  $("#fechaservicio").val(fechaservicio);
+  $("#datework").val(fechaservicio);
+
+
   $("#appoint").hide();
   $("#notes").fadeIn();
 });
@@ -56,16 +88,16 @@ function consultacode() {
   let url = `/getpostal/${codigo}`;
 
   fetch(url)
-    .then(function(response) {
+    .then(function (response) {
       // return response;
       return response.json();
     })
-    .then(function(data) {
+    .then(function (data) {
       boxmsg.style.display = "block";
       if (data.rpta === "ok") {
         boxmsg.innerHTML = `Great! We have certified mobile mechanics in ${
           data.poblacion
-        }, ${data.provincia}`;
+          }, ${data.provincia}`;
         document.querySelector(".btn-confirmar").style.display = "inline-block";
         zipmapa(data);
         $("#sidebar-zip").html(`${codigo} - ${data.poblacion}`);
@@ -73,12 +105,12 @@ function consultacode() {
         $(".respuestas").html(`${data.mensaje}`);
       }
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(`error ${error}`);
     });
 }
 
-$(".btn-confirmar").on("click", function() {
+$(".btn-confirmar").on("click", function () {
   document.getElementById("tipocar").style.display = "block";
   $("html, body").animate(
     {
@@ -95,7 +127,7 @@ var modelcar = "";
 var listmodel = "";
 var listserv = "";
 var namesubservice = "";
-$("#box1 li").on("click", function() {
+$("#box1 li").on("click", function () {
   idmake = $(this).data("id");
   make = $(this).data("make");
   $("#box1").hide();
@@ -103,7 +135,7 @@ $("#box1 li").on("click", function() {
   $(".ymake").html(make);
 });
 
-$("#box2 li").on("click", function() {
+$("#box2 li").on("click", function () {
   yearcar = $(this).data("year");
 
   //envian peticion
@@ -128,7 +160,7 @@ $("#box2 li").on("click", function() {
       console.log(response);
       if (response.rpta == "ok") {
         $(".yyear").remove();
-        $.each(response.data, function(i, e) {
+        $.each(response.data, function (i, e) {
           listmodel =
             listmodel +
             `<li data-nombre="${e.name}" data-id="${e.id}">${e.name}</li>`;
@@ -146,7 +178,7 @@ $("#box2 li").on("click", function() {
     });
 });
 
-$(document).on("click", "#mimodelo li", function() {
+$(document).on("click", "#mimodelo li", function () {
   let idmodelo = $(this).data("id");
   let nombre = $(this).data("nombre");
   $(".botones").append(
@@ -160,22 +192,22 @@ $(document).on("click", "#mimodelo li", function() {
   $("#services").fadeIn(350);
 });
 
-$(document).on("click", ".ymake", function() {
+$(document).on("click", ".ymake", function () {
   console.log("makee");
   $("#box1").fadeIn();
   $("#box2").hide();
   $("#box3").hide();
 });
-$(document).on("click", ".yyear", function() {
+$(document).on("click", ".yyear", function () {
   $("#box2").fadeIn();
   $("#box3").hide();
 });
-$(document).on("click", ".ymodel", function() {
+$(document).on("click", ".ymodel", function () {
   $("#box3").hide();
   $("#services").fadeIn();
 });
 
-$(".bd-service-list--items li").click(function() {
+$(".bd-service-list--items li").click(function () {
   let idservice = $(this).data("id");
   let token = document.getElementsByName("_token")[0].value;
   let datosend = { idservice: idservice, _token: token, _method: "GET" };
@@ -188,7 +220,7 @@ $(".bd-service-list--items li").click(function() {
       if (response.rpta == "ok") {
         $("#contsubs").html("");
         listserv = "";
-        $.each(response.data, function(i, e) {
+        $.each(response.data, function (i, e) {
           listserv =
             listserv +
             `<div class="bd-service-list--service">
@@ -206,7 +238,7 @@ $(".bd-service-list--items li").click(function() {
     });
 });
 
-$(document).on("click", ".bd-service-list--service span", function() {
+$(document).on("click", ".bd-service-list--service span", function () {
   let id = $(this).data("id");
   let nombre = $(this).data("name");
   namesubservice = nombre;
@@ -216,14 +248,16 @@ $(document).on("click", ".bd-service-list--service span", function() {
   $("#detalle").fadeIn(350);
 });
 
-$(".btn-notas").on("click", function(e) {
+$(".btn-notas").on("click", function (e) {
   e.preventDefault();
+
+
 
   $("#codepostal").val(codigo);
   $("#makecar").val(make);
   $("#modelcar").val(modelcar);
   $("#yearcar").val(yearcar);
-  $("#service").val(namesubservice);
+  $("#service").val(service);
   $("#subservice").val(namesubservice);
 
   $("#price").val("75");
@@ -249,7 +283,7 @@ function initMap() {
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
-      function(position) {
+      function (position) {
         var pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
@@ -291,7 +325,7 @@ function initMap() {
             position: placeLoc
           });
 
-          google.maps.event.addListener(marker, "click", function() {
+          google.maps.event.addListener(marker, "click", function () {
             infowindow.setContent(place.name);
             infowindow.open(map, this);
             // console.log(place.geometry.);
@@ -299,7 +333,7 @@ function initMap() {
         }
         //end places
       },
-      function() {
+      function () {
         handleLocationError(true, infoWindow, map.getCenter());
       }
     );
@@ -342,7 +376,7 @@ function zipmapa(provincia) {
     title: "Estoy aqui"
   });
 
-  marker.addListener("click", function() {
+  marker.addListener("click", function () {
     infowindow.open(map, marker);
   });
 
@@ -372,7 +406,7 @@ function zipmapa(provincia) {
       position: placeLoc
     });
 
-    google.maps.event.addListener(marker, "click", function() {
+    google.maps.event.addListener(marker, "click", function () {
       infowindow.setContent(place.name);
       infowindow.open(map, this);
 
@@ -383,7 +417,7 @@ function zipmapa(provincia) {
   }
   //end places
 }
-$(".icon input").keyup(function(e) {
+$(".icon input").keyup(function (e) {
   console.log("enveii");
   $(this)
     .parent()
@@ -391,7 +425,7 @@ $(".icon input").keyup(function(e) {
     .addClass("float");
 });
 
-$(".icon input").focusout(function(e) {
+$(".icon input").focusout(function (e) {
   if ($(this).val.length > 0) {
   } else {
     $(this)
@@ -430,8 +464,8 @@ function puntos(provincia) {
     google.maps.event.addListener(
       marker,
       "click",
-      (function(marker, i) {
-        return function() {
+      (function (marker, i) {
+        return function () {
           infoWindow.setContent(infoWindowContent[i]["poblacion"]);
           infoWindow.open(map, marker);
           // $("#comercio_id").val(infoWindowContent[i]['id']);
@@ -447,7 +481,7 @@ function puntos(provincia) {
   var boundsListener = google.maps.event.addListener(
     map,
     "bounds_changed",
-    function(event) {
+    function (event) {
       this.setZoom(14);
       google.maps.event.removeListener(boundsListener);
     }
@@ -472,25 +506,25 @@ function contenidos(valor) {
   return infoWindowContent;
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
   $("#zipcode").bind({
-    paste: function() {
+    paste: function () {
       conteo();
     }
   });
 
-  $("#zipcode").on("click", function(e) {
+  $("#zipcode").on("click", function (e) {
     if (e.ctrlKey && e.keyCode == 13) {
       conteo();
     }
   });
 });
 
-(function() {
+(function () {
   initMap();
 })();
 
-$(document).ready(function() {
+$(document).ready(function () {
   var minDateTime = new Date();
   $("#datetimepicker1").datetimepicker({
     inline: true,

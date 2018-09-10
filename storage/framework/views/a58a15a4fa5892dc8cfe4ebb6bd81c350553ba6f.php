@@ -1,11 +1,9 @@
-@extends('layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <section class="content-header">
-        <h1>Solicitudes</h1>
+        <h1>Servicios</h1>
         <ol class="breadcrumb">
           <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-          <li class="active">Solicitudes</li>
+          <li class="active">Servicios</li>
           
         </ol>
 </section>
@@ -17,44 +15,40 @@
                 
             </div>
                 <div class="box-body">
-            
 
-        
+                            <a href="#" class="btn btn-xs btn-default btn-nuevo-servicio"  data-toggle="modal" data-target="#modal-nuevolista">Nuevo Servicio</a>
+
                             <table class="table">
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Nombres</th>
-                                        <th scope="col">Order</th>
-                                        <th scope="col">Causa</th>
-                                        <th scope="col">Monto</th>
-                                        <th scope="col">Establecimiento</th>
-                                        <th scope="col">Latitud</th>
-                                        <th scope="col">Longitud</th>
-                                        <th scope="col">Fecha requerimiento</th>
-                                        <th scope="col">Creado</th>
-                                       
-                                        
-                                        
-                                        
+                                        <th scope="col">Servicio</th>
+                                        <th scope="col">Sub servicio</th>
+                                        <th scope="col">Tipo Servicio</th>
+                                        <th scope="col">N. Recursos</th>
+                                        <th scope="col">Tiempo</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                  @foreach($solicitudes as $key => $sol)
+                                   <?php $__currentLoopData = $registros; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $registro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
-                                     <th>{{ $key + 1 }}</th> 
-                                     <td>{{ $sol->user_name }}</td> 
-                                     <td>{{ $sol->order_id}}</td> 
-                                     <td>{{ $sol->cause }}</td>
-                                     <td>{{ $sol->amount}}</td>
-                                     <td>{{ $sol->storename}}</td>
-                                     <td>{{ $sol->latitude}}</td>
-                                     <td>{{ $sol->longitude}}</td>
-                                     <td>{{ $sol->request_date}}</td>
-                                     <td>{{ $sol->created_at }}</td>
-                                       
+                                        <th scope="row"><?php echo e($key+1); ?></th>
+                                        <td><?php echo e($registro->service->name); ?></td>
+                                        <td><?php echo e($registro->subservice->name); ?></td>
+                                        <td><?php echo e($registro->typeservice); ?></td>
+                                        <td><?php echo e($registro->resources); ?></td>
+                                        <td><?php echo e($registro->executiontime); ?></td>
+                                        <td><?php echo e($registro->price); ?></td>
+                                        <td>
+                                                <a href="#"  data-id="<?php echo e($registro->id); ?>" class="btn btn-xs btn-default btn-servicio-editar">Editar</a>
+                                                
+                                                <a href="#" data-id="<?php echo e($registro->id); ?>" class="btn btn-xs btn-danger btn-servicio-delete">Eliminar</a>
+                                                
+                                        </td>
                                     </tr>
-                                  @endforeach
+                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>
                             </table>        
                        
@@ -69,13 +63,14 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <form id="fr-nuevo-service" method="post" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                <?php echo e(csrf_field()); ?>
+
                
               
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Nuevo Glosario</h4>
+                <h4 class="modal-title">Nuevo Servicio</h4>
               </div>
               <div class="modal-body">
                   
@@ -84,12 +79,14 @@
                       <select name="service" id="service" class="form-control">
                       
                           <option value="0">Seleccione</option>
-                         
+                          <?php $__currentLoopData = $servicios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                          <option value="<?php echo e($service->id); ?>"><?php echo e($service->name); ?></option>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                       </select>
                   </div>
                   <div class="form-group">
-                          <label for="subservicios">Sub servicios</label>
+                          <label for="subservicios">Sub-servicios</label>
                           <select name="subservice" id="subservice" class="form-control">
                               <option value="0">Seleccione</option>
                           </select>
@@ -123,7 +120,7 @@
                   </div>
                   <div class="form-group">
                       <label for="precio">Precio</label>
-                      <input type="text" name="price" id="price" class="form-control" />
+                      <input type="number" name="price" id="price" class="form-control" />
                         
                   </div>
                  
@@ -142,7 +139,8 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <form id="fr-edit-service">
-                    {{ csrf_field() }}
+                    <?php echo e(csrf_field()); ?>
+
                   <input name="_method" type="hidden" value="PUT">
                   <input type="hidden" name="id" id="id" value="">
                 
@@ -160,7 +158,9 @@
                         <select name="service" id="service" class="form-control">
                         
                             <option value="0">Seleccione</option>
-                           
+                            <?php $__currentLoopData = $servicios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($service->id); ?>"><?php echo e($service->name); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   
                         </select>
                     </div>
@@ -199,7 +199,7 @@
                     </div>
                     <div class="form-group">
                         <label for="precio">Precio</label>
-                        <input type="text" name="price" id="price" class="form-control" />
+                        <input type="number" name="price" id="price" class="form-control" />
                           
                     </div>
                    
@@ -215,9 +215,12 @@
     </div>
 
 <form id="fr-delete">
-      {{ csrf_field() }}
+      <?php echo e(csrf_field()); ?>
+
       <input name="_method" type="hidden" value="DELETE">  
 </form>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -51,7 +51,7 @@ class ProfileController extends Controller
         
 
         $profile = new Profile;
-        $profile->admin_id = $request->admin_id;
+        $profile->user_id = $request->admin_id;
         $profile->tradename = $request->tradename;
         $profile->contact = $request->contact;
         $profile->email = $request->email;
@@ -63,19 +63,20 @@ class ProfileController extends Controller
         $profile->save();
 
 
+        if($request->file('photo')){
+            foreach ($request->file('photo') as $photo) {
+                $file = $photo;
+            
+                $input['imagename'] = time().'.'.$file->getClientOriginalExtension();
+                $destinationPath = public_path('/photos');
+                $image->move($destinationPath, $input['imagename']);
 
-        foreach ($request->file('photo') as $photo) {
-            $file = $photo;
-           
-            $input['imagename'] = time().'.'.$file->getClientOriginalExtension();
-            $destinationPath = public_path('/photos');
-            $image->move($destinationPath, $input['imagename']);
+                $image = new Photo();
+                $image->user_id = $request->admin_id;
+                $image->name = $input['imagename'];
+                $image->save();
 
-            $image = new Photo();
-            $image->user_id = $request->admin_id;
-            $image->name = $input['imagename'];
-            $image->save();
-
+            }
         }
 
         foreach ($request->phone as $phone) {
@@ -143,8 +144,8 @@ class ProfileController extends Controller
         $profile->save();
 
         $iphone = Phone::where('user_id',$request->admin_id)->delete();
-
-        if(count($request->file('photo'))>0){
+        
+        if($request->file('photo')!=""){
             foreach ($request->file('photo') as $photo) {
                 $file = $photo;
             
@@ -159,7 +160,7 @@ class ProfileController extends Controller
 
             }
         }
-
+    if($request->phone){
         foreach ($request->phone as $phone) {
             
             $fono = new  Phone();
@@ -167,12 +168,12 @@ class ProfileController extends Controller
             $fono->phone = $phone;
             $fono->save();
         }
-      
+    }
        
 
     //diasemana
     
-    Dayhour::where('admin_id',$request->admin_id)->delete();
+    Dayhour::where('user_id',$request->admin_id)->delete();
 
     for($i=0;$i<7;$i++){
 
@@ -190,7 +191,7 @@ class ProfileController extends Controller
 
         $vaca = new Vacation();
         $vaca->user_id = $request->admin_id;
-        $vaca->startdate = $request->vacacion[$j];
+        $vaca->stardate = $request->vacacion[$j];
         
 
         $vaca->save();

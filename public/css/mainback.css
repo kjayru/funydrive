@@ -35,10 +35,45 @@ div#getdot {
     background: url('/img/bgback.jpg') no-repeat 0px 0px;
     background-size:cover;
 }
-.clsoff{
-	color: #A3A1A1 !important;
+.clsoff {
+    color: black !important;
+    background: rgba(255,0,0,0.3) !important;
 }
 .clsoff .subpage td{
 	color: #A3A1A1 !important;
 
+}
+h4.panel-title {
+    display: inline-block;
+}
+.botcoll {
+    display: inline-block;
+    float: right;
+}
+.panel-body h5 {
+    display: inline-block;
+}
+.botcolli {
+    display: inline-block;
+    float: right;
+}
+.panel-body ul{
+    padding-left:0px;
+}
+.panel-body li.subpage {
+    list-style: none;
+}
+.huerfano{
+    margin-bottom: 22px;
+    background: rgba(250,250,250,0.3);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.huerfano h4{
+    display: inline-block;
 }

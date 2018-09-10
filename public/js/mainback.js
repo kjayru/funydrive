@@ -9,6 +9,7 @@ $(document).ready(function() {
     }
 
     $("#service").change(function() {
+        console.log("iniciando servicio..");
         var id = $(this).val();
         var ghtm = "";
         var isel = $("option:selected", this).text();
@@ -25,9 +26,10 @@ $(document).ready(function() {
             success: function(response) {
 
                 $.each(response.services, function(i, e) {
-
-                    ghtm = ghtm + '<option value="' + e.id + '">' + e.name + '</option>';
+                   
+                    ghtm = ghtm + `<option value="${e.id}">${e.name}</option>`;
                 });
+               
                 $("#subservice").html(ghtm);
             }
 

@@ -1,6 +1,4 @@
-@extends('layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <section class="content-header">
         <h1>Solicitudes</h1>
         <ol class="breadcrumb">
@@ -40,21 +38,21 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                  @foreach($solicitudes as $key => $sol)
+                                  <?php $__currentLoopData = $solicitudes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $sol): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
-                                     <th>{{ $key + 1 }}</th> 
-                                     <td>{{ $sol->user_name }}</td> 
-                                     <td>{{ $sol->order_id}}</td> 
-                                     <td>{{ $sol->cause }}</td>
-                                     <td>{{ $sol->amount}}</td>
-                                     <td>{{ $sol->storename}}</td>
-                                     <td>{{ $sol->latitude}}</td>
-                                     <td>{{ $sol->longitude}}</td>
-                                     <td>{{ $sol->request_date}}</td>
-                                     <td>{{ $sol->created_at }}</td>
+                                     <th><?php echo e($key + 1); ?></th> 
+                                     <td><?php echo e($sol->user_name); ?></td> 
+                                     <td><?php echo e($sol->order_id); ?></td> 
+                                     <td><?php echo e($sol->cause); ?></td>
+                                     <td><?php echo e($sol->amount); ?></td>
+                                     <td><?php echo e($sol->storename); ?></td>
+                                     <td><?php echo e($sol->latitude); ?></td>
+                                     <td><?php echo e($sol->longitude); ?></td>
+                                     <td><?php echo e($sol->request_date); ?></td>
+                                     <td><?php echo e($sol->created_at); ?></td>
                                        
                                     </tr>
-                                  @endforeach
+                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </tbody>
                             </table>        
                        
@@ -69,7 +67,8 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <form id="fr-nuevo-service" method="post" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                <?php echo e(csrf_field()); ?>
+
                
               
               <div class="modal-header">
@@ -142,7 +141,8 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <form id="fr-edit-service">
-                    {{ csrf_field() }}
+                    <?php echo e(csrf_field()); ?>
+
                   <input name="_method" type="hidden" value="PUT">
                   <input type="hidden" name="id" id="id" value="">
                 
@@ -215,9 +215,12 @@
     </div>
 
 <form id="fr-delete">
-      {{ csrf_field() }}
+      <?php echo e(csrf_field()); ?>
+
       <input name="_method" type="hidden" value="DELETE">  
 </form>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

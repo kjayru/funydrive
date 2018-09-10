@@ -1,6 +1,4 @@
-@extends('layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <section class="content-header">
         <h1>CONFIGURACIONES DE ENTORNO</h1>
         <ol class="breadcrumb">
@@ -22,47 +20,47 @@
                     
         
                            
-                                   @foreach($servicios as $key => $reg)
-                                   @if($reg->childs->count()>0)   
+                                   <?php $__currentLoopData = $servicios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $reg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                   <?php if($reg->childs->count()>0): ?>   
                                   
 
 
                                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                         <div class="panel panel-default">
-                                          <div class="panel-heading @if($reg->status==1)  clsoff  @endif" role="tab" id="heading{{$key +1 }}" >
+                                          <div class="panel-heading <?php if($reg->status==1): ?>  clsoff  <?php endif; ?>" role="tab" id="heading<?php echo e($key +1); ?>" >
                                             <h4 class="panel-title">
-                                              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$key +1 }}" aria-expanded="true" aria-controls="collapse{{$key +1 }}">
-                                                {{ $reg->name }}   </a>  
+                                              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo e($key +1); ?>" aria-expanded="true" aria-controls="collapse<?php echo e($key +1); ?>">
+                                                <?php echo e($reg->name); ?>   </a>  
                                             </h4>
                                             <div class="botcoll">
-                                                <a href="#" data-id="{{$reg->id}}"  class="btn btn-default btn-editar-category btn-xs">Editar</a>
-                                                @if($reg->status==1)
-                                                <a  href="#" class="btn btn-estado btn-xs btn-primary" data-id="{{$reg->id}}" data-estado="2" >Activar</a>
-                                                  @else
-                                                <a  href="#" class="btn btn-estado btn-xs btn-primary" data-id="{{$reg->id}}" data-estado="1">Desactivar</a>
-                                                @endif
-                                                 <a href="#" data-id="{{$reg->id}}" class="btn btn-danger btn-borrar-category btn-xs">Borrar</a>
+                                                <a href="#" data-id="<?php echo e($reg->id); ?>"  class="btn btn-default btn-editar-category btn-xs">Editar</a>
+                                                <?php if($reg->status==1): ?>
+                                                <a  href="#" class="btn btn-estado btn-xs btn-primary" data-id="<?php echo e($reg->id); ?>" data-estado="2" >Activar</a>
+                                                  <?php else: ?>
+                                                <a  href="#" class="btn btn-estado btn-xs btn-primary" data-id="<?php echo e($reg->id); ?>" data-estado="1">Desactivar</a>
+                                                <?php endif; ?>
+                                                 <a href="#" data-id="<?php echo e($reg->id); ?>" class="btn btn-danger btn-borrar-category btn-xs">Borrar</a>
                                              
                                             </div> 
                                           </div>
-                                          <div id="collapse{{$key +1 }}" class="panel-collapse collapse " role="tabpanel" aria-labelledby="heading{{$key +1 }}">
+                                          <div id="collapse<?php echo e($key +1); ?>" class="panel-collapse collapse " role="tabpanel" aria-labelledby="heading<?php echo e($key +1); ?>">
                                             <div class="panel-body">
                                               
                                                 <ul>
-                                                @foreach($reg->childs as $sub)
-                                                        <li class="subpage  @if($reg->status==1)  clsoff  @endif ">
-                                                            <h5>{{ $sub->name }}</h5>   
+                                                <?php $__currentLoopData = $reg->childs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sub): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <li class="subpage  <?php if($reg->status==1): ?>  clsoff  <?php endif; ?> ">
+                                                            <h5><?php echo e($sub->name); ?></h5>   
                                                             <div class="botcolli">
-                                                                 <a href="#" data-id="{{$sub->id}}"  class="btn btn-default btn-editar-category btn-xs">Editar</a>
-                                                                @if($sub->status==1)
-                                                                <a  href="#" class="btn btn-sub-estado btn-xs btn-primary" data-id="{{$sub->id}}" data-estado="2" >Activar</a>
-                                                                @else
-                                                                <a  href="#" class="btn btn-sub-estado btn-xs btn-primary" data-id="{{$sub->id}}" data-estado="1">Desactivar</a>
-                                                                @endif
-                                                                        <a href="#" data-id="{{$sub->id}}" class="btn btn-danger btn-borrar-category btn-xs">Borrar</a>
+                                                                 <a href="#" data-id="<?php echo e($sub->id); ?>"  class="btn btn-default btn-editar-category btn-xs">Editar</a>
+                                                                <?php if($sub->status==1): ?>
+                                                                <a  href="#" class="btn btn-sub-estado btn-xs btn-primary" data-id="<?php echo e($sub->id); ?>" data-estado="2" >Activar</a>
+                                                                <?php else: ?>
+                                                                <a  href="#" class="btn btn-sub-estado btn-xs btn-primary" data-id="<?php echo e($sub->id); ?>" data-estado="1">Desactivar</a>
+                                                                <?php endif; ?>
+                                                                        <a href="#" data-id="<?php echo e($sub->id); ?>" class="btn btn-danger btn-borrar-category btn-xs">Borrar</a>
                                                             </div> 
                                                          </li>
-                                                @endforeach
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                                 </ul>
                                             </div>
@@ -72,22 +70,22 @@
                                         
                                       </div>
                                 
-                                    @else
+                                    <?php else: ?>
                                     <div class="huerfano">
-                                        <h4>{{ $reg->name }}</h4> 
+                                        <h4><?php echo e($reg->name); ?></h4> 
                                         <div class="botcoll">
-                                                <a href="#" data-id="{{$reg->id}}"  class="btn btn-default btn-editar-category btn-xs">Editar</a>
-                                                @if($reg->status==1)
-                                                <a  href="#" class="btn btn-estado btn-xs btn-primary" data-id="{{$reg->id}}" data-estado="2" >Activar</a>
-                                                  @else
-                                                <a  href="#" class="btn btn-estado btn-xs btn-primary" data-id="{{$reg->id}}" data-estado="1">Desactivar</a>
-                                                @endif
-                                                 <a href="#" data-id="{{$reg->id}}" class="btn btn-danger btn-borrar-category btn-xs">Borrar</a>
+                                                <a href="#" data-id="<?php echo e($reg->id); ?>"  class="btn btn-default btn-editar-category btn-xs">Editar</a>
+                                                <?php if($reg->status==1): ?>
+                                                <a  href="#" class="btn btn-estado btn-xs btn-primary" data-id="<?php echo e($reg->id); ?>" data-estado="2" >Activar</a>
+                                                  <?php else: ?>
+                                                <a  href="#" class="btn btn-estado btn-xs btn-primary" data-id="<?php echo e($reg->id); ?>" data-estado="1">Desactivar</a>
+                                                <?php endif; ?>
+                                                 <a href="#" data-id="<?php echo e($reg->id); ?>" class="btn btn-danger btn-borrar-category btn-xs">Borrar</a>
                                              
                                             </div> 
                                         </div>
-                                    @endif
-                                  @endforeach
+                                    <?php endif; ?>
+                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                      
                               
                        
@@ -105,46 +103,47 @@
             
 
         
-                            <form  id="fr-datosacceso" action="/admin/entorno/{{$admin->id}}" method="POST">
-                                    {{ csrf_field() }}
+                            <form  id="fr-datosacceso" action="/admin/entorno/<?php echo e($admin->id); ?>" method="POST">
+                                    <?php echo e(csrf_field()); ?>
+
                                     <input name="_method" type="hidden" value="PUT">
-                                    <input type="hidden" name="id" id="id" value="{{ $admin->id }}">
+                                    <input type="hidden" name="id" id="id" value="<?php echo e($admin->id); ?>">
                                     
-                                    <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
+                                    <div class="form-group <?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
                                             <label for="email">Email</label>
-                                            <input type="email" name="email" class="form-control" value="{{ $admin->email }}" placeholder="Email">
-                                            @if ($errors->has('email'))
+                                            <input type="email" name="email" class="form-control" value="<?php echo e($admin->email); ?>" placeholder="Email">
+                                            <?php if($errors->has('email')): ?>
                                             <span class="help-block">
-                                                <strong>{{ $errors->first('email') }}</strong>
+                                                <strong><?php echo e($errors->first('email')); ?></strong>
                                             </span>
-                                        @endif
+                                        <?php endif; ?>
                                     </div> 
-                                    <div class="form-group  {{ $errors->has('oldpassword') ? ' has-error' : '' }}">
+                                    <div class="form-group  <?php echo e($errors->has('oldpassword') ? ' has-error' : ''); ?>">
                                             <label for="password">Password Anterior</label>
                                             <input type="password" name="oldpassword" class="form-control" placeholder="Password anterior">
-                                            @if ($errors->has('oldpassword'))
+                                            <?php if($errors->has('oldpassword')): ?>
                                             <span class="help-block">
-                                                <strong>{{ $errors->first('oldpassword') }}</strong>
+                                                <strong><?php echo e($errors->first('oldpassword')); ?></strong>
                                             </span>
-                                            @endif
+                                            <?php endif; ?>
                                         </div> 
-                                    <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
+                                    <div class="form-group <?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
                                             <label for="password">Password Nuevo</label>
                                             <input type="password" name="password" class="form-control" placeholder="Password nuevo">
-                                            @if ($errors->has('password'))
+                                            <?php if($errors->has('password')): ?>
                                             <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
+                                                <strong><?php echo e($errors->first('password')); ?></strong>
                                             </span>
-                                            @endif
+                                            <?php endif; ?>
                                         </div>
-                                    <div class="form-group {{ $errors->has('npassword') ? ' has-error' : '' }}">
+                                    <div class="form-group <?php echo e($errors->has('npassword') ? ' has-error' : ''); ?>">
                                             <label for="password">Repita Password</label>
                                             <input type="password" name="npassword" class="form-control " placeholder="Repita password">
-                                            @if ($errors->has('npassword'))
+                                            <?php if($errors->has('npassword')): ?>
                                             <span class="help-block">
-                                                <strong>{{ $errors->first('npassword') }}</strong>
+                                                <strong><?php echo e($errors->first('npassword')); ?></strong>
                                             </span>
-                                            @endif
+                                            <?php endif; ?>
                                     </div> 
 
                                     <div class="modal-footer">
@@ -164,9 +163,10 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <form id="fr-nuevo-category" method="post" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                <?php echo e(csrf_field()); ?>
+
                
-              <input type="hidden" name="admin_id" id="admin_id" value="{{ $admin_id }}">
+              <input type="hidden" name="admin_id" id="admin_id" value="<?php echo e($admin_id); ?>">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
@@ -182,15 +182,15 @@
                   <div class="form-group">
                       <label for="herencia">Categoria a heredar</label>
                       <select name="parent_id" class="form-control"
-						@if(count($servicios)==0)
+						<?php if(count($servicios)==0): ?>
 							 disabled
-						@endif
+						<?php endif; ?>
 					   >
 							  
                         <option value="0">Seleccione</option>
-                         @foreach($servall as $rg)
-                        <option value="{{ $rg->id }}">{{ $rg->name }}</option>
-                         @endforeach
+                         <?php $__currentLoopData = $servall; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($rg->id); ?>"><?php echo e($rg->name); ?></option>
+                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                       </select>
                         
                   </div>
@@ -214,10 +214,11 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <form id="fr-edit-category">
-                    {{ csrf_field() }}
+                    <?php echo e(csrf_field()); ?>
+
                   <input name="_method" type="hidden" value="PUT">
                   <input type="hidden" name="id" id="id" value="">
-                  <input type="hidden" name="admin_id" id="admin_id" value="{{ $admin_id }}">
+                  <input type="hidden" name="admin_id" id="admin_id" value="<?php echo e($admin_id); ?>">
                 
                   <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -236,14 +237,14 @@
                     <div class="form-group">
                         <label for="herencia">Categoria a heredar</label>
                             <select name="parent_id" id="parent_id" class="form-control"
-								@if(count($servicios)==0)
+								<?php if(count($servicios)==0): ?>
 							 		disabled
-								@endif
+								<?php endif; ?>
 							   >
                                 <option value="0">Seleccione</option>
-                                 @foreach($servall as $rg)
-                                <option value="{{ $rg->id }}">{{ $rg->name }}</option>
-                                 @endforeach
+                                 <?php $__currentLoopData = $servall; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($rg->id); ?>"><?php echo e($rg->name); ?></option>
+                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                           
                     </div>
@@ -260,9 +261,12 @@
     </div>
 
 <form id="fr-delete">
-      {{ csrf_field() }}
+      <?php echo e(csrf_field()); ?>
+
       <input name="_method" type="hidden" value="DELETE">  
 </form>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

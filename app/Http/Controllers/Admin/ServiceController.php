@@ -74,6 +74,7 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
+       
         $reg = Service::find($id);
         
         return response()->json(['categorias'=>$reg]);
@@ -87,6 +88,7 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
+       
         $register = Register::find($id);
 
         return response()->json(['registro'=>$register]);

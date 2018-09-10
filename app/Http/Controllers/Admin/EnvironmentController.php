@@ -28,7 +28,7 @@ class EnvironmentController extends Controller
         $mirol = User::navigation();
 
         $admin = User::find($user_id)->first();
-        $servicios = Service::with('childs')->where('parent_id',NULL)->paginate(2);
+        $servicios = Service::with('childs')->where('parent_id',NULL)->get();
 
         $serviceall = Service::with('childs')->where('parent_id',NULL)->get();
 

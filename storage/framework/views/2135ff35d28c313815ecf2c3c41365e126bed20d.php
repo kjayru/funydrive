@@ -1,6 +1,4 @@
-@extends('layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <section class="content-header">
         <h1>Solicitudes</h1>
         <ol class="breadcrumb">
@@ -20,43 +18,45 @@
             
 
         
-                            <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Nombres</th>
-                                        <th scope="col">Order</th>
-                                        <th scope="col">Causa</th>
-                                        <th scope="col">Monto</th>
-                                        <th scope="col">Establecimiento</th>
-                                        <th scope="col">Latitud</th>
-                                        <th scope="col">Longitud</th>
-                                        <th scope="col">Fecha requerimiento</th>
-                                        <th scope="col">Creado</th>
-                                       
-                                        
-                                        
-                                        
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                  @foreach($solicitudes as $key => $sol)
-                                    <tr>
-                                     <th>{{ $key + 1 }}</th> 
-                                     <td>{{ $sol->user_name }}</td> 
-                                     <td>{{ $sol->order_id}}</td> 
-                                     <td>{{ $sol->cause }}</td>
-                                     <td>{{ $sol->amount}}</td>
-                                     <td>{{ $sol->storename}}</td>
-                                     <td>{{ $sol->latitude}}</td>
-                                     <td>{{ $sol->longitude}}</td>
-                                     <td>{{ $sol->request_date}}</td>
-                                     <td>{{ $sol->created_at }}</td>
-                                       
-                                    </tr>
-                                  @endforeach
-                                    </tbody>
-                            </table>        
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Contacto</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">website</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Fecha</th>
+                           
+                            
+                            
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                      <?php $__currentLoopData = $solicitudes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $sol): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <tr>
+                         <th><?php echo e($key + 1); ?></th> 
+                         <td><?php echo e($sol->admin->name); ?></td> 
+                         <td><?php echo e($sol->profile->tradename); ?></td> 
+                         <td><?php echo e($sol->profile->contact); ?></td>
+                         <td><?php echo e($sol->profile->email); ?></td>
+                         <td><?php echo e($sol->profile->website); ?></td>
+                         <td><?php echo e($sol->profile->address); ?></td>
+                        
+                        
+                         <td><?php echo e($sol->created_at); ?></td>
+                            <td>
+                                    
+                                    <a href="#" data-id="<?php echo e($sol->id); ?>" class="btn btn-xs btn-danger btn-solicitud-cliente-delete">Eliminar</a>
+                                    
+                            </td>
+                        </tr>
+                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </tbody>
+                </table>          
                        
                    
                         </div>
@@ -69,7 +69,8 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <form id="fr-nuevo-service" method="post" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                <?php echo e(csrf_field()); ?>
+
                
               
               <div class="modal-header">
@@ -142,7 +143,8 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <form id="fr-edit-service">
-                    {{ csrf_field() }}
+                    <?php echo e(csrf_field()); ?>
+
                   <input name="_method" type="hidden" value="PUT">
                   <input type="hidden" name="id" id="id" value="">
                 
@@ -215,9 +217,12 @@
     </div>
 
 <form id="fr-delete">
-      {{ csrf_field() }}
+      <?php echo e(csrf_field()); ?>
+
       <input name="_method" type="hidden" value="DELETE">  
 </form>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
