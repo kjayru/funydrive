@@ -28,7 +28,17 @@
             <a href="/admin/entorno">
                 <i class="fa fa-th"></i> <span>Entorno</span>
             </a>
-            </li>
+        </li>
+        <li>
+          <a href="/admin/marca">
+              <i class="fa fa-th"></i> <span>Marca</span>
+          </a>
+      </li>
+      <li>
+        <a href="/admin/modelo">
+            <i class="fa fa-th"></i> <span>Modelo</span>
+        </a>
+    </li>
         <li>
               <a  href="{{ route('logout') }}"
               onclick="event.preventDefault();
