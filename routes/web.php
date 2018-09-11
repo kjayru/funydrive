@@ -45,6 +45,17 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('/entorno','Admin\EnvironmentController');
 
     Route::get('/marca','Admin\CarController@index');
+    Route::get('/marca/{id}','Admin\CarController@getmarca');
+    Route::get('/marca/{id}/edit','Admin\CarController@editmarca');
+    Route::post('/marca','Admin\CarController@storemarca');
+    Route::put('/marca/{id}','Admin\CarController@updatemarca');
+    Route::delete('/marca/{id}','Admin\CarController@deletemarca');
+
     Route::get('/modelo','Admin\CarController@modelcar');
+    Route::get('/modelo/{id}','Admin\CarController@getmodelo');
+    Route::get('/modelo/{id}/edit','Admin\CarController@getmodelo');
+    Route::post('/modelo','Admin\CarController@storemodelo');
+    Route::put('/modelo/{id}','Admin\CarController@updatemodelo');
+    Route::delete('/modelo/{id}','Admin\CarController@deletemodelo');
 });
 Route::resource('/servicios','ServiceController');
