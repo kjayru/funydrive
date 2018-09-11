@@ -43,5 +43,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('/listasociados','Admin\ListpartnerController');
     Route::resource('/listsolicitudes','Admin\ListrequestController');
     Route::resource('/entorno','Admin\EnvironmentController');
+
+    Route::get('/marca','Admin\CarController@index');
+    Route::get('/modelo','Admin\CarController@modelcar');
 });
 Route::resource('/servicios','ServiceController');
