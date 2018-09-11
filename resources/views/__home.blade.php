@@ -448,12 +448,20 @@
                     </div>
                     <div class="col-xs-12">
                         <div class="bd-sidebar-service-list__item">
-                           
+                            <div class="bd-service-list__toggle pull-left">
+                                    <div class="btn-toggle mb-summary-btn-toggle">
+                                            <input class="tgl tgl-blue" type="checkbox" id="toggle0">
+                                            <label class="tgl-btn bd-sidebar-service-list__toggle--small"></label>
+                                    </div>
+                                    
+                            </div>
 
                             <div class="bd-sidebar-property bd-sidebar-job-name bd-sidebar-property--scrollable pull-left">
                                     Change Oil and Filter
                             </div>
-                            
+                            <div class="bd-service-list__delete pull-right" >
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxMiAxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjNjY2QjdDIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xLjEyIDEyLjg4MmMwIC40NjQuMzc3Ljg0Ljg0My44NGg3LjU4NWEuODQyLjg0MiAwIDAgMCAuODQ1LS44NFY0LjIzOEgxLjEyMXY4LjY0NHptNi42ODgtNy44MWgxLjMwN3Y2Ljk4OWEuNjUzLjY1MyAwIDAgMS0xLjMwNyAwVjUuMDd6bS0yLjcwNSAwSDYuNDF2Ni45ODlhLjY1My42NTMgMCAwIDEtMS4zMDcgMFY1LjA3em0tMi43MjUgMGgxLjMwNnY2Ljk4OWEuNjUzLjY1MyAwIDAgMS0xLjMwNiAwVjUuMDd6TTEwLjM5IDEuMTc4SDcuMDgydi0uNDhTNy4wNjcuMjggNi42NDUuMjhINC44MzhjLS40MiAwLS40MDYuNDItLjQwNi40MnYuNDc5aC0zLjMxYS44NDIuODQyIDAgMCAwLS44NDQuODR2MS4zOGgxMC45NTZ2LTEuMzhhLjg0Mi44NDIgMCAwIDAtLjg0NC0uODR6Ii8+PC9nPjwvc3ZnPg==">
+                                </div>
                         </div>
                     </div>
                 </div>

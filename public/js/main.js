@@ -62,6 +62,7 @@ $(document).on("cut copy paste", "#zipcode", function (e) {
 
 $("#btnservice").on("click", function () {
   $(this).hide();
+  $(".detallesservicio").show();
   $("#appoint").fadeIn();
 });
 
@@ -188,7 +189,7 @@ $(document).on("click", "#mimodelo li", function () {
   $("#seccioncar").hide();
   $("#sidebar-car").html(`${make} ${yearcar}, ${nombre}`);
   //price or cost service
-  $(".bd-sidebar-price-box__price span").html("75");
+  //$(".bd-sidebar-price-box__price span").html("75");
   $("#services").fadeIn(350);
 });
 
