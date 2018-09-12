@@ -41,9 +41,9 @@
                                         <td>
                                                 <a href="#"  data-id="{{ @$client->id }}" class="btn btn-xs btn-default btn-listcliente-editar">Editar</a>
                                                 @if(@$client->status==1)
-                                                    <a href="#" data-id="{{ @$client->id }}" class="btn btn-xs btn-warning btn-listausuario-activa">Activar</a>
+                                                    <a href="#" data-id="{{ @$client->id }}" class="btn btn-xs btn-warning btn-listacliente-activa">Activar</a>
                                                 @else
-                                                  <a href="#" data-id="{{ @$client->id }}" class="btn btn-xs btn-success btn-listausuario-desactiva">Desactivar</a>
+                                                  <a href="#" data-id="{{ @$client->id }}" class="btn btn-xs btn-success btn-listacliente-desactiva">Desactivar</a>
                                                 @endif
                                                 <a href="#" data-id="{{ @$client->id }}" class="btn btn-xs btn-danger btn-listcliente-delete">Eliminar</a>
                                                 
@@ -65,7 +65,7 @@
           <div class="modal-content">
             <form id="fr-listcliente-service" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <input name="_method" type="hidden" value="PUT">
+                <input name="_method" type="hidden" value="POST">
               
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -75,13 +75,18 @@
               <div class="modal-body">
                   
                   
-                  
+                <div class="form-group">
+                  <label for="nombre">Nombres</label>
+                  <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombres" />
+                    
+              </div>
+              <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" id="email" class="form-control" placeholder="email" />
+                      
+              </div>
 
-                  
-
-                  
-                  
-                  
+                   
                  
               </div>
               
@@ -113,7 +118,7 @@
 
                     <div class="form-group">
                         <label for="nombre">Nombres</label>
-                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombres" />
+                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombres"  />
                           
                     </div>
                     <div class="form-group">
@@ -121,11 +126,12 @@
                         <input type="email" name="email" id="email" class="form-control" placeholder="email" />
                             
                     </div>
+                    
         
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-danger btn-save-liscliente">Guardar</button>
+                  <button type="submit" class="btn btn-danger btn-save-listusuario">Guardar</button>
                 </div>
             </form>
           </div>

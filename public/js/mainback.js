@@ -252,6 +252,116 @@ $(document).ready(function() {
         }
     });
 
+
+
+
+    $(".btn-listasociados-delete").click(function(e){
+        e.preventDefault();
+        var id =  $(this).data('id');
+        if (confirm('Esta seguro de eliminar Usuario')) {
+         
+          let method = 'DELETE';
+          let token = $("#fr-delete input[name$='_token']").val();
+
+          let data = ({'_method':method,'_token':token,'id':id});
+          let url = `/admin/listasociados/${id}`;
+          fetch(url,{
+            method:'POST',
+            body:JSON.stringify(data),
+            headers:{
+                'Content-Type':'application/json'
+                }
+            }).then(res => res.json())
+            .catch(error => console.error('error: ', error))
+            .then(response => console.log('Success: ',response));
+            
+           window.location.reload();
+          
+        } else {
+           return false;
+        }
+    });
+
+
+    $(".btn-listcliente-editar").click(function(e){
+        e.preventDefault();
+        let id = $(this).data('id');
+        
+
+        
+
+        let url = `/admin/listclientes/${id}/edit`;
+
+        
+        
+        fetch(url).then(res=>res.json())
+        .catch(error => console.error('error: ',error))
+        .then(response => {
+            $("#fr-edit-listcliente #id").val(id);
+            $("#fr-edit-listcliente #nombre").val(response.datos.name);
+            $("#fr-edit-listcliente #email").val(response.datos.email);
+            $("#modal-editlistcliente").modal('show');
+        });
+
+
+    });
+
+    $(".btn-save-listusuario").click(function(e){
+        e.preventDefault();
+        let token = $("#fr-edit-listcliente input[name$='_token']").val();
+        let nombre = $("#fr-edit-listcliente #nombre").val();
+        let email = $("#fr-edit-listcliente #email").val();
+        let id = $("#fr-edit-listcliente #id").val();
+      
+
+        let url = `/admin/listclientes/${id}`;
+
+        let data = ({'_method':'PUT','_token':token,'nombre':nombre,'email':email});
+        
+        fetch(url,{
+            method:'POST',
+            body:JSON.stringify(data),
+            headers:{
+                'Content-Type':'application/json'
+                }
+        }).then(res=>res.json())
+        .catch(error => console.error('error: ',error))
+        .then(response => {
+            console.log(response);
+            window.location.reload();
+        });
+
+    });
+    $(".btn-listcliente-delete").click(function(e){
+        e.preventDefault();
+        let id = $(this).data('id');
+
+        if (confirm('Esta seguro de eliminar Usuario')) {
+            let token = $("#fr-edit-listcliente input[name$='_token']").val();
+        
+
+            let url = `/admin/listclientes/${id}`;
+
+            let data = ({'_method':'DELETE','_token':token});
+            
+            fetch(url,{
+                method:'POST',
+                body:JSON.stringify(data),
+                headers:{
+                    'Content-Type':'application/json'
+                    }
+            }).then(res=>res.json())
+            .catch(error => console.error('error: ',error))
+            .then(response => {
+                console.log(response);
+                window.location.reload();
+            });
+        }
+
+    });
+
+
+
     $("#service").change(function() {
         console.log("iniciando servicio..");
         var id = $(this).val();
@@ -279,6 +389,10 @@ $(document).ready(function() {
 
         });
     });
+
+
+
+
 
     $("#subservice").change(function() {
 
@@ -543,6 +657,50 @@ $(document).ready(function() {
         var dataform = ({ '_method': metodo, '_token': token, 'estado': '2' });
         $.ajax({
             url: "/admin/estado/" + id,
+            type: "POST",
+            dataType: 'json',
+            data: dataform,
+            success: function(response) {
+                //console.log(response); 
+                window.location.reload();
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+    });
+
+   
+    $(".btn-listacliente-activa").click(function(e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        var token = $("#fr-edit-listcliente input[name='_token']").val();
+        var metodo = 'PUT';
+        var dataform = ({ '_method': metodo, '_token': token, 'estado': '2' });
+        $.ajax({
+            url: "/admin/listclientes/estado/" + id,
+            type: "POST",
+            dataType: 'json',
+            data: dataform,
+            success: function(response) {
+                //console.log(response); 
+                window.location.reload();
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+    });
+
+
+    $(".btn-listacliente-desactiva").click(function(e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        var token = $("#fr-edit-listcliente input[name='_token']").val();
+        var metodo = 'PUT';
+        var dataform = ({ '_method': metodo, '_token': token, 'estado': '1' });
+        $.ajax({
+            url: "/admin/listclientes/estado/" + id,
             type: "POST",
             dataType: 'json',
             data: dataform,

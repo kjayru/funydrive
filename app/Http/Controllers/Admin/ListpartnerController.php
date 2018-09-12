@@ -65,23 +65,18 @@ class ListpartnerController extends Controller
      */
     public function edit($id)
     {
-        /*$socio = Profile::find($id)->first();
-        if(!$socio){
-        return response()->json(['socio'=>"vacio"]);
-        }else{
-        return response()->json(['socio'=>$socio]);
-        }*/
+       
 		
-		
-		$usuario='admin';
         
-        $profile = Profile::where('admin_id',$id)->first();
-        $photos = Photo::where('admin_id',$id)->get();
-        $phones = Phone::where('admin_id',$id)->get();
-        $dias = Dayhour::where('admin_id',$id)->get();
-        $vacaciones = Vacation::where('admin_id',$id)->get();
+        $mirol    = User::navigation();
         
-        return View('admin.super.detallesocio',['usuario'=>$usuario,'socio_id'=>$id,'profile'=>$profile,'photos'=>$photos,'phones'=>$phones,'dias'=>$dias,'vacaciones'=>$vacaciones]);
+        $profile = Profile::where('user_id',$id)->first();
+        $photos = Photo::where('user_id',$id)->get();
+        $phones = Phone::where('user_id',$id)->get();
+        $dias = Dayhour::where('user_id',$id)->get();
+        $vacaciones = Vacation::where('user_id',$id)->get();
+        
+        return View('admin.super.detallesocio',['usuario'=>$mirol,'socio_id'=>$id,'profile'=>$profile,'photos'=>$photos,'phones'=>$phones,'dias'=>$dias,'vacaciones'=>$vacaciones]);
 		
 		
     }
@@ -112,14 +107,14 @@ class ListpartnerController extends Controller
 		
 		
 		
-		$profile = Profile::where('admin_id',$id)->first();
+		$profile = Profile::where('user_id',$id)->first();
 
         if ($profile === null) {         
            $profile = new Profile();
            
          }
 
-        $profile->admin_id  = $request->socio_id;
+        $profile->user_id  = $request->socio_id;
         $profile->tradename = $request->tradename;
         $profile->contact   = $request->contact;
         $profile->email     = $request->email;
@@ -130,7 +125,7 @@ class ListpartnerController extends Controller
 
         $profile->save();
 
-        $iphone = Phone::where('admin_id',$request->socio_id)->delete();
+        $iphone = Phone::where('user_id',$request->socio_id)->delete();
 
 		if($request->file('photo')){
 			if(count($request->file('photo'))>0){
@@ -152,9 +147,8 @@ class ListpartnerController extends Controller
 
 		if($request->phone){
 			foreach ($request->phone as $phone) {
-
 				$fono = new  Phone();
-				$fono->admin_id = $request->socio_id;
+				$fono->user_id = $request->socio_id;
 				$fono->phone = $phone;
 				$fono->save();
 			}
@@ -164,26 +158,26 @@ class ListpartnerController extends Controller
 
 		//diasemana
 
-		Dayhour::where('admin_id',$request->socio_id)->delete();
+		Dayhour::where('user_id',$request->socio_id)->delete();
 
 		//for($i=0;$i<7;$i++){
 		foreach ($request->day as $key => $day) {
 
 			 $dayhour = new Dayhour();
-			 $dayhour->admin_id = $request->socio_id;
+			 $dayhour->user_id = $request->socio_id;
 			 $dayhour->day = $day;
 			 $dayhour->starhour = $request['apertura'][$key];
 			 $dayhour->endhour =  $request['cierre'][$key];
 			 $dayhour->save();
 		}  
 		//vacaciones
-		Vacation::where('admin_id',$request->socio_id)->delete();
+		Vacation::where('user_id',$request->socio_id)->delete();
 
 		//for($j=0;$j<4;$j++){
 		foreach ($request->vacacion as $vacas) {
 			$vaca = new Vacation();
-			$vaca->admin_id = $request->socio_id;
-			$vaca->startdate = $vacas;
+			$vaca->user_id = $request->socio_id;
+			$vaca->stardate = $vacas;
 
 
 			$vaca->save();
@@ -200,8 +194,12 @@ class ListpartnerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function destroy($id)
     {
-        //
+        $partner = User::find($id)->delete();
+        $parent = Profile::where('user_id',$id)->delete();
+
+        return response()->json(['rpta'=>'ok']);
     }
 }

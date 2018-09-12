@@ -41,6 +41,10 @@ Route::group(['prefix' => 'admin'], function () {
     
     //super
     Route::resource('/listclientes','Admin\ListclientController');
+
+    Route::put('/listclientes/estado/{id}','Admin\ListclientController@estado');
+
+
     Route::resource('/listasociados','Admin\ListpartnerController');
     Route::resource('/listsolicitudes','Admin\ListrequestController');
     Route::resource('/entorno','Admin\EnvironmentController');
