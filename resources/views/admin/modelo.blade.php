@@ -79,17 +79,7 @@
                         <input type="text" name="marca" id="marca" class="form-control">
                     </div>
   
-                    <div class="form-group">
-                        <label for="marca">Años</label>
-                        <select name="year" id="marcayear" multiple>
-
-                        </select>
-                        <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Selecione los años" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                            @for($i=$year;$i>1930;$i++)   
-                            <option value="{{$i}}">{{$i}}</option>
-                            @endfor
-                         </select>
-                    </div> 
+                   
 
                    
                    
