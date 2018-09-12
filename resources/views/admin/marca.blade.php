@@ -14,7 +14,7 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header with-border">
-                
+                <a href="#" class="btn bt-xs btn-nuevo-marca btn-block btn-info">Nueva Marca</a>
             </div>
                 <div class="box-body">
             
@@ -41,7 +41,12 @@
                                             {{ $y->year }} -
                                         @endforeach
                                        </td>
-                                       <td></td>
+                                       <td>
+                                           <div class="btn-group">
+                                            <a  href="#" data-id="{{$marc->id}}" class="btn btn-success marca-edit"><i class="fa fa-fw  fa-pencil"></i></a>
+                                            <a href="#" data-id="{{ $marc->id }}" class="btn btn-danger marca-borrar"><i class="fa fa-fw  fa-trash"></i></a>
+                                            </div>
+                                       </td>
                                        
                                     </tr>
                                 @endforeach
@@ -58,53 +63,50 @@
 
    
 
-    <div class="modal modal-default fade" id="modal-edit-listasociados">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <form id="fr-edit-listasociados">
-                    {{ csrf_field() }}
-                    
-                  <input name="_method" type="hidden" value="PUT">
-                  <input type="hidden" name="id" id="id" value="">
-                
-                  <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">Editar Datos Asociado</h4>
-                </div>
-                
-                <div class="modal-body">
+ <div class="modal modal-default fade" id="modal-edit-marca">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form id="fr-edit-marca" method="POST">
+                  {{ csrf_field() }}
+                  
+                <input name="_method" type="hidden" value="POST">
+                <input type="hidden" name="id" id="id" value="">
+              
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Nueva Marca</h4>
+              </div>
+              
+              <div class="modal-body">
 
-                    <div class="form-group">
-                        <label for="marca">Marca Comercial</label>
-                        <input type="text" name="marca" id="marca" class="form-control">
-                    </div>
-  
-                    <div class="form-group">
-                        <label for="marca">Contacto</label>
-                        <input type="text" name="contacto" id="contacto" class="form-control">
-                    </div> 
+                  <div class="form-group">
+                      <label for="marca">Nombre</label>
+                      <input type="text" name="marca" id="marca" class="form-control">
+                  </div>
 
-                    <div class="form-group">
-                        <label for="email">Email Contacto</label>
-                        <input type="email" name="emailcontacto" id="emailcontacto" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="precio">Website</label>
-                        <input type="text" name="website" id="website" class="form-control" />
-                          
-                    </div>
-                   
-        
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-danger btn-save-listasociados">Guardar</button>
-                </div>
-            </form>
-          </div>
-        </div>    
-    </div>
+                  <div class="form-group">
+                      <label for="marca">Años</label>
+                     
+                      <select class="form-control select2" name="yearsmake" id="yearsmake" multiple="multiple" data-placeholder="Selecione los años" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                          @for($i=2018;$i>1930;$i--)   
+                          <option value="{{$i}}">{{$i}}</option>
+                          @endfor
+                       </select>
+                  </div> 
+
+                 
+                 
+      
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-danger btn-save-marca">Guardar</button>
+              </div>
+          </form>
+        </div>
+      </div>    
+  </div>
 
     <form id="fr-listcliente-service" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}

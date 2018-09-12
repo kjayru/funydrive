@@ -8,6 +8,90 @@ $(document).ready(function() {
         console.log("inicializar");
     }
 
+    $('.select2').select2();
+
+    $(".btn-nuevo-marca").click(function(e){
+        e.preventDefault();
+        $("#modal-edit-marca").modal('show');
+    });
+
+    $(".marca-edit").click(function(e){
+        e.preventDefault();
+
+        id = $(this).data('id');
+        document.querySelector("input[name$='_method']").value = 'PUT';
+        document.getElementById("id").value = id;
+        $(".modal-title").html("Editar Marca");
+
+        let url = `/admin/marca/${id}/edit`;
+           fetch(url)
+                .then(res=>res.json())
+                .catch(error=> console.error('error',error))
+                .then(response=>{
+                    console.log(response);
+                    //injection
+                    
+                    
+                    document.getElementById('marca').value = response.marcas.name;
+                    $.each(response.years,function(i,e){
+                       console.log(e.year);
+                        
+                        $(`#yearsmake option[value=${e.year}]`).attr('selected', true);
+                        
+                    });
+                    
+                    $("#yearsmake").select2();
+                    
+
+                    $("#modal-edit-marca").modal('show');
+                });
+
+
+        
+
+    });
+    //save new make
+    $(".btn-save-marca").click(function(e){
+        e.preventDefault();
+       
+        let marca = document.getElementById("marca").value;
+        let id = document.getElementById("id").value;
+        let url='';
+        let method = document.querySelector("input[name$='_method']").value;
+        let token = document.querySelector("input[name$='_token']").value;
+
+        var selectednumbers = [];
+            $('#yearsmake :selected').each(function(i, selected) {
+                selectednumbers[i] = $(selected).val();
+            });
+            let data = ({'_method':method,'_token':token,'name':marca,'yearmake':selectednumbers});
+        if(method=='POST'){
+            
+             url ="/admin/marca";
+            console.log('nuevo');
+
+        }else{
+            
+             url =`/admin/marca/${id}`;
+            console.log('actualiza');
+        }
+        //ajax
+        fetch(url,{
+            method:'POST',
+            body:JSON.stringify(data),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        }).then(res => res.json())
+            .catch(error => console.error('error: ', error))
+            .then(response => console.log('Success: ',response));
+    
+            $("#modal-edit-marca").modal('hide');
+            window.location.reload();
+        
+        
+    });
+
     $("#service").change(function() {
         console.log("iniciando servicio..");
         var id = $(this).val();

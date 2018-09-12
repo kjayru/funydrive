@@ -179,6 +179,8 @@ $("#box2 li").on("click", function () {
     });
 });
 
+
+
 $(document).on("click", "#mimodelo li", function () {
   let idmodelo = $(this).data("id");
   let nombre = $(this).data("nombre");

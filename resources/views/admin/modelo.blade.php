@@ -14,7 +14,7 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header with-border">
-                
+                    <a href="#" class="btn bt-xs btn-nuevo-marca btn-block btn-info">Nuevo Modelo</a>
             </div>
                 <div class="box-body">
             
@@ -35,7 +35,12 @@
                                        <th>{{ $key + 1 }}</th>
                                        <td>{{ $mod->name }}</td>
                                        <td>{{ $mod->makeyear->make->name}}</td>
-                                       <td></td>
+                                       <td>
+                                            <div class="btn-group">
+                                                <a  href="#" data-id="{{$mod->id}}" class="btn btn-success marca-edit"><i class="fa fa-fw  fa-pencil"></i></a>
+                                                <a href="#" data-id="{{ $mod->id }}" class="btn btn-danger marca-borrar"><i class="fa fa-fw  fa-trash"></i></a>
+                                            </div>
+                                       </td>
                                        
                                     </tr>
                                 @endforeach
@@ -52,7 +57,7 @@
 
    
 
-    <div class="modal modal-default fade" id="modal-edit-listasociados">
+    <div class="modal modal-default fade" id="modal-edit-marca">
           <div class="modal-dialog">
             <div class="modal-content">
               <form id="fr-edit-listasociados">
@@ -64,30 +69,29 @@
                   <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title">Editar Datos Asociado</h4>
+                  <h4 class="modal-title">Nueva Marca</h4>
                 </div>
                 
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label for="marca">Marca Comercial</label>
+                        <label for="marca">Nombre</label>
                         <input type="text" name="marca" id="marca" class="form-control">
                     </div>
   
                     <div class="form-group">
-                        <label for="marca">Contacto</label>
-                        <input type="text" name="contacto" id="contacto" class="form-control">
+                        <label for="marca">Años</label>
+                        <select name="year" id="marcayear" multiple>
+
+                        </select>
+                        <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Selecione los años" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                            @for($i=$year;$i>1930;$i++)   
+                            <option value="{{$i}}">{{$i}}</option>
+                            @endfor
+                         </select>
                     </div> 
 
-                    <div class="form-group">
-                        <label for="email">Email Contacto</label>
-                        <input type="email" name="emailcontacto" id="emailcontacto" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="precio">Website</label>
-                        <input type="text" name="website" id="website" class="form-control" />
-                          
-                    </div>
+                   
                    
         
                 </div>
