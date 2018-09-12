@@ -31,7 +31,9 @@ class RegisterController extends Controller
         $this->middleware('auth:web');
     }
    
-   
+   public function index(){
+       return redirect('/');
+   }
 
 
     public function registrowork(Request $request){

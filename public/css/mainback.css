@@ -77,3 +77,7 @@ h4.panel-title {
 .huerfano h4{
     display: inline-block;
 }
+
+.btn-nuevo-marca {
+    display: inline;
+}

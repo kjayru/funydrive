@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="/assets/plugins/daterangepicker/daterangepicker-bs3.css">
  
   <link rel="stylesheet" href="/assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="/assets/plugins/select2/select2.css">
   <link rel="stylesheet" href="/css/mainback.css?v={{ date('dmhms')}}">
 
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -141,7 +142,7 @@
 <script src="/assets/dist/js/app.js"></script>
 <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
 <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-
+<script type="text/javascript" src="/assets/plugins/select2/select2.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="/js/mainback.js?v={{ date('dmhms')}}"></script>
