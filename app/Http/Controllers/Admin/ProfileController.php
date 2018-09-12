@@ -11,7 +11,7 @@ use App\Photo;
 use App\Phone;
 use App\Dayhour;
 use App\Vacation;
-use App\Admin;
+use App\User;
 
 class ProfileController extends Controller
 {
