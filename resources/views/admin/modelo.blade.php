@@ -57,10 +57,10 @@
 
    
 
-    <div class="modal modal-default fade" id="modal-edit-marca">
+    <div class="modal modal-default fade" id="modal-edit-modelo">
           <div class="modal-dialog">
             <div class="modal-content">
-              <form id="fr-edit-listasociados">
+              <form id="fr-edit-modelo">
                     {{ csrf_field() }}
                     
                   <input name="_method" type="hidden" value="PUT">
