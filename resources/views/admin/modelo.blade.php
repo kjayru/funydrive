@@ -14,7 +14,7 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header with-border">
-                    <a href="#" class="btn bt-xs btn-nuevo-marca btn-block btn-info">Nuevo Modelo</a>
+                    <a href="#" class="btn bt-xs btn-nuevo-modelo btn-block btn-info">Nuevo Modelo</a>
             </div>
                 <div class="box-body">
             
@@ -37,8 +37,8 @@
                                        <td>{{ $mod->makeyear->make->name}}</td>
                                        <td>
                                             <div class="btn-group">
-                                                <a  href="#" data-id="{{$mod->id}}" class="btn btn-success marca-edit"><i class="fa fa-fw  fa-pencil"></i></a>
-                                                <a href="#" data-id="{{ $mod->id }}" class="btn btn-danger marca-borrar"><i class="fa fa-fw  fa-trash"></i></a>
+                                                <a  href="#" data-id="{{$mod->id}}" class="btn btn-success modelo-edit"><i class="fa fa-fw  fa-pencil"></i></a>
+                                                <a href="#" data-id="{{ $mod->id }}" class="btn btn-danger modelo-borrar"><i class="fa fa-fw  fa-trash"></i></a>
                                             </div>
                                        </td>
                                        
@@ -63,7 +63,7 @@
               <form id="fr-edit-modelo">
                     {{ csrf_field() }}
                     
-                  <input name="_method" type="hidden" value="PUT">
+                  <input name="_method" type="hidden" value="POST">
                   <input type="hidden" name="id" id="id" value="">
                 
                   <div class="modal-header">
@@ -76,10 +76,26 @@
 
                     <div class="form-group">
                         <label for="marca">Nombre</label>
-                        <input type="text" name="marca" id="marca" class="form-control">
+                        <input type="text" name="modelo" id="modelo" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="marca">Marca</label>
+                        <select name="marca" id="marcamodel" class="form-control">
+                        @foreach($marcas as $marca)
+                            <option value="{{ $marca->id}}">{{ $marca->name }}</option>
+                        @endforeach;
+                        </select>
                     </div>
   
-                   
+                    <div class="form-group">
+                            <label for="year">Año</label>
+                            <select name="year" id="yearmodel" class="form-control">
+                           
+                                <option value="0">Seleccione</option>
+                          
+                            </select>
+                        </div>
 
                    
                    
@@ -87,7 +103,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" class="btn btn-danger btn-save-listasociados">Guardar</button>
+                  <button type="submit" class="btn btn-danger btn-save-modelo">Guardar</button>
                 </div>
             </form>
           </div>

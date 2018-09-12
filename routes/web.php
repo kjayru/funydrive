@@ -20,6 +20,7 @@ Route::get('/getservice/{id}/edit','HomeController@getservice');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {
@@ -53,9 +54,11 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('/modelo','Admin\CarController@modelcar');
     Route::get('/modelo/{id}','Admin\CarController@getmodelo');
-    Route::get('/modelo/{id}/edit','Admin\CarController@getmodelo');
+    Route::get('/modelo/{id}/edit','Admin\CarController@editmodelo');
     Route::post('/modelo','Admin\CarController@storemodelo');
     Route::put('/modelo/{id}','Admin\CarController@updatemodelo');
     Route::delete('/modelo/{id}','Admin\CarController@deletemodelo');
+
+    Route::get('/getyear/{id}','Admin\CarController@getyear');
 });
 Route::resource('/servicios','ServiceController');

@@ -92,6 +92,166 @@ $(document).ready(function() {
         
     });
 
+
+    $(".btn-nuevo-modelo").click(function(e){
+        e.preventDefault();
+        $("#modal-edit-modelo").modal('show');
+    });
+
+    $("#marcamodel").change(function(){
+        var id = $(this).val();
+        console.log(id);
+        var ioption = '';
+        let url = `/admin/getyear/${id}`;
+           fetch(url)
+                .then(res=>res.json())
+                .catch(error=> console.error('error',error))
+                .then(response=>{
+                    console.log(response);
+                    //injection
+
+                    $.each(response,function(i,e){
+                       
+                        ioption = ioption+`<option value="${e.id}">${e.year}</option>`;
+                        
+                    });
+                    $("#yearmodel").html(ioption);
+                   
+                });
+    });
+
+
+    $(".btn-save-modelo").click(function(e){
+        e.preventDefault();
+       
+        let modelo = document.getElementById("modelo").value;
+        let id = document.getElementById("id").value;
+        let makeyear_id = document.getElementById("yearmodel").value;
+        let url='';
+        let method = document.querySelector("input[name$='_method']").value;
+        let token = document.querySelector("input[name$='_token']").value;
+
+        var selectednumbers = [];
+            $('#yearsmake :selected').each(function(i, selected) {
+                selectednumbers[i] = $(selected).val();
+            });
+            let data = ({'_method':method,'_token':token,'name':modelo,'makeyear_id':makeyear_id});
+        if(method=='POST'){
+            
+             url ="/admin/modelo";
+            console.log('nuevo');
+
+        }else{
+            
+             url =`/admin/modelo/${id}`;
+            console.log('actualiza');
+        }
+        //ajax
+        fetch(url,{
+            method:'POST',
+            body:JSON.stringify(data),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        }).then(res => res.json())
+            .catch(error => console.error('error: ', error))
+            .then(response => console.log('Success: ',response));
+    
+            $("#modal-edit-modelo").modal('hide');
+            window.location.reload();
+        
+        
+    });
+
+    
+    $(".modelo-edit").click(function(e){
+        e.preventDefault();
+        let ioption = '';
+        id = $(this).data('id');
+        document.querySelector("input[name$='_method']").value = 'PUT';
+        document.getElementById("id").value = id;
+        $(".modal-title").html("Editar Modelo");
+
+        let url = `/admin/modelo/${id}/edit`;
+           fetch(url)
+                .then(res=>res.json())
+                .catch(error=> console.error('error',error))
+                .then(response=>{
+                    console.log(response);
+                    //injection
+                    
+                    
+                    document.getElementById('modelo').value = response.modelos.name;
+                    
+                    document.getElementById('marcamodel').value = response.marcaid;
+                   
+                    $.each(response.years,function(i,e){
+                       
+                        ioption = ioption+`<option value="${e.id}">${e.year}</option>`;
+                        
+                    });
+                    $("#yearmodel").html(ioption);
+
+                    document.getElementById('yearmodel').value = response.yearid;
+
+                    $("#modal-edit-modelo").modal('show');
+                }); 
+
+    });
+
+    $(".modelo-borrar").click(function(e){
+        e.preventDefault();
+        var id =  $(this).data('id');
+        if (confirm('Esta seguro de eliminar este item')) {
+         
+          let method = 'DELETE';
+          let token = document.querySelector("input[name$='_token']").value;
+          let data = ({'_method':method,'_token':token,'id':id});
+          let url = `/admin/modelo/${id}`;
+          fetch(url,{
+            method:'POST',
+            body:JSON.stringify(data),
+            headers:{
+                'Content-Type':'application/json'
+                }
+            }).then(res => res.json())
+            .catch(error => console.error('error: ', error))
+            .then(response => console.log('Success: ',response));
+            
+           window.location.reload();
+          
+        } else {
+           return false;
+        }
+    });
+
+
+    $(".marca-borrar").click(function(e){
+        e.preventDefault();
+        var id =  $(this).data('id');
+        if (confirm('Esta seguro de eliminar este item')) {
+         
+          let method = 'DELETE';
+          let token = document.querySelector("input[name$='_token']").value;
+          let data = ({'_method':method,'_token':token,'id':id});
+          let url = `/admin/marca/${id}`;
+          fetch(url,{
+            method:'POST',
+            body:JSON.stringify(data),
+            headers:{
+                'Content-Type':'application/json'
+                }
+            }).then(res => res.json())
+            .catch(error => console.error('error: ', error))
+            .then(response => console.log('Success: ',response));
+            
+           //window.location.reload();
+          
+        } else {
+           return false;
+        }
+    });
+
     $("#service").change(function() {
         console.log("iniciando servicio..");
         var id = $(this).val();

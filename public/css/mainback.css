@@ -78,6 +78,6 @@ h4.panel-title {
     display: inline-block;
 }
 
-.btn-nuevo-marca {
+.btn-nuevo-marca,.btn-nuevo-modelo {
     display: inline;
 }

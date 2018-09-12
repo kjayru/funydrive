@@ -87,12 +87,13 @@ class CarController extends Controller
         $marcas = Make::find($id);
         $marcas->delete();
 
-        return redirect('admin\marcas');
+        return response()->json(["rpta"=>"ok"]);
     }
 
     public function modelcar(){
         $modelos = Modelo::paginate(30);
-        return view('admin.modelo',['modelos'=>$modelos]);
+        $marcas = Make::all();
+        return view('admin.modelo',['modelos'=>$modelos,'marcas'=>$marcas]);
     }
 
 
@@ -104,8 +105,13 @@ class CarController extends Controller
 
     public function editmodelo($id){
         $modelos = Modelo::find($id);
-        
-        return view('admin.modelo',['modelos'=>$modelos]);
+        $marca = $modelos->makeyear->make->name;
+        $marcaid = $modelos->makeyear->make->id;
+
+        $years = MakeYear::where('make_id',$marcaid)->get();
+        $yearid = $modelos->makeyear->id;
+       
+        return response()->json(['modelos'=>$modelos,'marca'=>$marca,'marcaid'=>$marcaid,'yearid'=>$yearid,'years'=>$years]);
     }
 
     public function updatemodelo(Request $request, $id){
@@ -125,14 +131,24 @@ class CarController extends Controller
 
         $modelo->save();
 
-        return redirect('admin/modelo');
+        return response()->json(['rpta'=>'ok']);
 
     }
     public function deletemodelo($id){
+      
         $modelo = Modelo::find($id);
         $modelo->delete();
 
-        return redirect('admin/modelo');
+        return response()->json(['rpta'=>'ok']);
+    }
+
+
+    public function getyear($id){
+
+        $years = MakeYear::where('make_id',$id)->get();
+
+        return response()->json($years);
+
     }
 }
 
