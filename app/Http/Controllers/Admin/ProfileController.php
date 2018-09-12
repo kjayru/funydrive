@@ -177,7 +177,7 @@ class ProfileController extends Controller
 
     for($i=0;$i<7;$i++){
 
-         $dayhour = new Dayhour();
+         $dayhour = new Dayhour;
          $dayhour->user_id = $request->admin_id;
          $dayhour->day = $request['day'][$i];
          $dayhour->starhour = $request['apertura'][$i];
@@ -189,7 +189,7 @@ class ProfileController extends Controller
 
     for($j=0;$j<4;$j++){
 
-        $vaca = new Vacation();
+        $vaca = new Vacation;
         $vaca->user_id = $request->admin_id;
         $vaca->stardate = $request->vacacion[$j];
         

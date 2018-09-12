@@ -146,25 +146,25 @@
                                   <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="page">Vacaciones 1</label>
-                                        <input type="text" name="vacacion[]" id="sem15" class="form-control"  value="{{ @$vacaciones[0]->startdate }}" placeholder="Desde">
+                                        <input type="text" name="vacacion[]" id="sem15" class="form-control"  value="{{ @$vacaciones[0]->stardate }}" placeholder="Desde">
                                         
                                     </div> 
 
                                     <div class="form-group">
                                         <label for="page">Vacaciones 2</label>
-                                        <input type="text" name="vacacion[]" id="sem16" class="form-control"  value="{{ @$vacaciones[1]->startdate }}" placeholder="Desde">
+                                        <input type="text" name="vacacion[]" id="sem16" class="form-control"  value="{{ @$vacaciones[1]->stardate }}" placeholder="Desde">
                                        
                                     </div> 
 
                                     <div class="form-group">
                                         <label for="page">Vacaciones 3</label>
-                                        <input type="text" name="vacacion[]" id="sem17" class="form-control"  value="{{ @$vacaciones[2]->startdate }}" placeholder="Desde">
+                                        <input type="text" name="vacacion[]" id="sem17" class="form-control"  value="{{ @$vacaciones[2]->stardate }}" placeholder="Desde">
                                         
                                     </div> 
 
                                     <div class="form-group">
                                         <label for="page">Vacaciones 4</label>
-                                        <input type="text" name="vacacion[]" id="sem18" class="form-control"  value="{{ @$vacaciones[3]->startdate }}" placeholder="Desde">
+                                        <input type="text" name="vacacion[]" id="sem18" class="form-control"  value="{{ @$vacaciones[3]->stardate }}" placeholder="Desde">
                                        
                                     </div> 
                                   </div>
