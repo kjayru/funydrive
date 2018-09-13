@@ -357,8 +357,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function zipmapa(provincia) {
-  let latitud = parseFloat(provincia.lon);
-  let longitud = parseFloat(provincia.lat);
+  let longitud = parseFloat(provincia.lon);
+  let  latitud = parseFloat(provincia.lat);
   var pos = { lat: latitud, lng: longitud };
   // var position = {lat: -2.712437310, lng: 42.939811580};
 

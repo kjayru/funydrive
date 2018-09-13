@@ -47,8 +47,18 @@ class HomeController extends Controller
 
     public function getPostal($code){
 
-        $postal = PostalCode::where('codigopostalid',$code)->first();
-        
+       // $postal = PostalCode::where('codigopostalid',$code)->first();
+        /*SELECT * FROM postal_codes a, poblacions b, provincias c
+where codigopostalid = 28050
+and a.provinciaid = c.provinciaid
+and a.poblacionid = b.poblacionid
+and b.provinciaid = c.provinciaid*/
+
+        $postal = DB::table('postal_codes')
+            ->join('provincias','postal_code.provinciaid','=','provincias.provinciaid')
+            ->join('poblacions','postal_code.poblacionid','=','poblacions.poblacionid')
+        ->get();
+
         if($postal){
             $poblacion = $postal->poblacion->poblacion;
             $provincia = $postal->provincia->provincia;
