@@ -28,7 +28,7 @@ class RegisterController extends Controller
     
     public function __construct()
     {
-        $this->middleware('auth:web');
+        $this->middleware('auth');	
     }
    
    public function index(){
@@ -64,6 +64,12 @@ class RegisterController extends Controller
         $workshop->latitude = $request->latitud;
         $workshop->longitude = $request->longitud;
         $workshop->storename = $request->namestore;
+
+        $iduserservice = $request->iduserservice;
+
+        if($iduserservice==0){
+            $iduserservice=5;
+        }
         
         $destinationPath = public_path('/photos');
 
@@ -111,8 +117,18 @@ class RegisterController extends Controller
 
         $workshop->save();
 
+
+       $asociado =  new Workshopassociationorders;
+
+       $asociado->order_id = $order_id;
+       $asociado->ws_id    = $iduserservice;
+      
+       $asociado->save();
+
+
+
         return redirect('/admin/solicitudes');
-     
+
     }
 
 }

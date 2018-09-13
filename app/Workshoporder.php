@@ -9,6 +9,10 @@ class Workshoporder extends Model
     protected $table ='WorkShopOrders';
 
 
+    public function Workshopassociationorders(){
+        return $this->hasMany('App\Workshopassociationorder','order_id');
+    }
+
     public static function  random_str($length,$keyspace = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz') {
         $str = '';
         $max = mb_strlen($keyspace, '8bit') - 1;

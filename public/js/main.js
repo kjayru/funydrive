@@ -230,7 +230,7 @@ $(".bd-service-list--items li").click(function () {
             `<div class="bd-service-list--service">
                 <div class="bd-icon-service-plus pull-left">
                 </div>
-                <span data-id="${e.id}" data-name="${e.name}">${e.name}</span>
+                <span data-id="${e.id}" data-iduserservice="${e.user_id}" data-name="${e.name}">${e.name}</span>
                 </div>`;
         });
         $("#contsubs").html(listserv);
@@ -245,6 +245,7 @@ $(".bd-service-list--items li").click(function () {
 $(document).on("click", ".bd-service-list--service span", function () {
   let id = $(this).data("id");
   let nombre = $(this).data("name");
+  let iduserservice = $(this).data('iduserservice');
   namesubservice = nombre;
   $(".g-section-header-text").html(namesubservice);
   $("#services").hide();
@@ -256,7 +257,7 @@ $(".btn-notas").on("click", function (e) {
   e.preventDefault();
 
 
-
+  $("#iduserservice").val(iduserservice);
   $("#codepostal").val(codigo);
   $("#makecar").val(make);
   $("#modelcar").val(modelcar);
@@ -361,8 +362,8 @@ function zipmapa(provincia) {
  
   let longitud = parseFloat(provincia.lat);
   let  latitud = parseFloat(provincia.lon);
-  console.log("latitud "+latitud);
-  console.log("longitud "+longitud);
+ 
+  
   var pos = { lat: latitud, lng: longitud };
   // var position = {lat: -2.712437310, lng: 42.939811580};
 

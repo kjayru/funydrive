@@ -48,15 +48,7 @@ class HomeController extends Controller
     public function getPostal($code){
 
       
-        /*SELECT*FROM
-        postal_codes
-        JOIN provincias
-        ON postal_codes.provinciaid = provincias.provinciaid 
-        JOIN poblacions
-        ON postal_codes.poblacionid = poblacions.poblacionid
-        AND provincias.provinciaid = poblacions.provinciaid
-        WHERE
-        postal_codes.codigopostalid = 28050*/
+       
 
         $postal = DB::table('postal_codes')
             ->join('provincias','postal_codes.provinciaid','=','provincias.provinciaid')
@@ -69,11 +61,7 @@ class HomeController extends Controller
        
 
         if($postal){
-           /* $poblacion = $postal->poblacion->poblacion;
-            $provincia = $postal->provincia->provincia;
-            $ineid = $postal->poblacion->ineid;
-            $lat = $postal->poblacion->lat;
-            $lon = $postal->poblacion->lon;*/
+           
             
             $datos = ['rpta'=>'ok','postal'=>$postal];
            

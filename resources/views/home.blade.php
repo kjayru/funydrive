@@ -343,7 +343,7 @@
                                 <input type="hidden" name="namestore" id="namestore"> 
                                 <input type="hidden" name="fechaservicio" id="fechaservicio"> 
 
-                           
+                                <input type="hidden" name="iduserservice" id="iduserservice">
 
                         </div>
 

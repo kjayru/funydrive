@@ -15,7 +15,7 @@ class CreateWorkshopassociationordersTable extends Migration
     {
         Schema::create('WorkShopAssociationOrders', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('order_id');
+            $table->string('order_id');
             $table->integer('ws_id');
             $table->timestamps();
         });

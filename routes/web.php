@@ -64,5 +64,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::delete('/modelo/{id}','Admin\CarController@deletemodelo');
 
     Route::get('/getyear/{id}','Admin\CarController@getyear');
+
+    //asociado
+    Route::get('/dashboard','Admin\DashAsociadoController@index');
 });
 Route::resource('/servicios','ServiceController');
