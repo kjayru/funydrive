@@ -96,14 +96,15 @@ function consultacode() {
     .then(function (data) {
       boxmsg.style.display = "block";
       if (data.rpta === "ok") {
+        console.log(data.postal[0].poblacion);
         boxmsg.innerHTML = `Great! We have certified mobile mechanics in ${
-          data.poblacion
-          }, ${data.provincia}`;
+          data.postal[0].poblacion
+          }, ${data.postal[0].provincia}`;
         document.querySelector(".btn-confirmar").style.display = "inline-block";
-        zipmapa(data);
-        $("#sidebar-zip").html(`${codigo} - ${data.poblacion}`);
+        zipmapa(data.postal[0]);
+        $("#sidebar-zip").html(`${codigo} - ${data.postal[0].poblacion}`);
       } else {
-        $(".respuestas").html(`${data.mensaje}`);
+        $(".respuestas").html(`Error en proceso`);
       }
     })
     .catch(function (error) {
@@ -357,8 +358,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 function zipmapa(provincia) {
-  let longitud = parseFloat(provincia.lon);
-  let  latitud = parseFloat(provincia.lat);
+ 
+  let longitud = parseFloat(provincia.lat);
+  let  latitud = parseFloat(provincia.lon);
+  console.log("latitud "+latitud);
+  console.log("longitud "+longitud);
   var pos = { lat: latitud, lng: longitud };
   // var position = {lat: -2.712437310, lng: 42.939811580};
 

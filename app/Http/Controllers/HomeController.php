@@ -47,26 +47,35 @@ class HomeController extends Controller
 
     public function getPostal($code){
 
-       // $postal = PostalCode::where('codigopostalid',$code)->first();
-        /*SELECT * FROM postal_codes a, poblacions b, provincias c
-where codigopostalid = 28050
-and a.provinciaid = c.provinciaid
-and a.poblacionid = b.poblacionid
-and b.provinciaid = c.provinciaid*/
+      
+        /*SELECT*FROM
+        postal_codes
+        JOIN provincias
+        ON postal_codes.provinciaid = provincias.provinciaid 
+        JOIN poblacions
+        ON postal_codes.poblacionid = poblacions.poblacionid
+        AND provincias.provinciaid = poblacions.provinciaid
+        WHERE
+        postal_codes.codigopostalid = 28050*/
 
         $postal = DB::table('postal_codes')
-            ->join('provincias','postal_code.provinciaid','=','provincias.provinciaid')
-            ->join('poblacions','postal_code.poblacionid','=','poblacions.poblacionid')
-        ->get();
+            ->join('provincias','postal_codes.provinciaid','=','provincias.provinciaid')
+            ->join('poblacions',[
+                ['postal_codes.poblacionid','=','poblacions.poblacionid'],
+                ['provincias.provinciaid','=','poblacions.provinciaid']
+                ])
+            ->where('postal_codes.codigopostalid',$code)->get();
+            
+       
 
         if($postal){
-            $poblacion = $postal->poblacion->poblacion;
+           /* $poblacion = $postal->poblacion->poblacion;
             $provincia = $postal->provincia->provincia;
             $ineid = $postal->poblacion->ineid;
             $lat = $postal->poblacion->lat;
-            $lon = $postal->poblacion->lon;
+            $lon = $postal->poblacion->lon;*/
             
-            $datos = ['rpta'=>'ok','poblacion'=>$poblacion,'provincia'=>$provincia,'ineid'=>$ineid,'lat'=>$lat,'lon'=>$lon];
+            $datos = ['rpta'=>'ok','postal'=>$postal];
            
             return response()->json($datos);
 
