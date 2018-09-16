@@ -692,6 +692,135 @@ $(document).ready(function() {
         });
     });
 
+    $(".btn-accept-job").on('click',function(e){
+        e.preventDefault();
+       
+        $("#modal-job").modal('show');
+        let idcliente = $(this).data("idcliente");
+        let idasociado = $(this).data("idasociado");
+        let order_id = $(this).data("id");
+        let type = $(this).data("type");
+
+        $("#fr-job #order_id").val(order_id);
+        $("#fr-job #cliente_id").val(idcliente);
+        $("#fr-job #asociado_id").val(idasociado);
+        $("#fr-job #type").val(type);
+      });
+
+    
+      $(".btn-save-job").on('click',function(e){
+        e.preventDefault();
+        let url='';
+        let idcliente = $("#fr-job #cliente_id").val();
+        let idasociado = $("#fr-job #asociado_id").val();
+        let respuesta = $("#fr-job #respuesta").val();
+        let duracion  = $("#fr-job #duracion").val();
+        let precio = $("#fr-job #precio").val();
+        let order_id = $("#fr-job #order_id").val();
+        var token = $("#fr-job input[name='_token']").val();
+        let type = $("#fr-job #type").val();
+        var metodo = $("#fr-job #metodo").val();
+
+        const datasend = ({'_method':metodo,'_token':token,'order_id':order_id,'type':type,'cliente_id':idcliente,'asociado_id':idasociado,'respuesta':respuesta,'duracion':duracion,'precio':precio});
+console.log(metodo);
+        if(metodo=="POST"){
+         url=`/admin/responder`;
+        }else{
+            url=`/admin/actualizar/${order_id}`;
+        }
+        fetch(url,{
+            method:'POST',
+            body:JSON.stringify(datasend),
+            headers:{
+                'Content-Type':'application/json'
+                }
+        }).then(res=>res.json())
+        .catch(error => console.error('error: ',error))
+        .then(response => {
+            console.log(response);
+          //  window.location.reload();
+        });
+      });
+
+
+      $(".btn-refuse-job").on('click',function(e){
+        e.preventDefault();
+       
+        $("#modal-trash-job").modal('show');
+        let idcliente = $(this).data("idcliente");
+        let idasociado = $(this).data("idasociado");
+        let order_id = $(this).data("id");
+        let type = $(this).data("type");
+
+        $("#fr-trash-job #order_id").val(order_id);
+        $("#fr-trash-job #cliente_id").val(idcliente);
+        $("#fr-trash-job #asociado_id").val(idasociado);
+        $("#fr-trash-job #type").val(type);
+      });
+
+
+
+
+
+      $(".btn-save-trash-job").on('click',function(e){
+        e.preventDefault();
+
+        let idcliente = $("#fr-trash-job #cliente_id").val();
+        let idasociado = $("#fr-trash-job #asociado_id").val();
+        let motivo = $("#fr-trash-job #motivo").val();
+        
+        let order_id = $("#fr-trash-job #order_id").val();
+        var token = $("#fr-trash-job input[name='_token']").val();
+        let type = $("#fr-trash-job #type").val();
+        var metodo = 'POST';
+        const datasend = ({'_method':metodo,'_token':token,'order_id':order_id,'type':type,'cliente_id':idcliente,'asociado_id':idasociado,'motivo':motivo});
+
+        let url=`/admin/rechazar`;
+
+        fetch(url,{
+            method:'POST',
+            body:JSON.stringify(datasend),
+            headers:{
+                'Content-Type':'application/json'
+                }
+        }).then(res=>res.json())
+        .catch(error => console.error('error: ',error))
+        .then(response => {
+            console.log(response);
+            window.location.reload();
+        });
+      });
+
+
+
+      $(".btn-edit-job").on('click',function(e){
+        e.preventDefault();
+       
+        $("#modal-job").modal('show');
+        let idcliente = $(this).data("idcliente");
+        let idasociado = $(this).data("idasociado");
+        let order_id = $(this).data("id");
+        let type = $(this).data("type");
+
+        $("#fr-job #order_id").val(order_id);
+        $("#fr-job #cliente_id").val(idcliente);
+        $("#fr-job #asociado_id").val(idasociado);
+        $("#fr-job #type").val(type);
+        $("#fr-job #metodo").val('PUT');
+        $("#modal-job .modal-title").html('Modificar respuesta');
+
+        let url=`/admin/orden/${order_id}/edit`;
+
+        fetch(url).then(res=>res.json())
+        .catch(error => console.error('error: ',error))
+        .then(response => {
+           
+            $("#fr-job #respuesta").val(response.res[0].response_detail);
+            $("#fr-job #duracion").val(response.res[0].response_days);
+            $("#fr-job #precio").val(response.res[0].response_price);
+        });
+
+      });
 
     $(".btn-listacliente-desactiva").click(function(e) {
         e.preventDefault();

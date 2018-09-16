@@ -57,7 +57,7 @@
 
     <script type="text/javascript" src="/lib/datepicker/js/bootstrap-datetimepicker.min.js"></script>
 
-<script src="{{ asset('js/main.js?v=29') }}" defer></script>
+<script src="{{ asset('js/main.js?v=uniqid()') }}" defer></script>
    
 </body>
 </html>

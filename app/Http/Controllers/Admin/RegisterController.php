@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use App\User;
 use App\Workshoporder;
-use App\Workshopassociationorders;
-
+use App\Workshopassociationorder;
+use App\Workshopresponse;
 class RegisterController extends Controller
 {
     /*
@@ -59,8 +59,8 @@ class RegisterController extends Controller
         $workshop->request_date = $request->datework;
         
         $workshop->status = '1';
-        
-        $workshop->amount= $request->price;
+        $workshop->type="consulta";
+        $workshop->amount= '';
         $workshop->latitude = $request->latitud;
         $workshop->longitude = $request->longitud;
         $workshop->storename = $request->namestore;
@@ -118,7 +118,7 @@ class RegisterController extends Controller
         $workshop->save();
 
 
-       $asociado =  new Workshopassociationorders;
+       $asociado =  new Workshopassociationorder;
 
        $asociado->order_id = $order_id;
        $asociado->ws_id    = $iduserservice;
@@ -128,6 +128,82 @@ class RegisterController extends Controller
 
 
         return redirect('/admin/solicitudes');
+
+    }
+
+
+    public function responderJob(Request $request){
+
+        
+        $res = new Workshopresponse;
+
+
+        $res->ws_id= $request->asociado_id;
+        $res->type= $request->type;
+        $res->order_id= $request->order_id;
+        $res->response_detail= $request->respuesta;
+        
+        $res->response_days= $request->duracion;
+        $res->response_price= $request->precio;
+        
+        $res->save();
+        
+         Workshoporder::where('order_id',$request->order_id)->update(['status'=>2]);
+       
+
+       
+        return response()->json(['rpta'=>'ok']);
+
+    }
+
+    public function rechazarJob(Request $request){
+
+        
+        $res = new Workshopresponse;
+
+
+        $res->ws_id= $request->asociado_id;
+        $res->type= $request->type;
+        $res->order_id= $request->order_id;
+        $res->response_detail= $request->motivo;
+        
+        
+        
+        $res->save();
+        
+         Workshoporder::where('order_id',$request->order_id)->update(['status'=>3]);
+       
+
+        return response()->json(['rpta'=>'ok']);
+
+    }
+
+    public function editarJob(Request $request,$id){
+
+        
+        $res =  Workshopresponse::where('order_id',$id)->get();
+
+
+
+        return response()->json(['rpta'=>'ok',"res"=>$res]);
+
+    }
+
+    public function updateJob(Request $request,$order){
+
+        
+        $res =  Workshopresponse::where('order_id',$order)
+            ->update([
+               
+                'response_detail'=> $request->respuesta,
+                'response_days'=> $request->duracion,
+                'response_price'=> $request->precio
+            ]);
+
+            
+
+       
+        return response()->json(['rpta'=>'ok']);
 
     }
 

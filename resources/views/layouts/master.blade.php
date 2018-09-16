@@ -145,7 +145,7 @@
 <script type="text/javascript" src="/assets/plugins/select2/select2.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="/js/mainback.js?v={{ date('dmhms')}}"></script>
+<script src="/js/mainback.js?v={{ uniqid()}} "></script>
 
 </body>
 </html>

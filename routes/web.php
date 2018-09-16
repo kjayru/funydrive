@@ -67,5 +67,9 @@ Route::group(['prefix' => 'admin'], function () {
 
     //asociado
     Route::get('/dashboard','Admin\DashAsociadoController@index');
+    Route::post('/responder','Admin\RegisterController@responderJob');
+    Route::post('/rechazar','Admin\RegisterController@rechazarJob');
+    Route::get('/orden/{any}/edit','Admin\RegisterController@editarJob');
+    Route::put('/actualizar/{any}','Admin\RegisterController@updateJob');
 });
 Route::resource('/servicios','ServiceController');

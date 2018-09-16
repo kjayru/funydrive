@@ -8,8 +8,7 @@ class Workshopassociationorder extends Model
 {
      protected $table = "WorkShopAssociationOrders";
 
-
      public function workshoporder(){
-         return $this->belongsTo('App\Workshoporder','order_id');
+         return $this->hasOne('App\Workshoporder','order_id','order_id');
      }
 }

@@ -273,6 +273,8 @@ $(".btn-notas").on("click", function (e) {
   $("#fr-worked").submit();
 });
 
+
+
 /**mapas */
 
 var map, infoWindow;
@@ -357,6 +359,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   console.log("no soporta ");
 }
+
+
 
 function zipmapa(provincia) {
  

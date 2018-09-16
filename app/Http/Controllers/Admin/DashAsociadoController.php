@@ -2,7 +2,7 @@
 
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use App\Modelo;
 use App\Make;
 use App\MakeYear;
-
+use App\Workshopassociationorder;
 class DashAsociadoController extends Controller
 {
     public function __construct()
@@ -32,9 +32,9 @@ Importe de Peticiones Finalizadas			Suma de todos los orde_id de WorkShopOrder c
         $asignada = 1;
         $finalizada = 5;
         $importeFinal = 200;
-
-        
-
-        return view('admin.asociados.dashboard',['activa'=>$activa,'respondida'=>$respondida,'asignada'=>$asignada,'finalizada'=>$finalizada,'importeFinal'=>$importeFinal]);
+        $user_id = Auth::id();
+        $trabajos = Workshopassociationorder::where('ws_id',$user_id)->get();
+       
+        return view('admin.asociados.dashboard',['user_id'=>$user_id,'activa'=>$activa,'respondida'=>$respondida,'asignada'=>$asignada,'finalizada'=>$finalizada,'importeFinal'=>$importeFinal,'trabajos'=>$trabajos]);
     }
 }
