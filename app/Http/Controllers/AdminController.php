@@ -57,7 +57,7 @@ class AdminController extends Controller
 
         if($mirol=="associated"){
          
-            return redirect()->route('profile.index',['usuario'=>$mirol]);
+            return redirect()->route('admin.dashboard',['usuario'=>$mirol]);
         }
 
         if($mirol=="client"){

@@ -66,7 +66,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/getyear/{id}','Admin\CarController@getyear');
 
     //asociado
-    Route::get('/dashboard','Admin\DashAsociadoController@index');
+    Route::get('/dashboard','Admin\DashAsociadoController@index')->name('admin.dashboard');
     Route::post('/responder','Admin\RegisterController@responderJob');
     Route::post('/rechazar','Admin\RegisterController@rechazarJob');
     Route::get('/orden/{any}/edit','Admin\RegisterController@editarJob');
