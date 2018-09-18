@@ -295,7 +295,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="/admin/registrowork" method="POST" enctype="multipart/form-data" id="fr-worked">
+                        <form action="/verificar" method="POST" enctype="multipart/form-data" id="fr-worked">
                             @csrf
                         <div class="row">
 

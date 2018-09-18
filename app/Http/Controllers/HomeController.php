@@ -8,6 +8,7 @@ use App\Poblacion;
 use App\Provincia;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Mapper;
 use App\MakeYear;
 use App\Modelo;
@@ -46,9 +47,6 @@ class HomeController extends Controller
     }
 
     public function getPostal($code){
-
-      
-       
 
         $postal = DB::table('postal_codes')
             ->join('provincias','postal_codes.provinciaid','=','provincias.provinciaid')
@@ -101,10 +99,28 @@ class HomeController extends Controller
 
     public function getservice($id){
         $subservices = Service::where('parent_id',$id)->get();
+
         if(count($subservices)>0){
             return response()->json(['rpta'=>'ok','data'=>$subservices]);
         }else{
-        return response()->json(['rpta'=>'error','mensaje'=>'NO CONTIENE SERVICIOS']);
+            return response()->json(['rpta'=>'error','mensaje'=>'NO CONTIENE SERVICIOS']);
+        }
+    }
+
+    public function verifyUser(Request $request){
+
+        if(Auth::id()){
+            
+          return redirect('/admin/registrowork')->withInput($request->all());
+
+        }else{
+            session(['key' => 'value']);
+            
+            $registro = $request;
+            
+            session()->put('peticion', $registro);
+            dd(session('peticion'));
+            //return redirect('/login');
         }
     }
 }
