@@ -17,9 +17,7 @@
                 
             </div>
                 <div class="box-body">
-            
-
-        
+        <!-- tabla de solicitudes-->
                             <table class="table">
                                     <thead>
                                     <tr>

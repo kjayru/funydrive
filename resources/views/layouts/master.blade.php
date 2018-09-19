@@ -133,19 +133,19 @@
           console.log(err);
         }
       </script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 <script src="/assets/plugins/daterangepicker/daterangepicker.js"></script>
 <script src="/assets/plugins/datepicker/bootstrap-datepicker.js"></script>
 <script src="/assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <script src="/assets/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<script src="/assets/dist/js/app.js"></script>
+
 <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
 <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="/assets/plugins/select2/select2.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/bower_components/lightbox2/dist/js/lightbox.min.js"></script>
+<script src="/assets/dist/js/app.js"></script>
 <script src="/js/mainback.js?v={{ uniqid()}} "></script>
 
 </body>
