@@ -57,16 +57,20 @@ class AdminController extends Controller
 
         if($mirol=="associated"){
          
-            if(session('peticion')){
+           
                 return redirect()->route('admin.dashboard',['usuario'=>$mirol]);
-            }else{
-                return redirect()->route('admin.dashboard',['usuario'=>$mirol]);
-            }
+            
             
         }
 
         if($mirol=="client"){
-            return view('admin.usuario',['usuario'=>$mirol]);
+            
+            if(session('peticion')){
+                return redirect()->route('admin.registrojob',['usuario'=>$mirol]);
+            }else{
+                return view('admin.usuario',['usuario'=>$mirol]);
+            }
+            
         }
          
     }

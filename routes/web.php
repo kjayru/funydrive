@@ -26,8 +26,8 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/','AdminController@index');
-    //Route::get('/registrowork','Admin\RegisterController@index');
-    Route::post('/registrowork','Admin\RegisterController@registrowork');    
+    Route::get('/registrowork','Admin\RegisterController@index')->name('admin.registrojob');
+    //Route::post('/registrowork','Admin\RegisterController@registrowork');    
     Route::resource('/profile','Admin\ProfileController');
     Route::resource('/servicios','Admin\ServiceController');
     Route::resource('/photo','Admin\PhotoController');  

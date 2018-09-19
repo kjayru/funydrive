@@ -208,12 +208,88 @@ class HomeController extends Controller
 
 
         }else{
-            session(['key' => 'value']);
+           
+            $order_id = Workshoporder::random_str('20');
+
+            $ids = $request->iduserservice;
+
+            if($ids==0){
+                $ids=5;
+            }
+
+            //archivos
+            $destinationPath = public_path('/photos');
+      
+            if($request->file('picture1')){
+                $file = $request->file('picture1');
+                
+                $input['imagename1'] = uniqid().'.'.$file->getClientOriginalExtension();   
+                $file->move($destinationPath, $input['imagename1']);
+                $picture_1 = $input['imagename1'];
+            }
+            if($request->file('picture2')){
+                $file2 = $request->file('picture2');
+                
+                $input['imagename2'] = uniqid().'.'.$file2->getClientOriginalExtension();
+               
+                $file2->move($destinationPath, $input['imagename2']);
+                $picture_2 = $input['imagename2'];
+                
+            }
+            if($request->file('picture3')){   
+                $file3 = $request->file('picture3');
+                
+                $input['imagename3'] = uniqid().'.'.$file3->getClientOriginalExtension();
+               
+                $file3->move($destinationPath, $input['imagename3']);
+                $picture_3 = $input['imagename3'];
+            }   
+            if($request->file('picture4')){
+                $file4 = $request->file('picture4');
+                
+                $input['imagename4'] = uniqid().'.'.$file4->getClientOriginalExtension();
+               
+                $file4->move($destinationPath, $input['imagename4']);
+                $picture_4 = $input['imagename4'];
+            }
+            if($request->file('picture5')){  
+        
+                $file5 = $request->file('picture5');
+                
+                $input['imagename5'] = uniqid().'.'.$file5->getClientOriginalExtension();
+               
+                $file5->move($destinationPath, $input['imagename5']);
+                $picture_5 = $input['imagename5'];
+            } 
+
+            $registro = array(
+                
+                'phone_number' => $request->phone_number,
+                
+                'order_id' => $order_id,
+                'cause' => $request->anotacion,
+                'detail_cause' => $request->service,
+                'detail' => $request->subservice,
+                'request_date' => $request->datework,
+                
+                'status' => '1',
+                'type'=>"consulta",
+                'amount'=> '',
+                'latitude' => $request->latitud,
+                'longitude' => $request->longitud,
+                'storename' => $request->namestore,
+        
+                'iduserservice' => $ids,
+                'picture1'=>@$picture_1,
+                'picture2'=>@$picture_2,
+                'picture3'=>@$picture_3,
+                'picture4'=>@$picture_4,
+                'picture5'=>@$picture_5
+            );
             
-            $registro = $request;
+            \Session::push('peticion',$registro);
+            \Session::save();
             
-            session()->put('peticion', $registro);
-            dd(session('peticion'));
             return redirect('/login');
         }
     }
