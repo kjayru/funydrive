@@ -1,5 +1,4 @@
 @extends('layouts.master')
-
 @section('content')
 <section class="content-header">
         <h1>Solicitudes</h1>
@@ -13,9 +12,7 @@
   <div class="row">
     <div class="col-md-12">
         <div class="box">
-            <div class="box-header with-border">
-                
-            </div>
+            <div class="box-header with-border"> </div>
                 <div class="box-body">
         <!-- tabla de solicitudes-->
                             <table class="table">
@@ -130,7 +127,6 @@
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>                                                    
-
                       </select>
                   </div>
                   <div class="form-group">
