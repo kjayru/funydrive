@@ -55,16 +55,16 @@
                                          <a href="/photos/{{ $sol->picture_1 }}" data-lightbox="roadtrip">Imagenes</a>
                                          @endif
                                          @if($sol->picture_2)
-                                         <a href="/photos/{{ $sol->picture_2 }}" data-lightbox="roadtrip">Imagenes</a>
+                                         <a href="/photos/{{ $sol->picture_2 }}" data-lightbox="roadtrip" style="display:none">Imagenes</a>
                                          @endif
                                          @if($sol->picture_3)
-                                         <a href="/photos/{{ $sol->picture_3 }}" data-lightbox="roadtrip">Imagenes</a>
+                                         <a href="/photos/{{ $sol->picture_3 }}" data-lightbox="roadtrip" style="display:none">Imagenes</a>
                                          @endif
                                          @if($sol->picture_4)
-                                         <a href="/photos/{{ $sol->picture_4 }}" data-lightbox="roadtrip">Imagenes</a>
+                                         <a href="/photos/{{ $sol->picture_4 }}" data-lightbox="roadtrip" style="display:none">Imagenes</a>
                                          @endif
                                          @if($sol->picture_5)
-                                         <a href="/photos/{{ $sol->picture_5 }}" data-lightbox="roadtrip">Imagenes</a>
+                                         <a href="/photos/{{ $sol->picture_5 }}" data-lightbox="roadtrip" style="display:none">Imagenes</a>
                                          @endif
                                          
                                     </th>
