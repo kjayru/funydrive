@@ -32,6 +32,7 @@
                                         <th scope="col">Latitud</th>
                                         <th scope="col">Longitud</th>
                                         <th scope="col">Fecha requerimiento</th>
+                                        <th>Imagenes</th>
                                         <th scope="col">Creado</th>
                                        
                                         
@@ -51,6 +52,24 @@
                                      <td>{{ $sol->latitude}}</td>
                                      <td>{{ $sol->longitude}}</td>
                                      <td>{{ $sol->request_date}}</td>
+                                     <th>
+                                         @if($sol->picture_1)
+                                         <a href="/photos/{{ $sol->picture_1 }}" data-lightbox="roadtrip">Imagenes</a>
+                                         @endif
+                                         @if($sol->picture_2)
+                                         <a href="/photos/{{ $sol->picture_2 }}" data-lightbox="roadtrip">Imagenes</a>
+                                         @endif
+                                         @if($sol->picture_3)
+                                         <a href="/photos/{{ $sol->picture_3 }}" data-lightbox="roadtrip">Imagenes</a>
+                                         @endif
+                                         @if($sol->picture_4)
+                                         <a href="/photos/{{ $sol->picture_4 }}" data-lightbox="roadtrip">Imagenes</a>
+                                         @endif
+                                         @if($sol->picture_5)
+                                         <a href="/photos/{{ $sol->picture_5 }}" data-lightbox="roadtrip">Imagenes</a>
+                                         @endif
+                                         
+                                    </th>
                                      <td>{{ $sol->created_at }}</td>
                                        
                                     </tr>

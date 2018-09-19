@@ -33,7 +33,7 @@
  
   <link  href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
-
+  <link href="/bower_components/lightbox2/dist/css/lightbox.css" rel="stylesheet">
 
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -145,6 +145,7 @@
 <script type="text/javascript" src="/assets/plugins/select2/select2.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/bower_components/lightbox2/dist/js/lightbox.min.js"></script>
 <script src="/js/mainback.js?v={{ uniqid()}} "></script>
 
 </body>

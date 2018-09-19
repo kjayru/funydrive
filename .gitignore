@@ -23,6 +23,7 @@ Homestead.json
 /node_modules
 /public/hot
 /public/storage
+/public/bower_components
 /storage/*.key
 /vendor
 /.idea
