@@ -1,3 +1,32 @@
 {
-    "Socialite":"Log in con socialite"
+    "Socialite":"Log in con socialite",
+    "home_titulo":"Responde  algunas preguntas sencillas para obtener una cotización",
+    "home_subtitulo":"El servicio en su casa u oficina  7 días a la semana precios justos y transparente",
+    "home_tiene_cuenta":"¿ya tienes una cuenta?",
+    "log_in":"Ingresar",
+    "localizacion":"Ingrese su ubicación",
+    "zipcode":"CÓDIGO POSTAL",
+    "saludo":"¡Grandioso! Contamos con mecánicas móvil certificada en",
+    "home_confirm":"Confirmo Código postal",
+    "home_tab1":"Selecciones su Vehículo",
+    "home_titulo_1":"Marca",
+    "home_year":"Año",
+    "home_modelo":"Modelo",
+    "home_servicio":"Seleccione su servicio",
+    "home_titulo_2":"Servicios de reparación y mantenimiento",
+    "search":"Buscar",
+    "home_popular":"Servicios populares",
+    "detalle":"Detalle",
+    "home_garantia":"Su servicio está respaldado por nuestra garantía de 12 meses, 12.000 millas.",
+    "home_continuar":"Continuar",
+    "home_agenda":"Seleccione la hora de su cita",
+    "home_mensaje_agenda":"¡Justo a tiempo! Es probable que nuestros primeros tiempos disponibles se vendan pronto.",
+    "home_notas":"Notas para el mecánico",
+    "home_anotacion":"Añada cualquier nota que pueda ser útil para que el mecánico lo sepa.",
+    "home_information":"Información de contacto",
+    "home_nombres":"Nombre Completo",
+    "home_email":"Correo Electrónico",
+    "home_phone":"Número de teléfono",
+    "Summary":"Resumen"
 }
+

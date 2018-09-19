@@ -83,6 +83,8 @@ $(".btn-fecha").click(function (e) {
 });
 let codigo = "";
 let boxmsg = document.querySelector(".box-msn");
+var mensaje = $(".box-msn").children('span').html();
+console.log(mensaje);
 function consultacode() {
   codigo = document.getElementById("zipcode").value;
 
@@ -97,7 +99,9 @@ function consultacode() {
       boxmsg.style.display = "block";
       if (data.rpta === "ok") {
         console.log(data.postal[0].poblacion);
-        boxmsg.innerHTML = `Great! We have certified mobile mechanics in ${
+        
+       
+        boxmsg.innerHTML = `${mensaje} ${
           data.postal[0].poblacion
           }, ${data.postal[0].provincia}`;
         document.querySelector(".btn-confirmar").style.display = "inline-block";
@@ -248,6 +252,7 @@ $(document).on("click", ".bd-service-list--service span", function () {
   let iduserservice = $(this).data('iduserservice');
   namesubservice = nombre;
   $(".g-section-header-text").html(namesubservice);
+  $(".bd-sidebar-job-name").html(namesubservice);
   $("#services").hide();
 
   $("#detalle").fadeIn(350);
@@ -299,6 +304,13 @@ function initMap() {
         infoWindow.setPosition(pos);
         infoWindow.setContent("tu localización");
         map.setCenter(pos);
+        //icon
+
+        var iconBase = `${pathurl}/marker/`;
+        var icons = {
+            icon: `${iconBase}/iconbase.png`
+        };
+
 
         //places start
         map = new google.maps.Map(document.getElementById("canvas"), {
@@ -329,7 +341,8 @@ function initMap() {
           var placeLoc = place.geometry.location;
           var marker = new google.maps.Marker({
             map: map,
-            position: placeLoc
+            position: placeLoc,
+            icon: icons.icon,
           });
 
           google.maps.event.addListener(marker, "click", function () {
@@ -370,6 +383,10 @@ function zipmapa(provincia) {
   
   var pos = { lat: latitud, lng: longitud };
   // var position = {lat: -2.712437310, lng: 42.939811580};
+  var iconBase = `${pathurl}/marker/`;
+        var icons = {
+            icon: `${iconBase}/iconbase.png`
+        };
 
   var map = new google.maps.Map(document.getElementById("canvas"), {
     zoom: 14,
@@ -415,7 +432,8 @@ function zipmapa(provincia) {
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
       map: map,
-      position: placeLoc
+      position: placeLoc,
+      icon: icons.icon,
     });
 
     google.maps.event.addListener(marker, "click", function () {

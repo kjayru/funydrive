@@ -19,7 +19,7 @@
                     <i class="ion ion-person-add"></i>
                 </div>
 
-                <a href="#" class="small-box-footer">Mas info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer"></a>
             </div>
         </div>
 
@@ -34,7 +34,7 @@
                     <i class="ion ion-person-add"></i>
                 </div>
 
-                <a href="#" class="small-box-footer">Mas info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer"></a>
             </div>
         </div>
 
@@ -50,7 +50,7 @@
                         <i class="ion ion-person-add"></i>
                     </div>
     
-                    <a href="#" class="small-box-footer">Mas info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#" class="small-box-footer"></a>
                 </div>
         </div>
 
@@ -66,14 +66,18 @@
                         <i class="ion ion-person-add"></i>
                     </div>
     
-                    <a href="#" class="small-box-footer">Mas info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#" class="small-box-footer"></a>
                 </div>
         </div>
 
         <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-aqua">
                     <div class="inner">
-                        <h3>{{ @$importeFinal }}</h3>
+                        @php
+                          $importe = json_decode(@$importeFinal,true);  
+                        
+                        @endphp
+                        <h3>{{ @$importe[0]['total'] }}</h3>
             
                         <p> Importe</p>
                     </div>
@@ -81,7 +85,7 @@
                         <i class="ion ion-person-add"></i>
                     </div>
     
-                    <a href="#" class="small-box-footer">Mas info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#" class="small-box-footer"></a>
                 </div>
         </div>
 
@@ -105,7 +109,7 @@
                                 <th scope="col">Nº Orden</th>
                                 <th scope="col">Causa</th>
                                 <th scope="col">Servicio</th>
-                               
+                              
                                 <th scope="col">Fecha Servicio</th>
                                 <th scope="col">Fecha Creación</th>
                                 <th></th>
@@ -118,26 +122,32 @@
                                 <tr>
                                     <th scope="row">{{ $key+1 }}</th>
                                     <th>
-                                    @if($tra->workshoporder->status == 1)
-                                        <span style="color:yellow"><i class="fa fa-circle"></i></span>
-                                    @elseif( $tra->workshoporder->status==2)
-                                    <span style="color:green"><i class="fa fa-circle"></i></span>
+                                    @if($tra->status == 1)
+                                       Solicitada <span style="color:yellow"><i class="fa fa-circle"></i></span>
+                                    @elseif($tra->status == 2)
+                                    Respondida <span style="color:blue"><i class="fa fa-circle"></i></span>
+                                    
+                                    @elseif($tra->status == 3)
+                                    Asignada <span style="color:brown"><i class="fa fa-circle"></i></span>
+                                   
+                                    @elseif($tra->status == 4)
+                                    Finalizada <span style="color:skyblue"><i class="fa fa-circle"></i></span>
                                     @else
-                                    <span style="color:red"><i class="fa fa-circle"></i></span>
+                                    Rechazada <span style="color:red"><i class="fa fa-circle"></i></span>
                                     @endif
                                     </th>
                                     <td>{{ $tra->order_id }} </td>
-                                    <td>{{$tra->workshoporder->cause}}</td>
-                                    <td>{{$tra->workshoporder->detail}}</td>
-                                    <td>{{$tra->workshoporder->request_date}}</td>
-                                    <td>{{ $tra->workshoporder->created_at }}</td>
+                                    <td>{{ $tra->cause }}</td>
+                                    <td>{{ $tra->detail }}</td>
+                                    <td>{{ $tra->request_date }}</td>
+                                    <td>{{ $tra->created_at }}</td>
                                     <td>
-                                            @if($tra->workshoporder->status == 1)
-                                            <a href="#" data-type="{{ $tra->workshoporder->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->workshoporder->user_id }}" data-idasociado="{{ $user_id }}" class="btn btn-default btn-accept-job btn-xs">Aceptar</a>
-                                            <a href="#" data-type="{{ $tra->workshoporder->type }}" data-id="{{$tra->order_id}}" class="btn btn-danger btn-refuse-job btn-xs">Rechazar</a>
+                                            @if($tra->status == 1)
+                                            <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}" class="btn btn-default btn-accept-job btn-xs">Aceptar</a>
+                                            <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" class="btn btn-danger btn-refuse-job btn-xs">Rechazar</a>
                                             @endif
-                                            @if($tra->workshoporder->status == 2)
-                                            <a href="#" data-type="{{ $tra->workshoporder->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->workshoporder->user_id }}" data-idasociado="{{ $user_id }}" class="btn btn-default btn-edit-job btn-xs">Modificar</a>
+                                            @if($tra->status == 2)
+                                            <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}" class="btn btn-default btn-edit-job btn-xs">Modificar</a>
                                             @endif
                                            
                                     </td>

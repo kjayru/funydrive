@@ -1,0 +1,1 @@
+<body class="hold-transition skin-yellow-light sidebar-mini">

@@ -29,6 +29,7 @@ class ServiceController extends Controller
        
 
          $servicios = DB::table('services')->whereNull('parent_id')->get();
+
         $registros = Register::where('user_id',$user_id)->get();
 
         return view('admin/asociados/servicios',['usuario'=>$mirol,'servicios'=>$servicios,'registros'=>$registros]);
@@ -137,10 +138,11 @@ class ServiceController extends Controller
         $user_id = Auth::id();
         $registros = Service::with('childs')->where('parent_id',NULL)->where('user_id',$user_id)->get();
         
+        $servicios = Service::where('parent_id',NULL)->get();
         
         $mirol = User::navigation();
 
-        return view('admin/asociados/categorias',['registros'=>$registros,'usuario'=>$mirol,'admin_id'=>$user_id]);
+        return view('admin/asociados/categorias',['servicios'=>$servicios,'registros'=>$registros,'usuario'=>$mirol,'admin_id'=>$user_id]);
     }
 
     public function setcategory(Request $request){

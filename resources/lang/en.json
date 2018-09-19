@@ -1,3 +1,32 @@
 {
-    "Socialite":"Log in with socialite"
+    "Socialite":"Log in with socialite",
+    "home_titulo":"Answer a few simple questions to get a quote",
+    "home_subtitulo":"Service at your home or office 7 days a week Fair and trasparent pricing",
+    "home_tiene_cuenta":"Already have an account?",
+    "log_in":"Log in",
+    "localizacion":"Enter your location",
+    "zipcode":"ZIP CODE",
+    "saludo":"Great! we have certified mobile mechanics in",
+    "home_confirm":"Confirm ZIP CODE",
+    "home_tab1":"Select your car",
+    "home_titulo_1":"Make",
+    "home_year":"Year",
+    "home_modelo":"Model",
+    "home_servicio":"Select your service",
+    "home_titulo_2":"REPAIR & MAINTENANCE SERVICES",
+    "search":"Search",
+    "home_popular":"Popular services",
+    "detalle":"Details",
+    "home_garantia":"Your service is backed by our 12-month, 12,000-mile warranty.",
+    "home_continuar":"Continue",
+    "home_agenda":"Select the time of your appointment",
+    "home_mensaje_agenda":"Youre just in time! Our earliest available times are likely to be sold out soon.",
+    "home_notas":"Notes for the mechanic",
+    "home_anotacion":"Add any notes that may be useful for the mechanic to know.",
+    "home_information":"Your contact information",
+    "home_nombres":"Full name",
+    "home_email":"Email",
+    "home_phone":"Phone number",
+    "Summary":"Summary"
+    
 }

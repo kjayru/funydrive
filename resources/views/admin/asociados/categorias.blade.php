@@ -92,27 +92,24 @@
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Nueva Categoria</h4>
+                <h4 class="modal-title">Seleccione Categoria</h4>
               </div>
               <div class="modal-body">
                   
                   <div class="form-group">
-                      <label for="executiontime">Categoria</label>
-                      <input type="text" name="nombre"  class="form-control" />
+                      <label for="categoria">Categoria</label>
+                      
+                      <select name="servicio" id="" class="form-control">
+                        <option value="0">seleccione</option>
+                        @foreach($servicios as $serv)
+                            <option value="{{ $serv->id }}">{{ $serv->name }}</option>
+                        @endforeach
+                      </select>
                         
                   </div>
                   <div class="form-group">
-                      <label for="herencia">Categoria a heredar</label>
-                      <select name="parent_id" class="form-control"  
-						@if(count($registros)==0)
-							 disabled
-						@endif
-					   >
-                        <option value="0">Seleccione</option>
-                         @foreach($registros as $rg)
-                        <option value="{{ $rg->id }}">{{ $rg->name }}</option>
-                         @endforeach
-                      </select>
+                      <label for="subcategoria">Sub Categoria nueva </label>
+                      <input type="text" name="subcategoria" id="subcategoria" class="form-control">
                         
                   </div>
                  
@@ -146,23 +143,20 @@
 
 
                     
-                  <div class="form-group">
-                        <label for="executiontime">Categoria o subcategoria</label>
-                        <input type="text" name="nombre" id="nombre"  class="form-control" />
+                    <div class="form-group">
+                        <label for="categoria">Categoria</label>
+                        
+                        <select name="servicio" id="" class="form-control">
+                          <option value="0">seleccione</option>
+                          @foreach($servicios as $serv)
+                              <option value="{{ $serv->id }}">{{ $serv->name }}</option>
+                          @endforeach
+                        </select>
                           
                     </div>
                     <div class="form-group">
-                        <label for="herencia">Categoria a heredar</label>
-                            <select name="parent_id" id="parent_id" class="form-control" 
-							 @if(count($registros)==0)
-							 disabled
-							@endif
-							>
-                                <option value="0">Seleccione</option>
-                                 @foreach($registros as $rg)
-                                <option value="{{ $rg->id }}">{{ $rg->name }}</option>
-                                 @endforeach
-                            </select>
+                        <label for="subcategoria">Sub Categoria nueva </label>
+                        <input type="text" name="subcategoria" id="subcategoria" class="form-control">
                           
                     </div>
                    

@@ -12,11 +12,7 @@
             </a>
           </li>
 
-          <li>
-            <a href="/admin/categorias">
-              <i class="fa fa-th"></i> <span>Categorias</span>
-            </a>
-          </li>
+          
 
           <li>
               <a  href="{{ route('logout') }}"

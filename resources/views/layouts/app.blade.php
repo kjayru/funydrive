@@ -56,8 +56,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
 
     <script type="text/javascript" src="/lib/datepicker/js/bootstrap-datetimepicker.min.js"></script>
-
-<script src="{{ asset('js/main.js?v=uniqid()') }}" defer></script>
+<script>
+const pathurl = '{{ env('APP_URL')}}';
+</script>
+<script src="/js/main.js?v={{ uniqid() }}" defer></script>
    
 </body>
 </html>

@@ -41,7 +41,9 @@
   <![endif]-->
 </head>
 
-<body class="hold-transition skin-blue-light sidebar-mini">
+
+@include('partials.modos.'.\App\User::navigation())
+
 <div class="wrapper">
 
   <header class="main-header">
