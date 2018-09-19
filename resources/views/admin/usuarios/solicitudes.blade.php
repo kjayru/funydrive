@@ -14,8 +14,8 @@
         <div class="box">
             <div class="box-header with-border"> </div>
                 <div class="box-body">
-        <!-- tabla de solicitudes-->
-                            <table class="table">
+        
+                            <table class="table gallery boxtable">
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
