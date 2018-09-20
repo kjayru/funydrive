@@ -591,8 +591,8 @@ searchs.addEventListener('keyup',function busqueda(e){
                 <span data-id="${e.id}" data-iduserservice="${e.user_id}" data-name="${e.name}">${e.name}</span>
                 </div>`;
         });
-        //document.getElementById('contsubs').innerHTML=listserv;
-        $("#contsubs").html(listserv);
+        document.getElementById('contsubs').innerHTML=listserv;
+      
 
   })
 });
