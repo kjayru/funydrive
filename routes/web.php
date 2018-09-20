@@ -74,3 +74,4 @@ Route::group(['prefix' => 'admin'], function () {
     Route::put('/actualizar/{any}','Admin\RegisterController@updateJob');
 });
 Route::resource('/servicios','ServiceController');
+Route::post('/buscarservicio','HomeController@buscarservicio');

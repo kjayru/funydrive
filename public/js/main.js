@@ -563,3 +563,39 @@ $(document).ready(function () {
     minDate: minDateTime
   });
 });
+
+let searchs = document.getElementById('cd-search');
+let token = document.getElementsByName("_token")[0].value;
+
+searchs.addEventListener('keyup',function busqueda(e){
+  e.preventDefault();
+ 
+  let words = this.value;
+  let data = ({'words':words,'_token':token,'_method':'POST'});
+  let url ='/buscarservicio';
+  fetch(url,{
+    method :'POST',
+    body:JSON.stringify(data),
+    headers:{
+      "Content-Type":"application/json"
+    } 
+  }).then(res=>res.json()
+  ).catch(error=>console.error('error',error)
+  ).then(response => {
+        console.log(response);
+        listserv = "";
+        $.each(response.resultado, function (i, e) {
+          listserv += `<div class="bd-service-list--service">
+                <div class="bd-icon-service-plus pull-left">
+                </div>
+                <span data-id="${e.id}" data-iduserservice="${e.user_id}" data-name="${e.name}">${e.name}</span>
+                </div>`;
+        });
+        //document.getElementById('contsubs').innerHTML=listserv;
+        $("#contsubs").html(listserv);
+
+  })
+});
+
+
+

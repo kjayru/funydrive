@@ -293,4 +293,13 @@ class HomeController extends Controller
             return redirect('/login');
         }
     }
+
+
+    public function buscarservicio(Request $request){
+        
+
+        $resultado = Service::where('name', 'like', '%' . $request->words . '%')->get();
+
+        return response()->json(['resultado'=>$resultado]);
+    }
 }
