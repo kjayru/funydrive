@@ -36,7 +36,7 @@ Importe de Peticiones Finalizadas			Suma de todos los orde_id de WorkShopOrder c
         $respondida =  workshoporder::where([['user_work_id','=',$user_id],['status','=',2]])->count();
         $asignada =  workshoporder::where([['user_work_id','=',$user_id],['status','=',3]])->count();
         $finalizada =  workshoporder::where([['user_work_id','=',$user_id],['status','=',4]])->count();
-        $importeFinal = DB::table('workshoporders')
+        $importeFinal = DB::table('WorkShopOrders')
         ->select( DB::raw('SUM(amount) as total'))
         ->where('status', '=', 4)
         ->get();
