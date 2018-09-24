@@ -936,3 +936,16 @@ p {
    
     margin-bottom: 40px;
 }
+
+.content-tab{
+    display: none;
+}
+
+.active{
+    display:block !important;
+}
+
+.content-tab.tab-servicio-2 {
+    overflow-y: scroll;
+    height: 500px;
+}

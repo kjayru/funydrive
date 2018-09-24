@@ -166,20 +166,18 @@
                     <div class="card-body">
 
                         <div class="service-selection">
-                          <div class="bd-service-tabs-container">
-                            <div class="bd-service--tab bd-service--tab__active">
+                          <div class="bd-service-tabs-container" >
+                            <div class="bd-service--tab bd-service--tab__active" data-id="1">
                               <h4>{{ __('home_titulo_2')}}</h4>
                             </div>
-                            <div class="bd-service--tab ">
-                                    <h4 class="respuestas"></h4>
+                            <div class="bd-service--tab " data-id="2">
+                                    <h4>{{ __('No encuentro lo que busco')}}</h4>
                             </div>                                      
                           
-                        </div>   
+                        </div> 
+                            <div class="content-tab tab-servicio-1 active">  
                             <form class="cd-form floating-labels js" >
-                                <div class="form-group" >
-                                    <label for="cd-search" >{{ __('search') }}</label>
-                                    <input class="search form-control" id="cd-search" type="text" autocomplete="off" value="">
-                                </div>
+                              
 
                                 <div class="bd-service-list-container">
                                     <div class="bd-service-list bd-service-list--categories">
@@ -202,8 +200,20 @@
                                         
                                     </div>
                                 </div>
-                            </form>
 
+
+                            </form>
+                            </div>
+                            <div class="content-tab tab-servicio-2">
+                                
+                                    <div class="form-group" >
+                                        <label for="cd-search" >{{ __('search') }}</label>
+                                        <input class="search form-control" id="cd-search" type="text" autocomplete="off" value="">
+                                    </div>
+                                    <div id="contsub2">
+
+                                    </div>
+                            </div>
                         </div>
                     </div>
             </div>

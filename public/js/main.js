@@ -582,7 +582,7 @@ searchs.addEventListener('keyup',function busqueda(e){
   }).then(res=>res.json()
   ).catch(error=>console.error('error',error)
   ).then(response => {
-        console.log(response);
+       
         listserv = "";
         $.each(response.resultado, function (i, e) {
           listserv += `<div class="bd-service-list--service">
@@ -591,11 +591,29 @@ searchs.addEventListener('keyup',function busqueda(e){
                 <span data-id="${e.id}" data-iduserservice="${e.user_id}" data-name="${e.name}">${e.name}</span>
                 </div>`;
         });
-        document.getElementById('contsubs').innerHTML=listserv;
+        document.getElementById('contsub2').innerHTML=listserv;
       
 
   })
 });
 
+//bd-service--tab__active
+
+let tabs = document.querySelectorAll('.bd-service--tab');
+
+
+Array.from(tabs).forEach(link=>{
+  link.addEventListener('click',function(e){
+      $(".bd-service--tab").removeClass('bd-service--tab__active');
+      let id = this.dataset.id;
+
+      this.classList.add('bd-service--tab__active');
+
+      $(".content-tab").removeClass('active');
+
+      $(`.tab-servicio-${id}`).addClass('active');
+
+  })
+});
 
 

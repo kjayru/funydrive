@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/base.css') }}">
     <link rel="stylesheet" href="/lib/datepicker/css/bootstrap-datetimepicker.css">
-    <link rel="stylesheet" href="{{ asset('css/main.css?v=29') }}">
+    <link rel="stylesheet" href="css/main.css?v={{ uniqid() }}">
  
     
 </head>
