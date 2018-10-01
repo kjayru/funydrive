@@ -458,8 +458,13 @@
     </div>
 </div>
 <form id="datatool">
-    @csrf
- 
-                                         
+    @csrf                                     
 </form>
+<div class="modal" style="display:none:">
+    <div class="box">
+        <div class="boxbody">
+
+        </div>
+    </div>
+</div>
 @endsection
