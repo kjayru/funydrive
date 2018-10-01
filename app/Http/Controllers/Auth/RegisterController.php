@@ -11,7 +11,6 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
 
-use App\Client;
 
 use App\Workshoporder;
 use App\Workshopassociationorder;
@@ -145,6 +144,79 @@ class RegisterController extends Controller
         }  
 
         
+
+
+
+    if(session('peticion')){
+            $datos = session('peticion');
+      
+
+       
+            $user_id = Auth::id();
+        
+            $user = User::find($user_id);
+
+        
+
+            $workshop = new Workshoporder;
+
+                $workshop->user_id = $user_id;   
+                $workshop->user_name = $user->name." ".$user->lastname;
+                $workshop->phone_number = $datos[0]['phone_number'];
+                
+                $workshop->order_id = $datos[0]['order_id'];
+                $workshop->cause = $datos[0]['cause'];
+                $workshop->detail_cause = $datos[0]['detail_cause'];
+                $workshop->detail = $datos[0]['detail'];
+                $workshop->request_date = $datos[0]['request_date'];
+                
+                $workshop->status = $datos[0]['status'];
+                $workshop->type= $datos[0]['type'];
+                $workshop->amount= $datos[0]['amount'];
+                $workshop->latitude = $datos[0]['latitude'];
+                $workshop->longitude = $datos[0]['longitude'];
+                $workshop->storename = $datos[0]['storename'];
+
+                $iduserservice = $datos[0]['iduserservice'];
+
+
+            if($datos[0]['picture1']){
+                
+                $workshop->picture_1 = $datos[0]['picture1'];
+            }
+            if($datos[0]['picture2']){
+            
+                $workshop->picture_2 = $datos[0]['picture2'];
+                
+            }
+            if($datos[0]['picture3']){   
+            
+                $workshop->picture_3 = $datos[0]['picture3'];
+            }   
+            if($datos[0]['picture4']){
+                
+                $workshop->picture_4 = $datos[0]['picture4'];
+            }
+            if($datos[0]['picture5']){  
+
+                $workshop->picture_5 = $datos[0]['picture5'];
+            } 
+
+                $workshop->save();
+
+
+            $asociado =  new Workshopassociationorder;
+
+            $asociado->order_id = $datos[0]['order_id'];
+            $asociado->ws_id    = $datos[0]['iduserservice'];
+            
+            $asociado->save();
+    }
+
+
+
+
+
 
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());
