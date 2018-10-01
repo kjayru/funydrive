@@ -19,7 +19,7 @@ btnzip.addEventListener("keypress", function (event) {
 btnzip.addEventListener("keyup",function(event){
   if (num > 4) {
 
-    console.log("ejecuta..");
+   
    
     consultacode();
   }
@@ -596,9 +596,7 @@ searchs.addEventListener('keyup',function busqueda(e){
 
   })
 });
-
 //bd-service--tab__active
-
 let tabs = document.querySelectorAll('.bd-service--tab');
 
 
@@ -615,5 +613,7 @@ Array.from(tabs).forEach(link=>{
 
   })
 });
+
+$("modal").hide();
 
 
