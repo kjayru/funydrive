@@ -10,7 +10,21 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                         @csrf
-
+                        <div class="form-group row">
+                            <label for="rol" class="col-md-4 col-form-label text-md-right"> Tipo Cliente</label>
+                            <div class="col-md-6">
+                                <select name="role_id" id="role" class="form-control {{ $errors->has('role_id') ? ' is-invalid':'' }}" required autofocus>
+                                    <option value="0">Seleccione</option>
+                                    <option value="2">Asociado</option>
+                                    <option value="2">Cliente</option>
+                                </select>
+                                @if($errors->has('name'))
+                                    <span class="invalid_feedbak" role="alert">
+                                        <strong>{{  $errors->first('role_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
