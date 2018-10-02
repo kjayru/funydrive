@@ -58,7 +58,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'role_id'=>'requied',
+            'role_id'=>'required',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -248,7 +248,7 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-         Client::create([
+         User::create([
              'user_id'=> $user->id,
          ]);
 
