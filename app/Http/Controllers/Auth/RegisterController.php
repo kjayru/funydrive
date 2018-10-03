@@ -234,6 +234,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'role_id' => $data['role_id'],
             'password' => Hash::make($data['password']),
         ]);
     }
@@ -248,9 +249,13 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
+      /*
          User::create([
-             'user_id'=> $user->id,
-         ]);
+            'name' => $user->name,
+            'email' => $user->email,
+            'role_id' => $user->role_id,
+            'password' => Hash::make($user->password),
+         ]);*/
 
          return redirect('/admin');
     }

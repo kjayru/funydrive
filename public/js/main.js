@@ -588,7 +588,7 @@ searchs.addEventListener('keyup',function busqueda(e){
           listserv += `<div class="bd-service-list--service">
                 <div class="bd-icon-service-plus pull-left">
                 </div>
-                <span data-id="${e.id}" data-iduserservice="${e.user_id}" data-name="${e.name}">${e.name}</span>
+                <span data-id="${e.id}" data-rama="busqueda" data-iduserservice="${e.user_id}" data-name="${e.name}">${e.name}</span>
                 </div>`;
         });
         document.getElementById('contsub2').innerHTML=listserv;
