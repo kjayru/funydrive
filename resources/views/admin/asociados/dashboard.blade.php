@@ -70,7 +70,7 @@
                 </div>
         </div>
 
-        <div class="col-lg-3 col-xs-6">
+        <!--<div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-aqua">
                     <div class="inner">
                         @php
@@ -87,7 +87,7 @@
     
                     <a href="#" class="small-box-footer"></a>
                 </div>
-        </div>
+        </div>-->
 
 
   </div>
@@ -188,13 +188,29 @@
                   <label for="respuesta">Mensaje:</label>
                  
                     <textarea name="respuesta" id="respuesta" cols="30" rows="10"  class="form-control"></textarea>
-              </div>
-            
-              <div class="form-group">
-                <label for="duracion">Tiempo de trabajo:</label>
-                <input type="numeric" name="duracion" id="duracion"  class="form-control" />
-                <p class="help-block">ejemplo: para 1 hora ingrese 1 para 30 minutos ingrese 0.5</p>
             </div>
+
+            <fieldset>
+            <legend>Tiempo trabajo</legend>
+              <div class="form-group">
+                <label for="duracion">Dias</label>
+                <select name="dias" id="dias"  class="form-control">
+                    <option value="">01</option>
+                </select>
+              </div>
+              <div class="form-group">
+                    <label for="duracion">Horas</label>
+                <select name="horas" id="horas"  class="form-control">
+                        <option value="">01</option>
+                </select>
+              </div>
+              <div class="form-group">
+                    <label for="duracion">Minutos</label>
+                <select name="horas" id="horas"  class="form-control">
+                        <option value="">01</option>
+                </select>
+            </div>
+            </fieldset>
 
             <div class="form-group">
                 <label for="precio">Precio:</label>

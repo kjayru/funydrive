@@ -63,7 +63,12 @@ $(document).on("cut copy paste", "#zipcode", function (e) {
 $("#btnservice").on("click", function () {
   $(this).hide();
   $(".detallesservicio").show();
-  $("#appoint").fadeIn();
+  if(!$(this).hasClass('busqueda')){
+    $("#appoint").fadeIn();
+  }else{
+    $("#notes").fadeIn();
+  }
+
 });
 
 function conteo() {
@@ -84,7 +89,7 @@ $(".btn-fecha").click(function (e) {
 let codigo = "";
 let boxmsg = document.querySelector(".box-msn");
 var mensaje = $(".box-msn").children('span').html();
-console.log(mensaje);
+
 function consultacode() {
   codigo = document.getElementById("zipcode").value;
 
@@ -254,8 +259,14 @@ $(document).on("click", ".bd-service-list--service span", function () {
   $(".g-section-header-text").html(namesubservice);
   $(".bd-sidebar-job-name").html(namesubservice);
   $("#services").hide();
-
-  $("#detalle").fadeIn(350);
+//busca rama
+ let rama = $(this).data("rama");
+  if(!rama){
+    $("#detalle").fadeIn(350);
+  }else{
+    $("#detalle").fadeIn(350);
+    $("#detalle button").addClass('busqueda');
+  }
 });
 
 $(".btn-notas").on("click", function (e) {
