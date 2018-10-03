@@ -16,7 +16,7 @@
                                 <select name="role_id" id="role" class="form-control {{ $errors->has('role_id') ? ' is-invalid':'' }}" required autofocus>
                                     <option value="0">Seleccione</option>
                                     <option value="2">Asociado</option>
-                                    <option value="2">Cliente</option>
+                                    <option value="3">Cliente</option>
                                 </select>
                                 @if($errors->has('name'))
                                     <span class="invalid_feedbak" role="alert">

@@ -1,13 +1,7 @@
 {
-<<<<<<< HEAD
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
-=======
     "name": "Funydrive",
     "description": "Desarrollo backend",
     "keywords": ["backend", "wavydrive"],
->>>>>>> 03395f18fa435b5524cbb879ee6223517774f138
     "license": "MIT",
     "type": "project",
     "require": {
@@ -68,11 +62,3 @@
     "minimum-stability": "dev",
     "prefer-stable": true
 }
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> 03395f18fa435b5524cbb879ee6223517774f138
