@@ -27,6 +27,7 @@ return [
 
     'sparkpost' => [
         'secret' => env('SPARKPOST_SECRET'),
+        
     ],
 
     'stripe' => [
@@ -44,5 +45,6 @@ return [
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => '/login/google/callback'
     ]
+   
 
 ];

@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
-
+use App\Mail\NewUser;
+use Illuminate\Support\Facades\Mail;
 
 use App\Workshoporder;
 use App\Workshopassociationorder;
@@ -36,7 +37,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -231,12 +232,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+       
+
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'role_id' => $data['role_id'],
             'password' => Hash::make($data['password']),
         ]);
+        Mail::to($data['email'])->send(new NewUser($user));
+       return $user;
     }
 
 
