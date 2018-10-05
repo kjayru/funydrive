@@ -5,9 +5,8 @@
 </head>
 
 <body>
-<h2>Welcome to the site {{$user['name']}}</h2>
-<br/>
-Your registered email-id is {{$user['email']}}
+    <h2>Cambio de fecha:</h2>
+    <p>Se modificado el cambio de fecha</p>
 </body>
 
 </html>

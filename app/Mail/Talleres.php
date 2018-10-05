@@ -18,9 +18,11 @@ class Talleres extends Mailable
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct($socio)
     {
-        $this->user = $user;
+       
+        $this->socio = $socio;
+      
     }
 
     /**
@@ -30,6 +32,11 @@ class Talleres extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.talleres');
+       
+        return $this->view('mails.talleres')
+                    ->with([
+                        'nombre' => $this->socio->name,
+                        'taller' => "TALLER DEMO",
+                    ]);
     }
 }

@@ -5,9 +5,9 @@
 </head>
 
 <body>
-<h2>Welcome to the site {{$user['name']}}</h2>
+<h2>NOMBRE TALLER: {{ $taller }} contacto:{{ $nombre }}</h2>
 <br/>
-Your registered email-id is {{$user['email']}}
+<p>  ha respondido a su petición</p>
 </body>
 
 </html>

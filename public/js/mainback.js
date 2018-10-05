@@ -714,14 +714,17 @@ $(document).ready(function() {
         let idcliente = $("#fr-job #cliente_id").val();
         let idasociado = $("#fr-job #asociado_id").val();
         let respuesta = $("#fr-job #respuesta").val();
-        let duracion  = $("#fr-job #duracion").val();
+        //let duracion  = $("#fr-job #duracion").val();
+        let dias = $("#fr-job #dias").val();
+        let horas = $("#fr-job #horas").val();
+        let minutos =  $("#fr-job #minutos").val();
         let precio = $("#fr-job #precio").val();
         let order_id = $("#fr-job #order_id").val();
         var token = $("#fr-job input[name='_token']").val();
         let type = $("#fr-job #type").val();
         var metodo = $("#fr-job #metodo").val();
 
-        const datasend = ({'_method':metodo,'_token':token,'order_id':order_id,'type':type,'cliente_id':idcliente,'asociado_id':idasociado,'respuesta':respuesta,'duracion':duracion,'precio':precio});
+        const datasend = ({'_method':metodo,'_token':token,'order_id':order_id,'type':type,'cliente_id':idcliente,'asociado_id':idasociado,'respuesta':respuesta,'dias':dias,'horas':horas,'minutos':minutos,'precio':precio});
 console.log(metodo);
         if(metodo=="POST"){
          url=`/admin/responder`;
@@ -737,8 +740,8 @@ console.log(metodo);
         }).then(res=>res.json())
         .catch(error => console.error('error: ',error))
         .then(response => {
-            console.log(response);
-          //  window.location.reload();
+            
+            window.location.reload();
         });
       });
 

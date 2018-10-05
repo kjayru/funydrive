@@ -18,11 +18,12 @@ class Rechazo extends Mailable
      *
      * @return void
      */
-    public function __construct(Workshoporder $workshoporder)
+    public function __construct($socio)
     {
-        $this->workshoporder = $workshoporder;
+       
+        $this->socio = $socio;
+      
     }
-
     /**
      * Build the message.
      *
@@ -30,6 +31,10 @@ class Rechazo extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.rechazo');
+        return $this->view('mails.rechazo')
+            ->with([
+                'nombre' => $this->socio->name,
+                'taller' => "TALLER DEMO",
+            ]);
     }
 }

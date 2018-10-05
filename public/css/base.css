@@ -746,9 +746,9 @@ h1{
     font-family:"proxima-nova",Avenir,"Helvetica-Neue","Helvetica","Arial",sans-serif;
     font-style:normal;
     font-weight:400;
-    font-size:2.5em;
+    font-size:2em;
     color:#4A5155;
-    margin:0 0 15px 0
+    margin:0 0 15px 0;
 }
 h1:visited{
     color:inherit

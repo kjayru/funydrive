@@ -144,7 +144,7 @@
                                     <td>
                                             @if($tra->status == 1)
                                             <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}" class="btn btn-default btn-accept-job btn-xs">Aceptar</a>
-                                            <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" class="btn btn-danger btn-refuse-job btn-xs">Rechazar</a>
+                                            <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}"  class="btn btn-danger btn-refuse-job btn-xs">Rechazar</a>
                                             @endif
                                             @if($tra->status == 2)
                                             <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}" class="btn btn-default btn-edit-job btn-xs">Modificar</a>
@@ -195,19 +195,28 @@
               <div class="form-group">
                 <label for="duracion">Dias</label>
                 <select name="dias" id="dias"  class="form-control">
-                    <option value="">01</option>
+                        <option >Seleccione</option>
+                    @for($i=1;$i<60;$i++)
+                       <option value="{{$i}}">{{$i}} </option>
+                    @endfor
                 </select>
               </div>
               <div class="form-group">
                     <label for="duracion">Horas</label>
                 <select name="horas" id="horas"  class="form-control">
-                        <option value="">01</option>
+                        <option >Seleccione</option>
+                        @for($i=1;$i<12;$i++)
+                        <option value="{{$i}}">{{$i}}</option>
+                        @endfor
                 </select>
               </div>
               <div class="form-group">
                     <label for="duracion">Minutos</label>
-                <select name="horas" id="horas"  class="form-control">
-                        <option value="">01</option>
+                  
+                <select name="minutos" id="minutos"  class="form-control">
+                        @for($i=1;$i<60;$i++)
+                        <option value="{{$i}}">{{$i}} </option>/option>
+                        @endfor
                 </select>
             </div>
             </fieldset>

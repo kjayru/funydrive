@@ -1,12 +1,12 @@
 {
-    "Socialite":"Log in con socialite",
-    "home_titulo":"Responde  algunas preguntas sencillas para obtener una cotización",
-    "home_subtitulo":"El servicio en su casa u oficina  7 días a la semana precios justos y transparente",
+    "Socialite":"Acceso utilizando usuario redes sociales",
+    "home_titulo":"Responde a una preguntas para obtener tu presupuesto",
+    "home_subtitulo":" Su reparación desde casa o la oficina 7 días a la semana",
     "home_tiene_cuenta":"¿ya tienes una cuenta?",
     "log_in":"Ingresar",
-    "localizacion":"Ingrese su ubicación",
+    "localizacion":"Introduzca su Código Postal para encontrar los talleres más próximos",
     "zipcode":"CÓDIGO POSTAL",
-    "saludo":"¡Grandioso! Contamos con mecánicas móvil certificada en",
+    "saludo":"¡Enhorabuena!, hemos encontrado asociados en tu ubicación:",
     "home_confirm":"Confirmo Código postal",
     "home_tab1":"Selecciones su Vehículo",
     "home_titulo_1":"Marca",
@@ -17,7 +17,7 @@
     "search":"Buscar",
     "home_popular":"Servicios populares",
     "detalle":"Detalle",
-    "home_garantia":"Su servicio está respaldado por nuestra garantía de 12 meses, 12.000 millas.",
+    "home_garantia":"Su servicio está respaldado por nuestra garantía de 12 meses o 12.000 Km.",
     "home_continuar":"Continuar",
     "home_agenda":"Seleccione la hora de su cita",
     "home_mensaje_agenda":"¡Justo a tiempo! Es probable que nuestros primeros tiempos disponibles se vendan pronto.",
@@ -27,6 +27,13 @@
     "home_nombres":"Nombre Completo",
     "home_email":"Correo Electrónico",
     "home_phone":"Número de teléfono",
-    "Summary":"Resumen"
+    "Summary":"Resumen",
+    "Register":"Registro",
+    "Confirm Password":"Confirme su clave",
+    "Password":"Clave",
+    "E-Mail Address":"Correo Electrónico",
+    "Login":"Inicie Sesión",
+    "Remember Me":"Recuerdame",
+    "Forgot Your Password?":"¿Olvido su clave?"
 }
 

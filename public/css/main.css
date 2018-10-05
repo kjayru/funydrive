@@ -344,6 +344,7 @@ input, button, select, textarea {
     border: 1px solid #218be7;
     border-radius: 4px;
     overflow: hidden;
+    margin-bottom: 30px;
 }
 .mainblue-info-box img {
     display: inline-block;
