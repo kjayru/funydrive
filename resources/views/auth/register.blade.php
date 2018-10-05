@@ -82,6 +82,8 @@
                                 </button>
                             </div>
                         </div>
+                        <p><br></p>
+                        <p>Recuerda, si eres usuario de la App, utiliza la misma cuenta de google o accede utilizando registro de Google que tienes a tu derecha</p>
                     </form>
                 </div>
             </div>

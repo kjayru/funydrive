@@ -9,6 +9,8 @@ use App\User;
 use App\Client;
 use App\UserSocialAccount;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -83,6 +85,8 @@ class LoginController extends Controller
                     'user_id'=> $user_id
                 ]);
 
+                Mail::to($email)->send(new NewUser($user));
+
             }catch(\Exception $exception){
                 $success = $exception->getMessage();
                 \DB::rollback();
@@ -92,7 +96,7 @@ class LoginController extends Controller
         if($success === true){
             \DB::commit();
             auth()->LoginUsingId($user->id);
-            return redirect(route('home'));
+            return redirect(route('admin'));
         }
         session()->flash('message',['danger',$success]);
         return redirect('login');
