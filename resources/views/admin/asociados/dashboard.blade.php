@@ -113,6 +113,7 @@
                                 <th scope="col">Fecha Servicio</th>
                                 <th scope="col">Fecha Creación</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -150,9 +151,10 @@
                                             <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}" class="btn btn-default btn-edit-job btn-xs">Modificar</a>
                                             @endif
 
-                                             <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}"  class="btn btn-info btn-cambiofecha btn-xs">Cambio fecha</a>
-                                           
+                                    
                                     </td>
+                                    <td><a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}"  class="btn btn-info btn-cambiofecha btn-xs">Cambio fecha</a>
+                                           </td>
                                 </tr>
                                
                             @endforeach
