@@ -66,7 +66,7 @@ class LoginController extends Controller
         $success = true;
         $email = $socialUser->email;
         $check = User::where('email',$email)->first();
-        dd("entro aqui");
+        
         if($check){
             $user=$check;
         }else{
@@ -92,7 +92,7 @@ class LoginController extends Controller
                 \DB::rollback();
             }
         }
-        //dd($socialUser);
+    
         if($success === true){
             \DB::commit();
             auth()->LoginUsingId($user->id);
