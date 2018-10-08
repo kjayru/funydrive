@@ -145,7 +145,7 @@
                                     <td>
                                             @if($tra->status == 1)
                                             <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}" class="btn btn-default btn-accept-job btn-xs">Aceptar</a>
-                                            <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}"  class="btn btn-danger btn-refuse-job btn-xs">Rechazar</a>
+                                            
                                             @endif
                                             @if($tra->status == 2)
                                             <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}" class="btn btn-default btn-edit-job btn-xs">Modificar</a>
@@ -153,6 +153,10 @@
 
                                     
                                     </td>
+                                    <td>@if($tra->status == 1)
+                                           
+                                            <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}"  class="btn btn-danger btn-refuse-job btn-xs">Rechazar</a>
+                                            @endif</td>
                                     <td><a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}"  class="btn btn-info btn-cambiofecha btn-xs">Cambio fecha</a>
                                            </td>
                                 </tr>
