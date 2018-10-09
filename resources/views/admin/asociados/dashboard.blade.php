@@ -154,11 +154,13 @@
                                     
                                     </td>
                                     <td>@if($tra->status == 1)
-                                           
                                             <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}"  class="btn btn-danger btn-refuse-job btn-xs">Rechazar</a>
-                                            @endif</td>
-                                    <td><a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}"  class="btn btn-info btn-cambiofecha btn-xs">Cambio fecha</a>
-                                           </td>
+                                        @endif</td>
+                                    <td>
+                                    @if($tra->status < 5)
+                                    <a href="#" data-type="{{ $tra->type }}" data-id="{{$tra->order_id}}" data-idcliente="{{ $tra->user_id }}" data-idasociado="{{ $user_id }}"  class="btn btn-info btn-cambiofecha btn-xs">Cambio fecha</a>
+                                     @endif      
+                                    </td>
                                 </tr>
                                
                             @endforeach
@@ -285,4 +287,58 @@
     </div>
   </div>    
 </div>
+
+
+<div class="modal modal-default fade" id="modal-cambiofecha">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="fr-cambiofecha">
+              {{ csrf_field() }}
+            <input name="_method" id="metodo" type="hidden" value="POST">
+            <input type="hidden" name="order_id" id="order_id" value="">
+            <input type="hidden" name="cliente_id" id="cliente_id" value="">
+            <input type="hidden" name="asociado_id" id="asociado_id" value="{{ $user_id }}">
+       
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Cambiar fecha</h4>
+          </div>
+          
+          <div class="modal-body">
+              <div class="form-group">
+                <label for="duracion">Dia</label>
+                
+                <input type="text" name="dia" class="form-control pull-right" id="datepicker">
+   
+              </div>
+              <div class="form-group">
+                    <label for="duracion">Horas</label>
+                <select name="horas" id="horas"  class="form-control">
+                        <option >Seleccione</option>
+                        @for($i=1;$i<12;$i++)
+                        <option value="{{$i}}">{{$i}}</option>
+                        @endfor
+                </select>
+              </div>
+              <div class="form-group">
+                    <label for="duracion">Minutos</label>
+                  
+                <select name="minutos" id="minutos"  class="form-control">
+                        @for($i=1;$i<60;$i++)
+                        <option value="{{$i}}">{{$i}} </option>/option>
+                        @endfor
+                </select>
+            </div>             
+  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-danger btn-save-cambiofecha">Enviar</button>
+          </div>
+      </form>
+    </div>
+  </div>    
+</div>
+
 @endsection

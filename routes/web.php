@@ -72,6 +72,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/rechazar','Admin\RegisterController@rechazarJob');
     Route::get('/orden/{any}/edit','Admin\RegisterController@editarJob');
     Route::put('/actualizar/{any}','Admin\RegisterController@updateJob');
+    Route::patch('/cambiofecha','Admin\RegisterController@actualizarFecha');
 });
 Route::resource('/servicios','ServiceController');
 Route::post('/buscarservicio','HomeController@buscarservicio');

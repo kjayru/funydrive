@@ -248,13 +248,33 @@ class RegisterController extends Controller
                 'response_detail' => $request->respuesta,
                 'response_days' => $request->duracion,
                 'response_price' => $request->precio,
+                'dias' => $request->dias,
+                'horas' => $request->horas,
+                'minutos' => $request->minutos
+
             ]);
 
         //cambio de fecha
-        Mail::to($data['email'])->send(new CambioFecha($res));
+        Mail::to($data['email'])->send(new RespondeMensaje($res));
 
         return response()->json(['rpta' => 'ok']);
 
+    }
+
+    public function cambiofecha(Request $request, $order){
+
+        
+        $res = Workshopresponse::where('order_id', $order)
+        ->update([
+         
+            'dias' => $request->dias,
+            'horas' => $request->horas,
+            'minutos' => $request->minutos
+
+        ]);
+
+    //cambio de fecha
+         Mail::to($data['email'])->send(new CambioFecha($res));
     }
 
 }

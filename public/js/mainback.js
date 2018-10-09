@@ -10,6 +10,57 @@ $(document).ready(function() {
 
     $('.select2').select2();
 
+    $(".btn-cambiofecha").click(function(e){
+        e.preventDefault();
+    
+        let idcliente = $(this).data("idcliente");
+        let idasociado = $(this).data("idasociado");
+        let order_id = $(this).data("id");
+        
+
+        $("#fr-cambiofecha #order_id").val(order_id);
+        $("#fr-cambiofecha #cliente_id").val(idcliente);
+        $("#fr-cambiofecha #asociado_id").val(idasociado);
+        
+
+        $("#modal-cambiofecha").modal('show');
+    });
+
+
+    $(".btn-save-cambiofecha").click(function(){
+        
+        e.preventDefault();
+       
+        let order_id = document.getElementById("order_id").value;
+        let cliente_id = document.getElementById("cliente_id").value;
+        let asociado_id = document.getElementById("asociado_id").value;
+        let token = document.querySelector("input[name$='_token']").value;   
+        let dia = document.getElementById("datepicker").value;
+        let hora = document.getElementById("hora").value;
+        let minuto = document.getElementById("minuto").value;
+
+        let data = ({'_method':'PATCH','_token':token,'dia': dia,'hora':hora,'minuto':minuto,'order_id':order_id,'asociado_id':asociado_id,'cliente_id':cliente_id});         
+        let url =`/admin/cambiofecha/${order_id}`;       
+        //ajax
+        fetch(url,{
+            method:'POST',
+            body:JSON.stringify(data),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        }).then(res => res.json())
+            .catch(error => console.error('error: ', error))
+            .then(response => console.log('Success: ',response));
+    
+            $("#modal-cambiofecha").modal('hide');
+            window.location.reload();
+
+    });
+
+    $('#datepicker').datepicker({
+        autoclose: true
+      })
+
     $(".btn-nuevo-marca").click(function(e){
         e.preventDefault();
         $("#modal-edit-marca").modal('show');
@@ -100,14 +151,14 @@ $(document).ready(function() {
 
     $("#marcamodel").change(function(){
         var id = $(this).val();
-        console.log(id);
+        
         var ioption = '';
         let url = `/admin/getyear/${id}`;
            fetch(url)
                 .then(res=>res.json())
                 .catch(error=> console.error('error',error))
                 .then(response=>{
-                    console.log(response);
+                   
                     //injection
 
                     $.each(response,function(i,e){
