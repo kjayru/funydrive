@@ -27,7 +27,7 @@
  
   <link rel="stylesheet" href="/assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
   <link rel="stylesheet" href="/assets/plugins/select2/select2.css">
-  <link rel="stylesheet" href="/css/mainback.css?v={{ date('dmhms')}}">
+  <link rel="stylesheet" href="/css/mainback.css?v={{ uniqid() }}">
 
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
  

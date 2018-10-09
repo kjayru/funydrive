@@ -201,34 +201,40 @@
             </div>
 
             <fieldset>
-            <legend>Tiempo trabajo</legend>
-              <div class="form-group">
-                <label for="duracion">Dias</label>
-                <select name="dias" id="dias"  class="form-control">
-                        <option >Seleccione</option>
-                    @for($i=1;$i<60;$i++)
-                       <option value="{{$i}}">{{$i}} </option>
-                    @endfor
-                </select>
+            <legend>Fecha de trabajo</legend>
+            <div class="form-group">
+                <label for="duracion">Dia</label>
+                
+                <input type="text" name="dia" class="form-control pull-right" id="datepickerget">
+   
               </div>
               <div class="form-group">
-                    <label for="duracion">Horas</label>
-                <select name="horas" id="horas"  class="form-control">
-                        <option >Seleccione</option>
-                        @for($i=1;$i<12;$i++)
-                        <option value="{{$i}}">{{$i}}</option>
-                        @endfor
-                </select>
+                <label for="duracion">Horas</label>
+                <input type="number" name="horas" id="horasget"  class="form-control">
+                        
               </div>
+
               <div class="form-group">
-                    <label for="duracion">Minutos</label>
+                <label for="duracion">Minutos</label>
                   
-                <select name="minutos" id="minutos"  class="form-control">
-                        @for($i=1;$i<60;$i++)
-                        <option value="{{$i}}">{{$i}} </option>/option>
-                        @endfor
-                </select>
-            </div>
+                <input type="number" name="minutos" id="minutosget"  class="form-control">
+                 
+              </div> 
+              
+              <div class="form-group">
+                <div class="radio">
+                    <label>
+                      <input type="radio" name="periodosget"  id="periodo0" value="AM" > AM
+                      
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                      <input type="radio" name="periodosget"  id="periodo1" value="PM"> PM
+                      
+                    </label>
+                  </div>
+              </div>
             </fieldset>
 
             <div class="form-group">
@@ -305,7 +311,7 @@
             <h4 class="modal-title">Cambiar fecha</h4>
           </div>
           
-          <div class="modal-body">
+        <div class="modal-body">
               <div class="form-group">
                 <label for="duracion">Dia</label>
                 
@@ -313,25 +319,34 @@
    
               </div>
               <div class="form-group">
-                    <label for="duracion">Horas</label>
-                <select name="horas" id="horas"  class="form-control">
-                        <option >Seleccione</option>
-                        @for($i=1;$i<12;$i++)
-                        <option value="{{$i}}">{{$i}}</option>
-                        @endfor
-                </select>
+                <label for="duracion">Horas</label>
+                <input type="number" name="horas" id="horas"  class="form-control">
+                        
               </div>
+
               <div class="form-group">
-                    <label for="duracion">Minutos</label>
+                <label for="duracion">Minutos</label>
                   
-                <select name="minutos" id="minutos"  class="form-control">
-                        @for($i=1;$i<60;$i++)
-                        <option value="{{$i}}">{{$i}} </option>/option>
-                        @endfor
-                </select>
-            </div>             
-  
-          </div>
+                <input type="number" name="minutos" id="minutos"  class="form-control">
+                 
+              </div> 
+              
+              <div class="form-group">
+                <div class="radio">
+                    <label>
+                      <input type="radio" name="periodos" class="periodos" id="periodo2" value="AM"> AM
+                      
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                      <input type="radio" name="periodos" class="periodos" id="periodo3" value="PM"> PM
+                      
+                    </label>
+                  </div>
+              </div>
+        </div>
+
           <div class="modal-footer">
             <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Cerrar</button>
             <button type="button" class="btn btn-danger btn-save-cambiofecha">Enviar</button>

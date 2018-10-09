@@ -197,13 +197,17 @@ class RegisterController extends Controller
         //$res->response_days = $request->duracion;
         $res->response_price = $request->precio;
 
-        $res->dias = $request->dias;
-        $res->horas = $request->horas;
-        $res->minutos = $request->minutos;
-
+       
         $res->save();
 
-        Workshoporder::where('order_id', $request->order_id)->update(['status' => 2]);
+        $fecha = $request->dias." ".$request->horas.":".$request->minutos." ".$request->tiempos;
+        
+
+        Workshoporder::where('order_id', $request->order_id)
+        ->update([
+            'status' => 2,
+            'request_date' => $fecha
+            ]);
         //data Asociado
 
         $socio = User::where('id',$request->asociado_id)->first();
@@ -247,10 +251,8 @@ class RegisterController extends Controller
             ->update([
                 'response_detail' => $request->respuesta,
                 'response_days' => $request->duracion,
-                'response_price' => $request->precio,
-                'dias' => $request->dias,
-                'horas' => $request->horas,
-                'minutos' => $request->minutos
+                'response_price' => $request->precio
+          
 
             ]);
 
@@ -261,20 +263,28 @@ class RegisterController extends Controller
 
     }
 
-    public function cambiofecha(Request $request, $order){
+    public function getFecha($id){
 
+        $fecha = Workshoporder::where('order_id',$id)->first();
+
+        return response()->json($fecha);
+    }
+
+    public function actualizarFecha(Request $request, $order){
+
+
+        $fecha = $request->dia." ".$request->hora.":".$request->minuto." ".$request->tiempos;
         
-        $res = Workshopresponse::where('order_id', $order)
+        $res = Workshoporder::where('order_id', $order)
         ->update([
-         
-            'dias' => $request->dias,
-            'horas' => $request->horas,
-            'minutos' => $request->minutos
-
+            'request_date' => $fecha
         ]);
 
+        $mailcliente = User::where('id',$request->cliente_id)->first();
+       
     //cambio de fecha
-         Mail::to($data['email'])->send(new CambioFecha($res));
+        Mail::to($mailcliente->email)->send(new CambioFecha($res));
+        return response()->json(['rpta'=>'ok']);
     }
 
 }
