@@ -822,7 +822,7 @@ $(document).ready(function () {
       .catch(error => console.error('error: ', error))
       .then(response => {
 
-        window.location.reload()
+       // window.location.reload()
       })
   })
 
