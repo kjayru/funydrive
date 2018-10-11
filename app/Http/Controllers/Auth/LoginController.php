@@ -51,10 +51,12 @@ class LoginController extends Controller
 
         return redirect('/login');
     }
+
     public function redirectToProvider(string $driver){
 
         return Socialite::driver($driver)->redirect();
     }
+
     public function handleProviderCallback(string $driver){
         if(!request()->has('code') || request()->has('denied')){
             session()->flash('message',['danger',__('Inicio de sesión cancelado')]);
@@ -81,9 +83,9 @@ class LoginController extends Controller
                     "provider" => $driver,
                     "provider_uid" => $socialUser->id
                 ]);
-                Client::create([
+               /* Client::create([
                     'user_id'=> $user_id
-                ]);
+                ]);*/
 
                 Mail::to($email)->send(new NewUser($user));
 

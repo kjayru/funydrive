@@ -10,6 +10,17 @@
       'Mapper' => 'Cornford\\Googlmapper\\Facades\\MapperFacade',
     ),
   ),
+  'edujugon/push-notification' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Edujugon\\PushNotification\\Providers\\PushNotificationServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'PushNotification' => 'Edujugon\\PushNotification\\Facades\\PushNotification',
+    ),
+  ),
   'fideloper/proxy' => 
   array (
     'providers' => 
