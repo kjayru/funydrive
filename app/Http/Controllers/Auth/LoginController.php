@@ -74,8 +74,6 @@ class LoginController extends Controller
         }else{
             \DB::beginTransaction();
             try{
-               
-
                 $user =   new User();
               
                 $user->name = $socialUser->name;
@@ -90,13 +88,10 @@ class LoginController extends Controller
                 $social->provider_uid = $socialUser->id;
                 $social->save();
               
-
                 $client = new Client();
-                $client->user_id = $user->id;
-                
+                $client->user_id = $user->id;                
                 $client->save();
-
-                Mail::to($email)->send(new NewUser($user));
+                  Mail::to($email)->send(new NewUser($user));
 
             }catch(\Exception $exception){
                 $success = $exception->getMessage();
