@@ -74,12 +74,16 @@ class LoginController extends Controller
         }else{
             \DB::beginTransaction();
             try{
-                dd($socialUser);
-                
-              $user =   User::create([
-                    "name"=>$socialUser->name,
-                    "email"=>$email
-                ]);
+               
+
+              $user =   new User();
+              
+                   $user->name = $socialUser->name;
+                   $user->email = $email;
+
+                   $user->save();
+
+              dd($user);
                 UserSocialAccount::create([
                     "user_id" => $user->id,
                     "provider" => $driver,

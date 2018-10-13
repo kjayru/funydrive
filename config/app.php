@@ -151,7 +151,8 @@ return [
         /*
          * Package Service Providers...
          */
-         Edujugon\PushNotification\Providers\PushNotificationServiceProvider::class,
+        Edujugon\PushNotification\Providers\PushNotificationServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
