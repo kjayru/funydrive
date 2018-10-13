@@ -74,6 +74,8 @@ class LoginController extends Controller
         }else{
             \DB::beginTransaction();
             try{
+                dd($socialUser);
+                
               $user =   User::create([
                     "name"=>$socialUser->name,
                     "email"=>$email
@@ -83,9 +85,9 @@ class LoginController extends Controller
                     "provider" => $driver,
                     "provider_uid" => $socialUser->id
                 ]);
-               /* Client::create([
+                Client::create([
                     'user_id'=> $user_id
-                ]);*/
+                ]);
 
                 Mail::to($email)->send(new NewUser($user));
 

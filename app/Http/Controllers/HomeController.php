@@ -302,4 +302,24 @@ class HomeController extends Controller
 
         return response()->json(['resultado'=>$resultado]);
     }
+
+
+    public function pruebdesarrollo(){
+
+        $push = new PushNotification;
+        $push->setMessage([
+            'notification' => [
+                    'title'=>'This is the title',
+                    'body'=>'This is the message',
+                    'sound' => 'default'
+                    ],
+            'data' => [
+                    'extraPayLoad1' => 'value1',
+                    'extraPayLoad2' => 'value2'
+                    ]
+            ])
+            ->setApiKey('Server-API-Key')
+            ->setDevicesToken(['deviceToken1','deviceToken2','deviceToken3']);
+    }
+
 }
