@@ -148,7 +148,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Cornford\Googlmapper\MapperServiceProvider::class,
-        
+        Edujugon\PushNotification\Providers\PushNotificationServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -214,6 +214,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Mapper' => Cornford\Googlmapper\Facades\MapperFacade::class,
+        'PushNotification' => Edujugon\PushNotification\Facades\PushNotification::class,
     ],
 
 ];
