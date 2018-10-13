@@ -25,7 +25,7 @@ Route::post('/verificar', 'HomeController@verifyUser');
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/','AdminController@index');
+    Route::get('/','AdminController@index')->name('admin');
     Route::get('/registrowork','Admin\RegisterController@index')->name('admin.registrojob');
     //Route::post('/registrowork','Admin\RegisterController@registrowork');    
     Route::resource('/profile','Admin\ProfileController');
