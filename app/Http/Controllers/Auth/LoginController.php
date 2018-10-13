@@ -76,22 +76,24 @@ class LoginController extends Controller
             try{
                
 
-              $user =   new User();
+                $user =   new User();
               
-                   $user->name = $socialUser->name;
-                   $user->email = $email;
+                $user->name = $socialUser->name;
+                $user->email = $email;
+                $user->role_id = 3;
+                $user->save();
 
-                   $user->save();
-
-              dd($user);
-                UserSocialAccount::create([
-                    "user_id" => $user->id,
-                    "provider" => $driver,
-                    "provider_uid" => $socialUser->id
-                ]);
-                Client::create([
-                    'user_id'=> $user_id
-                ]);
+             
+                $social =  new UserSocialAccount();
+                $social->user_id = $user->id;
+                $social->provider = $driver;
+                $social->provider_uid = $socialUser->id;
+                $social->save();
+              
+                $client = new Client();
+                $cliente->user_id = $user_id;
+                
+                $client->save();
 
                 Mail::to($email)->send(new NewUser($user));
 
