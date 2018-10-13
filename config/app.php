@@ -148,12 +148,11 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Cornford\Googlmapper\MapperServiceProvider::class,
-       
-        
         /*
          * Package Service Providers...
          */
         Edujugon\PushNotification\Providers\PushNotificationServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
