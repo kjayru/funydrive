@@ -95,7 +95,7 @@ class LoginController extends Controller
                 
                 $client->save();
 
-                Mail::to($email)->send(new NewUser($user));
+               // Mail::to($email)->send(new NewUser($user));
 
             }catch(\Exception $exception){
                 $success = $exception->getMessage();
