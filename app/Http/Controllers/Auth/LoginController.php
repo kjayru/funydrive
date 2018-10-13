@@ -10,6 +10,7 @@ use App\Client;
 use App\UserSocialAccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\NewUser;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
