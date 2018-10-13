@@ -90,8 +90,9 @@ class LoginController extends Controller
                 $social->provider_uid = $socialUser->id;
                 $social->save();
               
+
                 $client = new Client();
-                $cliente->user_id = $user_id;
+                $client->user_id = $user->id;
                 
                 $client->save();
 
