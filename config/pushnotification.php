@@ -4,7 +4,7 @@ return [
   'gcm' => [
       'priority' => 'normal',
       'dry_run' => false,
-      'apiKey' => '795506380666-q9lhabgdc83u8snm41fem2lg1s9odpba.apps.googleusercontent.com',
+      'apiKey' => 'AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA',
   ],
   'fcm' => [
         'priority' => 'normal',

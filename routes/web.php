@@ -19,6 +19,7 @@ Route::post('/getmodel','HomeController@getModel');
 Route::get('/getservice/{id}/edit','HomeController@getservice');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/verificar', 'HomeController@verifyUser');
+Route::get('/pruebagcm','HomeController@pruebdesarrollo');
 
 
 

@@ -19,6 +19,8 @@ use App\Workshoporder;
 use App\Workshopassociationorder;
 use App\Workshopresponse;
 
+use Edujugon\PushNotification\PushNotification;
+
 class HomeController extends Controller
 {
    
@@ -318,8 +320,13 @@ class HomeController extends Controller
                     'extraPayLoad2' => 'value2'
                     ]
             ])
-            ->setApiKey('Server-API-Key')
-            ->setDevicesToken(['deviceToken1','deviceToken2','deviceToken3']);
+            ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
+            ->setDevicesToken(['96ea3864da859cd6'])
+            ->send()
+            ->getFeedback();
+            echo "<pre>";
+      print_r($push);
+        echo "</pre>";
     }
 
 }
