@@ -342,6 +342,8 @@ class HomeController extends Controller
             ]
         ]);
 
+        //tes de respuesta desde url
+        //detalles
         dd($response);
     
     }
