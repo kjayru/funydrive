@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.1.3",
         "caouecs/laravel-lang": "~3.0",
+        "castro732/laravel-firebase-synchronization": "^2.1",
         "cornford/googlmapper": "^2.32",
         "edujugon/push-notification": "^3.0",
         "fideloper/proxy": "^4.0",

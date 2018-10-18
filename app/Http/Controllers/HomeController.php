@@ -314,7 +314,7 @@ class HomeController extends Controller
 
 
     public function pruebdesarrollo(){
-        
+        $client = new Client();
        /* $push = new PushNotification;
         $push->setMessage([
             'notification' => [
@@ -331,20 +331,64 @@ class HomeController extends Controller
             ->setDevicesToken(['109808869967034596554'])
             ->send();
         
-        */
+       
        $client = new Client();
-
+     
         $response = $client->request('POST', 'http://wavydrive.appspot.com/enviar-notificaciones', [
             'form_params' => [
                 'usuario' => '109808869967034596554',
                 'tipo' => 'Objetivo Alcanzado',
-                'notificacion' => 'Prueba de envio por post'
+                'notificacion' => 'Prueba de envio por post',
+                'msg' => 'talleres'
             ]
         ]);
-
+              
         //tes de respuesta desde url
         //detalles
-        dd($response);
-    
+       
+        dd($response);*/
+
+       $dataFields = array(
+        'msg' => 'talleres', 
+        'notificacion' =>  'Nueva Solicitud',
+        'mensage' => 'Su solicitud ha sido registrada, a partir de ahora comenzará a recibir respuesta de los talleres asociados' 
+        );
+       
+         $fields = array(
+            'registration_ids' => ['109808869967034596554'],
+            'data' => $dataFields
+        );
+
+        $res=json_encode($fields);
+       
+        $arrContextOptions=array(
+            "http" => array(
+            "method" => "POST",
+            "header" =>
+                'Authorization: key = AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA'. "\r\n" .
+                'Content-Type: application/json'. "\r\n",
+            "content" => $res,
+            'ignore_errors' => true,
+          ),
+            "ssl"=>array(
+            "allow_self_signed"=>true,
+            "verify_peer"=>false,
+          ),
+       );
+        $arrContextOptions = stream_context_create($arrContextOptions);
+        $result = file_get_contents('https://android.googleapis.com/gcm/send', false, $arrContextOptions);
+
+
+      
+/*
+      $response =   $client->request('POST','https://android.googleapis.com/gcm/send', [
+            'headers' => [
+                'Authorization' => 'key = AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA',
+                'Content-Type' => 'application/json',
+                'content'  => $res
+            ]
+        ]);
+*/
+        dd($result);
     }
 }

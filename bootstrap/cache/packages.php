@@ -1,4 +1,26 @@
 <?php return array (
+  'cornford/googlmapper' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Cornford\\Googlmapper\\MapperServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Mapper' => 'Cornford\\Googlmapper\\Facades\\MapperFacade',
+    ),
+  ),
+  'edujugon/push-notification' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Edujugon\\PushNotification\\Providers\\PushNotificationServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'PushNotification' => 'Edujugon\\PushNotification\\Facades\\PushNotification',
+    ),
+  ),
   'fideloper/proxy' => 
   array (
     'providers' => 
@@ -28,22 +50,18 @@
       'Socialite' => 'Laravel\\Socialite\\Facades\\Socialite',
     ),
   ),
-  'cornford/googlmapper' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Cornford\\Googlmapper\\MapperServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Mapper' => 'Cornford\\Googlmapper\\Facades\\MapperFacade',
-    ),
-  ),
   'laravel/tinker' => 
   array (
     'providers' => 
     array (
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
+    ),
+  ),
+  'nunomaduro/collision' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     ),
   ),
   'yajra/laravel-datatables-oracle' => 
@@ -55,24 +73,6 @@
     'aliases' => 
     array (
       'DataTables' => 'Yajra\\DataTables\\Facades\\DataTables',
-    ),
-  ),
-  'nunomaduro/collision' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    ),
-  ),
-  'edujugon/push-notification' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Edujugon\\PushNotification\\Providers\\PushNotificationServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'PushNotification' => 'Edujugon\\PushNotification\\Facades\\PushNotification',
     ),
   ),
 );
