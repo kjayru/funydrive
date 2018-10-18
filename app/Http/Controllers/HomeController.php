@@ -19,6 +19,9 @@ use App\Workshoporder;
 use App\Workshopassociationorder;
 use App\Workshopresponse;
 
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
+
 use Edujugon\PushNotification\PushNotification;
 
 class HomeController extends Controller
@@ -307,8 +310,8 @@ class HomeController extends Controller
 
 
     public function pruebdesarrollo(){
-
-        $push = new PushNotification;
+        
+       /* $push = new PushNotification;
         $push->setMessage([
             'notification' => [
                     'title'=>'This is the title',
@@ -316,17 +319,26 @@ class HomeController extends Controller
                     'sound' => 'default'
                     ],
             'data' => [
-                    'extraPayLoad1' => 'value1',
-                    'extraPayLoad2' => 'value2'
+                    'tipo' => 'Objetivo',
+                    'notificacion' => 'Preuba desde push'
                     ]
             ])
             ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
-            ->setDevicesToken(['96ea3864da859cd6'])
-            ->send()
-            ->getFeedback();
-            echo "<pre>";
-      print_r($push);
-        echo "</pre>";
-    }
+            ->setDevicesToken(['109808869967034596554'])
+            ->send();
+        
+        */
+       $client = new Client();
 
+        $response = $client->request('POST', 'http://wavydrive.appspot.com/enviar-notificaciones', [
+            'form_params' => [
+                'usuario' => '109808869967034596554',
+                'tipo' => 'Objetivo Alcanzado',
+                'notificacion' => 'Prueba de envio por post'
+            ]
+        ]);
+
+        dd($response);
+    
+    }
 }
