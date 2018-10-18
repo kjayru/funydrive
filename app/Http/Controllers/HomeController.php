@@ -355,7 +355,7 @@ class HomeController extends Controller
         );
        
          $fields = array(
-            'registration_ids' => ['109808869967034596554'],
+            'registration_ids' => ['109808869967034596554','110943548811181778319'],
             'data' => $dataFields
         );
 
