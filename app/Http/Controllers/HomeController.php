@@ -108,7 +108,9 @@ class HomeController extends Controller
     }
 
     public function getservice($id){
-        $subservices = Service::where('parent_id',$id)->get();
+        $subservices = Service::where('parent_id',$id)
+            ->where('status',2)
+            ->get();
 
         if(count($subservices)>0){
             return response()->json(['rpta'=>'ok','data'=>$subservices]);
@@ -303,7 +305,9 @@ class HomeController extends Controller
     public function buscarservicio(Request $request){
         
 
-        $resultado = Service::where('name', 'like', '%' . $request->words . '%')->get();
+        $resultado = Service::where('name', 'like', '%' . $request->words . '%')
+            ->where('status',2)    
+            ->get();
 
         return response()->json(['resultado'=>$resultado]);
     }
