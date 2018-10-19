@@ -314,31 +314,31 @@ class HomeController extends Controller
 
 
     public function pruebdesarrollo(){
-        $client = new Client();
-       /* $push = new PushNotification;
-        $push->setMessage([
+       // $client = new Client();
+       $push = new PushNotification;
+       $response =  $push->setMessage([
             'notification' => [
-                    'title'=>'This is the title',
-                    'body'=>'This is the message',
+                    'title'=>'Talleras',
+                    'body'=>'Mensaje de prueba',
                     'sound' => 'default'
                     ],
             'data' => [
-                    'tipo' => 'Objetivo',
-                    'notificacion' => 'Preuba desde push'
+                    'tipo' => 'Notificacion',
+                    'notificacion' => 'Preuba desde wavy backend'
                     ]
             ])
             ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
-            ->setDevicesToken(['109808869967034596554'])
+            ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
             ->send();
         
-       
-       $client = new Client();
+       dd($response);
+     /*  $client = new Client();
      
         $response = $client->request('POST', 'http://wavydrive.appspot.com/enviar-notificaciones', [
             'form_params' => [
-                'usuario' => '109808869967034596554',
+                'usuario' => 'APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak',
                 'tipo' => 'Objetivo Alcanzado',
-                'notificacion' => 'Prueba de envio por post',
+                'notificacion' => 'Prueba de envio por backend',
                 'msg' => 'talleres'
             ]
         ]);
@@ -346,9 +346,9 @@ class HomeController extends Controller
         //tes de respuesta desde url
         //detalles
        
-        dd($response);*/
+        dd($response);
 
-       $dataFields = array(
+      /* $dataFields = array(
         'msg' => 'talleres', 
         'notificacion' =>  'Nueva Solicitud',
         'mensage' => 'Su solicitud ha sido registrada, a partir de ahora comenzará a recibir respuesta de los talleres asociados' 
@@ -389,6 +389,6 @@ class HomeController extends Controller
             ]
         ]);
 */
-        dd($result);
+      //  dd($result);
     }
 }

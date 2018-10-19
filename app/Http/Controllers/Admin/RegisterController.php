@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
+use Edujugon\PushNotification\PushNotification;
+
 class RegisterController extends Controller
 {
     /*
@@ -214,6 +216,23 @@ class RegisterController extends Controller
 
         Mail::to($socio->email)->send(new Talleres($socio));
 
+        $push = new PushNotification;
+        $response =  $push->setMessage([
+             'notification' => [
+                     'title'=>'talleres',
+                     'body'=>'Se Acepto el trabajo',
+                     'sound' => 'default'
+                     ],
+             'data' => [
+                     'tipo' => 'Notificacion',
+                     'notificacion' => 'Mensaje desde wavy backend'
+                     ]
+             ])
+             ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
+             ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
+             ->send();
+ 
+
         return response()->json(['rpta' => 'ok']);
 
     }
@@ -237,6 +256,22 @@ class RegisterController extends Controller
         Mail::to($socio->email)->send(new Rechazo($socio));
         return response()->json(['rpta' => 'ok']);
 
+        $push = new PushNotification;
+       $response =  $push->setMessage([
+            'notification' => [
+                    'title'=>'talleres',
+                    'body'=>'Se rechazo el trabajo',
+                    'sound' => 'default'
+                    ],
+            'data' => [
+                    'tipo' => 'Notificacion',
+                    'notificacion' => 'Mensaje desde wavy backend'
+                    ]
+            ])
+            ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
+            ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
+            ->send();
+
     }
 
     public function editarJob(Request $request, $id)
@@ -258,6 +293,23 @@ class RegisterController extends Controller
 
         //cambio de fecha
         Mail::to($data['email'])->send(new RespondeMensaje($res));
+
+        $push = new PushNotification;
+        $response =  $push->setMessage([
+             'notification' => [
+                     'title'=>'talleres',
+                     'body'=>'Se actualizaron el procedimiento de trabajo',
+                     'sound' => 'default'
+                     ],
+             'data' => [
+                     'tipo' => 'Notificacion',
+                     'notificacion' => 'Mensaje desde wavy backend'
+                     ]
+             ])
+             ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
+             ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
+             ->send();
+
 
         return response()->json(['rpta' => 'ok']);
 
@@ -284,6 +336,23 @@ class RegisterController extends Controller
        
     //cambio de fecha
         Mail::to($mailcliente->email)->send(new CambioFecha($res));
+
+        $push = new PushNotification;
+        $response =  $push->setMessage([
+             'notification' => [
+                     'title'=>'talleres',
+                     'body'=>'Se ha actualizado la fecha del trabajo',
+                     'sound' => 'default'
+                     ],
+             'data' => [
+                     'tipo' => 'Notificacion',
+                     'notificacion' => 'Mensaje desde wavy backend'
+                     ]
+             ])
+             ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
+             ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
+             ->send();
+
         return response()->json(['rpta'=>'ok']);
     }
 

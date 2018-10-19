@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\NewUser;
 use Illuminate\Support\Facades\Validator;
 
+use Edujugon\PushNotification\PushNotification;
+
 class LoginController extends Controller
 {
     /*
@@ -65,6 +67,8 @@ class LoginController extends Controller
         }
         $socialUser = Socialite::driver($driver)->user();
 
+        dd($socialUser);
+
         $user = null;
         $success = true;
         $email = $socialUser->email;
@@ -103,6 +107,23 @@ class LoginController extends Controller
         if($success === true){
             \DB::commit();
             auth()->LoginUsingId($user->id);
+
+            $response =  $push->setMessage([
+                'notification' => [
+                        'title'=>'talleres',
+                        'body'=>'Realizo su registro por google',
+                        'sound' => 'default'
+                        ],
+                'data' => [
+                        'tipo' => 'Notificacion',
+                        'notificacion' => 'Mensaje desde wavy backend'
+                        ]
+                ])
+                ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
+                ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
+                ->send();
+
+
             return redirect(route('admin'));
         }
         session()->flash('message',['danger',$success]);
