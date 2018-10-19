@@ -214,7 +214,7 @@ class RegisterController extends Controller
 
         $socio = User::where('id',$request->asociado_id)->first();
 
-        Mail::to($socio->email)->send(new Talleres($socio));
+       // Mail::to($socio->email)->send(new Talleres($socio));
 
         $push = new PushNotification;
         $response =  $push->setMessage([
@@ -253,7 +253,7 @@ class RegisterController extends Controller
         $socio = User::where('id',$request->cliente_id)->first();
 
 
-        Mail::to($socio->email)->send(new Rechazo($socio));
+        //Mail::to($socio->email)->send(new Rechazo($socio));
         return response()->json(['rpta' => 'ok']);
 
         $push = new PushNotification;
@@ -292,7 +292,7 @@ class RegisterController extends Controller
             ]);
 
         //cambio de fecha
-        Mail::to($data['email'])->send(new RespondeMensaje($res));
+       // Mail::to($data['email'])->send(new RespondeMensaje($res));
 
         $push = new PushNotification;
         $response =  $push->setMessage([
@@ -335,7 +335,7 @@ class RegisterController extends Controller
         $mailcliente = User::where('id',$request->cliente_id)->first();
        
     //cambio de fecha
-        Mail::to($mailcliente->email)->send(new CambioFecha($res));
+       // Mail::to($mailcliente->email)->send(new CambioFecha($res));
 
         $push = new PushNotification;
         $response =  $push->setMessage([

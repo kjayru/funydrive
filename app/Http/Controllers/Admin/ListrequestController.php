@@ -12,6 +12,7 @@ use App\Workshoporder;
 use App\Register;
 use App\Requirement;
 
+
 class ListrequestController extends Controller
 {
     public function __construct()
@@ -26,6 +27,7 @@ class ListrequestController extends Controller
     public function index()
     {
        
+
         $mirol    = User::navigation();
 
         $solicitudes = Requirement::all();
@@ -33,5 +35,13 @@ class ListrequestController extends Controller
     }
 
     
-
+    public function estados()
+    {
+        $user_id = Auth::id();
+        $mirol    = User::navigation();
+        
+        $trabajos = workshoporder::where('user_work_id',$user_id)->get();
+       
+        return view('admin.asociados.estado',['usuario'=>$mirol,'user_id'=>$user_id,'trabajos'=>$trabajos]);
+    }
 }

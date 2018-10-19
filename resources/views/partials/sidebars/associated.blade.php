@@ -12,7 +12,11 @@
             </a>
           </li>
 
-          
+          <li>
+            <a href="/admin/estados">
+            <i class="fa fa-th"></i> <span>Estados</span>
+          </a>
+          </li>
 
           <li>
               <a  href="{{ route('logout') }}"
