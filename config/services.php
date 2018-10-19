@@ -44,6 +44,15 @@ return [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => '/login/google/callback'
+    ],
+
+
+    'firebase' => [
+        'api_key' => 'API_KEY', // Only used for JS integration
+        'auth_domain' => 'AUTH_DOMAIN', // Only used for JS integration
+        'database_url' => '/cloudsql/wavydrive:europe-west1:wavydrive-main',
+        'secret' => '*WavyDrive2018*',
+        'storage_bucket' => 'STORAGE_BUCKET', // Only used for JS integration
     ]
    
 
