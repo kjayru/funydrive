@@ -67,7 +67,7 @@ class LoginController extends Controller
         }
         $socialUser = Socialite::driver($driver)->user();
 
-        dd($socialUser);
+       // dd($socialUser);
 
         $user = null;
         $success = true;
