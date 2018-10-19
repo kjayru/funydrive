@@ -355,9 +355,16 @@ function initMap() {
             position: placeLoc,
             icon: icons.icon,
           });
-
+          let rating = '';
           google.maps.event.addListener(marker, "click", function () {
-            infowindow.setContent(place.name);
+            console.log("evento0");
+            $('.gicon .stars').stars();
+            if(place.rating){
+              rating = place.rating;
+            }else{
+              rating = '0';
+            }
+            infowindow.setContent(`${place.name} <br>Valoración: <div class="gicon"><span class="stars"> ${rating}</span></div>`);
             infowindow.open(map, this);
             // console.log(place.geometry.);
           });
@@ -446,9 +453,17 @@ function zipmapa(provincia) {
       position: placeLoc,
       icon: icons.icon,
     });
-
+ 
     google.maps.event.addListener(marker, "click", function () {
-      infowindow.setContent(place.name);
+      
+      if(place.rating){
+        r = place.rating;
+      }else{
+        r = '0';
+      }
+      let rv = rating(r);
+      console.log(rv);
+      infowindow.setContent(`${place.name} <br>Valoración: <div class="gicon">${rv}</div>`);
       infowindow.open(map, this);
 
       namestore = place.name;
@@ -628,3 +643,12 @@ Array.from(tabs).forEach(link=>{
 $("modal").hide();
 
 
+
+function rating(valor) {
+  
+      let w = Math.max(0, (Math.min(5, parseFloat(valor)))) * 16;
+      
+      punto = `<span class="stars"><span style="width: ${w}px;"></span></span>`;
+  
+  return punto;
+};
