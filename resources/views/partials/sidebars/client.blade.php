@@ -1,11 +1,16 @@
 
           <li class="header">MENU</li>
-          <li>
+            <li>
                 <a href="/admin/solicitudes">
                   <i class="fa fa-th"></i> <span>Solicitudes</span>
                 </a>
-              </li>
-          <li>
+            </li>
+            <li>
+                <a href="/admin/valorar">
+                <i class="fa fa-th"></i> <span>Valorar</span>
+              </a>
+            </li>
+            <li>
               <a  href="{{ route('logout') }}"
               onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -14,5 +19,5 @@
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   {{ csrf_field() }}
               </form>
-          </li>        
+            </li>        
    

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 
 use App\Workshoporder;
+use App\workshopresponse;
 use App\Register;
 use App\Requirement;
 use App\Estado;
@@ -81,10 +82,25 @@ class ListrequestController extends Controller
     public function getmensajes(){
         $user_id = Auth::id();
         $mirol    = User::navigation();
-        $trabajos = workshoporder::where('user_work_id',$user_id)->with('conversation')->get();
+        $trabajos = workshoporder::where('user_id',$user_id)->get();
+ 
+        return view('admin.asociados.valorar',['user_id'=>$user_id,'trabajos'=>$trabajos]);
+    }
 
-         
-        return view('admin.asociados.mensaje',['user_id'=>$user_id,'trabajos'=>$trabajos]);
+    public function setvalorar(Request $request, $order_id){
+        //valoration workshoporder
+        $work = workshoporder::where('order_id',$order_id)->first();
+       
+        //notas in response
+        $work->valoration = $request->valorar;
+        $work->save();
+
+        $note = workshopresponse::where('order_id',$order_id)->first();
+        $note->response_notes = $request->nota;
+        $note->save();
+
+        return response()->json(['rpta'=>'ok']);
+
     }
 
 

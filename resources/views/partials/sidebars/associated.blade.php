@@ -15,11 +15,7 @@
               <i class="fa fa-th"></i> <span>Servicios</span>
             </a>
           </li>
-          <li>
-            <a href="/admin/mensajes">
-            <i class="fa fa-th"></i> <span>Mensajes</span>
-          </a>
-          </li>
+         
           <li>
             <a href="/admin/estados">
             <i class="fa fa-th"></i> <span>Estados</span>

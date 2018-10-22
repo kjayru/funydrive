@@ -77,7 +77,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::patch('/cambiofecha/{any}','Admin\RegisterController@actualizarFecha');
     Route::get('/estados','Admin\ListrequestController@estados');
     Route::put('/cambioestado/{any}','Admin\ListrequestController@cambioestado');
-    Route::get('/mensajes','Admin\ListrequestController@getmensajes');
+    Route::get('/valorar','Admin\ListrequestController@getmensajes');
+    Route::put('/setvalorar/{any}','Admin\ListrequestController@setvalorar');
 });
 Route::resource('/servicios','ServiceController');
 Route::post('/buscarservicio','HomeController@buscarservicio');

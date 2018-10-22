@@ -28,7 +28,9 @@
                                    ORDEN: {{ $tra->order_id }}
                                     </a>
                                 </h4>
-                                 <a href="#" class="btn btn-xs btn-primary pull-right">Mensaje</a>
+                                
+                                 <a href="#" class="btn btn-xs btn-primary pull-right">Valorar</a>
+
                             </div>
                             <div id="collapse{{ $key+1}}" class="panel-collapse collapse @if($key==0) in @endif" role="tabpanel" aria-labelledby="heading{{ $key+1}}">
                                 <div class="panel-body">

@@ -1237,10 +1237,42 @@ $(".btn-save-estado").click(function(e){
      }
    }).then(res => res.json())
    .then(error => console.error('error',error))
-   .then(response =>{
-     
-       
+   .then(response =>{  
            window.location.reload();
-       
    });
 });
+
+
+$(".btn-valorar").click(function(e){
+  e.preventDefault();
+   let order_id = $(this).data('order');
+  $("#modal-valorar").modal('show');
+  $("#fr-valorar #order_id").val(order_id);
+});
+
+$(".btn-save-valorar").click(function(e){
+  e.preventDefault();
+
+
+  let token = $("#fr-valorar input[name='_token']").val();
+  let valorar = $("#fr-valorar #valorar").val();
+  let nota = $("#fr-valorar #nota").val();
+  let order_id = $("#fr-valorar #order_id").val();
+
+  let dataform = ({ '_method': 'PUT', '_token': token, 'valorar': valorar, 'nota': nota });
+    let url = `/admin/setvalorar/${order_id}`;
+   fetch(url,{
+    method: 'POST',
+    body: JSON.stringify(dataform),
+    headers: {
+      'Content-Type': 'application/json'
+     }
+   }).then(res => res.json())
+   .then(error => console.error('error',error))
+   .then(response =>{  
+           window.location.reload();
+   });
+
+
+});
+

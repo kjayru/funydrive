@@ -38,7 +38,16 @@ class Workshoporder extends Model
             $str .= $keyspace[random_int(0, $max)];
         }
         return $str;
+    
     }
+
+
+    public function workshopresponse()
+    {
+        return $this->hasMany('App\Workshopresponse','order_id','order_id');
+    }
+
+
 
    
 
