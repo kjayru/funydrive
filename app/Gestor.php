@@ -19,6 +19,6 @@ class Gestor extends Model
         echo "Éxito: Se realizó una conexión apropiada a MySQL! La base de datos mi_bd es genial." . PHP_EOL;
         echo "Información del host: " . mysqli_get_host_info($enlace) . PHP_EOL;
 
-        mysqli_close($enlace);
+        //mysqli_close($enlace);
     }
 }
