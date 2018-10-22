@@ -22,6 +22,7 @@ use App\Workshopresponse;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 
+use App\Gestor;
 
 
 class HomeController extends Controller
@@ -315,7 +316,7 @@ class HomeController extends Controller
 
     public function pruebdesarrollo(){
        // $client = new Client();
-       $push = new PushNotification;
+      /* $push = new PushNotification;
        $response =  $push->setMessage([
             'notification' => [
                     'title'=>'Talleras',
@@ -331,7 +332,9 @@ class HomeController extends Controller
             ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
             ->send();
         
-       dd($response);
+       dd($response);*/
+
+
      /*  $client = new Client();
      
         $response = $client->request('POST', 'http://wavydrive.appspot.com/enviar-notificaciones', [
@@ -390,5 +393,7 @@ class HomeController extends Controller
         ]);
 */
       //  dd($result);
+
+      Gestor::conexion();
     }
 }
