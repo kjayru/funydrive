@@ -396,9 +396,6 @@ class HomeController extends Controller
 
       $con = Gestor::conexion();
 
-      $select="select * form usuarios";
-      $result = $con->query($select);
-
-      dd($result);
+     
     }
 }
