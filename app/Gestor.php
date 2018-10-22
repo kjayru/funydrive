@@ -12,7 +12,7 @@ class Gestor extends Model
         $select="Select * from usuario";
         $result = $con->query($select);
         while($row  = $result->fetch_assoc()){
-            $row['correo']."<br>";
+            $row['email']."<br>";
         }
        
         
