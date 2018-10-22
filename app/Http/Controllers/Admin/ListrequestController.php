@@ -7,11 +7,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\User;
-use App\Workshop;
+
 use App\Workshoporder;
 use App\Register;
 use App\Requirement;
-
+use App\Estado;
+use App\Conversation;
+use App\ConversationReply;
 
 class ListrequestController extends Controller
 {
@@ -39,9 +41,51 @@ class ListrequestController extends Controller
     {
         $user_id = Auth::id();
         $mirol    = User::navigation();
+        /* $trabajos = DB::table('WorkShopOrders')
+                    ->where('user_work_id',$user_id)
+                    ->join('estados','WorkShopOrders.order_id','=','estados.order_id')
+                    ->get();*/
+        $trabajos = workshoporder::where('user_work_id',$user_id)->with('estado')->get();
+
         
-        $trabajos = workshoporder::where('user_work_id',$user_id)->get();
-       
+      
         return view('admin.asociados.estado',['usuario'=>$mirol,'user_id'=>$user_id,'trabajos'=>$trabajos]);
     }
+
+
+    public function cambioestado(Request $request, $order_id){
+        
+        $findorder = Estado::where('order_id',$order_id)->count();
+
+        if($findorder>0){
+
+            $result = Estado::where('order_id',$order_id)->first();
+
+            $result->status = $request->estado;
+            $result->save();
+
+        }else{
+
+            $result = new Estado();
+            $result->order_id = $order_id;
+            $result->status = $request->estado;
+            $result->save();
+        }
+
+        return response()->json(['rpta'=>'ok']);
+
+        
+    }
+
+
+    public function getmensajes(){
+        $user_id = Auth::id();
+        $mirol    = User::navigation();
+        $trabajos = workshoporder::where('user_work_id',$user_id)->with('conversation')->get();
+
+         
+        return view('admin.asociados.mensaje',['user_id'=>$user_id,'trabajos'=>$trabajos]);
+    }
+
+
 }

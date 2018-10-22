@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Mpociot\Firebase\SyncsWithFirebase; 
+
 
 
 class User extends Authenticatable
 {
-    use SyncsWithFirebase;
+   
     use Notifiable;
 
     /**
@@ -56,5 +56,18 @@ class User extends Authenticatable
     public function requirement()
     {
         return $this->hasMany('App\Requirement');
+    }
+
+    public function conversation(){
+        return $this->hasMany('App\Conversation');
+    }
+
+    public function conversation2(){
+        return $this->hasMany('App\Conversation');
+    }
+
+    public function conversationreply()
+    {
+        return $this->hasMany('App\ConversationReply');
     }
 }

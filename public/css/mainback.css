@@ -81,3 +81,93 @@ h4.panel-title {
 .btn-nuevo-marca,.btn-nuevo-modelo {
     display: inline;
 }
+
+#estados .timeline>li {
+
+    padding: 0;
+    margin: 0;
+}
+#estados .timeline {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #estados  .li {
+    transition: all 200ms ease-in;
+  }
+  
+  #estados .timestamp {
+    margin-bottom: 20px;
+    padding: 0px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 100;
+  }
+  
+  #estados .status {
+    padding: 0px 14px;
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid #D6DCE0;
+    position: relative;
+    transition: all 200ms ease-in;
+  }
+  #estados .status h4 {
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+  }
+  #estados  .status:before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: -15px;
+    left: 42%;
+    transition: all 200ms ease-in;
+  }
+  
+  #estados  .li.complete .status {
+    border-top: 2px solid #66DC71;
+  }
+  #estados  .li.complete .status:before {
+    background-color: #66DC71;
+    border: none;
+    transition: all 200ms ease-in;
+  }
+  #estados .li.complete .status h4 {
+    color: #66DC71;
+  }
+  
+  @media (min-device-width: 320px) and (max-device-width: 700px) {
+    #estados .timeline {
+      list-style-type: none;
+      display: block;
+    }
+  
+    #estados .li {
+      transition: all 200ms ease-in;
+      display: flex;
+      width: inherit;
+    }
+  
+    #estados .timestamp {
+      width: 100px;
+    }
+  
+    #estados .status:before {
+      left: -8%;
+      top: 30%;
+      transition: all 200ms ease-in;
+    }
+  }
+  
+  
+  
+ 

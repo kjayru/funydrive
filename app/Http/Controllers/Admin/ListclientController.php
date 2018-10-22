@@ -83,4 +83,6 @@ class ListclientController extends Controller
 
         return response()->json(['rpta'=>'ok']);
     }
+
+    
 }

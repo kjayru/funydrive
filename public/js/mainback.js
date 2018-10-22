@@ -1214,3 +1214,33 @@ function actualizahijos (id, estado) {
     }
   })
 }
+
+$(".cambio-estado").click(function(e){
+  e.preventDefault();
+   let order_id = $(this).data('order');
+  $("#modal-estado").modal('show');
+  $("#fr-estado #order_id").val(order_id);
+});
+
+$(".btn-save-estado").click(function(e){
+  let token = $("#fr-estado input[name='_token']").val();
+  let estado = $("#fr-estado #estado").val();
+  let order_id = $("#fr-estado #order_id").val();
+
+  let dataform = ({ '_method': 'PUT', '_token': token, 'estado': estado });
+    let url = `/admin/cambioestado/${order_id}`;
+   fetch(url,{
+    method: 'POST',
+    body: JSON.stringify(dataform),
+    headers: {
+      'Content-Type': 'application/json'
+     }
+   }).then(res => res.json())
+   .then(error => console.error('error',error))
+   .then(response =>{
+     
+       
+           window.location.reload();
+       
+   });
+});

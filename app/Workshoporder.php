@@ -13,6 +13,15 @@ class Workshoporder extends Model
         return $this->belongsTo('App\Workshopassociationorder','order_id','order_id');
     }
 
+    public function estado()
+    {
+        return $this->hasOne('App\Estado','order_id','order_id');
+    }
+
+    public function conversation(){
+        return $this->hasMany('App\Conversation','order_id','order_id');
+    }
+
     public static function  random_str($length,$keyspace = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz') {
         $str = '';
         $max = mb_strlen($keyspace, '8bit') - 1;
@@ -30,5 +39,7 @@ class Workshoporder extends Model
         }
         return $str;
     }
+
+   
 
 }
