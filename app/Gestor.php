@@ -11,8 +11,8 @@ class Gestor extends Model
         
         $select="Select * from usuario";
         $result = $con->query($select);
-  
-        dd($result);
+        $row = $result->fetch_assoc();
+        dd($row);
         
     }
 }
