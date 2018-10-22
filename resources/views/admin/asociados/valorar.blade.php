@@ -17,7 +17,7 @@
             <div class="box-header with-border">                
             </div>
                 <div class="box-body">
-                    @foreach ($trabajos as $key => $tra)                               
+                    @foreach (@$trabajos as $key => $tra)                               
                     <table class="table">
                         <thead>
                         <tr>
@@ -30,14 +30,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($tra->workshopresponse as $k => $wk)                                                   
+                            @foreach(@@$tra->workshopresponse as $k => $wk)                                                   
                             <tr>
                                 <th scope="row">{{ $k+1 }}</th>                              
                                 <td>{{ $wk->ws_id }} </td>
                                 <td>{{ $wk->response_days }}</td>
                                 <td>{{ $wk->response_date }}</td>
                                 <td>{{ $wk->response_price }}</td>
-                                <td><a href="#" class="btn btn-xs btn-primary btn-valorar" data-order="{{ $tra->order_id }}">Valorar</a></td>                               
+                                <td><a href="#" class="btn btn-xs btn-primary btn-valorar" data-order="{{ @$tra->order_id }}">Valorar</a></td>                               
                             </tr>                          
                         @endforeach
                             <tr>
@@ -59,7 +59,7 @@
 
                                                     <div class="timeline-body">
                                                        
-                                                      {{ $wk->response_detail }}
+                                                      {{ @$wk->response_detail }}
                                                     </div>
 
                                                     <div class="timeline-footer">
