@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Gestor extends Model
 {
     public static function conexion(){
-        $con = mysqli_connect("35.240.60.62", "wavydrive", "*WavyDrive2018*", "funydrive");
+        $con = mysqli_connect("35.195.132.92", "wavydrive", "*WavyDrive2018*", "funydrive");
 
         if (!$enlace) {
             echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
