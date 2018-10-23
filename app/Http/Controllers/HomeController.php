@@ -328,7 +328,7 @@ class HomeController extends Controller
                     'notificacion' => 'Preuba desde wavy backend'
                     ]
             ])
-            ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
+            ->setApiKey(env('APP_KEY_PUSH'))
             ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
             ->send()
             ->getFeedback();

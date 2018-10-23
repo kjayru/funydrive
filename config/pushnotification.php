@@ -4,7 +4,7 @@ return [
   'gcm' => [
       'priority' => 'normal',
       'dry_run' => false,
-      'apiKey' => 'AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA',
+      'apiKey' => env('APP_KEY_PUSH'),
   ],
   'fcm' => [
         'priority' => 'normal',
