@@ -12,10 +12,11 @@ class Gestor extends Model
         $select="Select * from usuario";
         $result = $con->query($select);
         while($row  = $result->fetch_assoc()){
-           echo  $row['email']."<br>";
+           $dispositivos[] = array('email'=> $row['email'],'reg_id'=>$row['reg_id']);
         }
        
-        
-        
+       
+
+        return $dispositivos;
     }
 }

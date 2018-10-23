@@ -21,7 +21,7 @@ use App\Workshopresponse;
 
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
-
+use Edujugon\PushNotification\PushNotification;
 use App\Gestor;
 
 
@@ -315,11 +315,11 @@ class HomeController extends Controller
 
 
     public function pruebdesarrollo(){
-       // $client = new Client();
-      /* $push = new PushNotification;
+       //
+      $push = new PushNotification('gcm');
        $response =  $push->setMessage([
             'notification' => [
-                    'title'=>'Talleras',
+                    'title'=>'talleras',
                     'body'=>'Mensaje de prueba',
                     'sound' => 'default'
                     ],
@@ -330,31 +330,27 @@ class HomeController extends Controller
             ])
             ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
             ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
-            ->send();
-        
-       dd($response);*/
+            ->send()
+            ->getFeedback();
+       dd($response);
 
 
-     /*  $client = new Client();
-     
-        $response = $client->request('POST', 'http://wavydrive.appspot.com/enviar-notificaciones', [
-            'form_params' => [
-                'usuario' => 'APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak',
-                'tipo' => 'Objetivo Alcanzado',
-                'notificacion' => 'Prueba de envio por backend',
-                'msg' => 'talleres'
-            ]
-        ]);
-              
+      
         //tes de respuesta desde url
         //detalles
        
-        dd($response);
+       
 
       /* $dataFields = array(
-        'msg' => 'talleres', 
+        'message' => 'talleres', 
         'notificacion' =>  'Nueva Solicitud',
         'mensage' => 'Su solicitud ha sido registrada, a partir de ahora comenzará a recibir respuesta de los talleres asociados' 
+        );*/
+    /*    $dataFields = array(
+            'message' => 'talleres',
+            'title' => 'notification center',
+            'vibrate' => 1,
+            'sound' => 1
         );
        
          $fields = array(
@@ -363,7 +359,7 @@ class HomeController extends Controller
         );
 
         $res=json_encode($fields);
-       
+      
         $arrContextOptions=array(
             "http" => array(
             "method" => "POST",
@@ -371,31 +367,32 @@ class HomeController extends Controller
                 'Authorization: key = AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA'. "\r\n" .
                 'Content-Type: application/json'. "\r\n",
             "content" => $res,
-            'ignore_errors' => true,
+            'ignore_errors' => false,
           ),
             "ssl"=>array(
-            "allow_self_signed"=>true,
-            "verify_peer"=>false,
-          ),
+                "allow_self_signed"=>true,
+                "verify_peer"=>false,
+            ),
        );
         $arrContextOptions = stream_context_create($arrContextOptions);
         $result = file_get_contents('https://android.googleapis.com/gcm/send', false, $arrContextOptions);
 
-
-      
 /*
+   
+    $client = new Client();
       $response =   $client->request('POST','https://android.googleapis.com/gcm/send', [
             'headers' => [
                 'Authorization' => 'key = AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA',
                 'Content-Type' => 'application/json',
                 'content'  => $res
             ]
-        ]);
-*/
-      //  dd($result);
-
-      $con = Gestor::conexion();
+        ]); */  
 
      
+      $con = Gestor::conexion();
+
+      echo "<pre>";
+      print_r($con);
+      echo "</pre>";
     }
 }
