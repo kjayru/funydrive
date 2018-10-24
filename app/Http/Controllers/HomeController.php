@@ -315,78 +315,10 @@ class HomeController extends Controller
 
 
     public function pruebdesarrollo(){
-       //
-     /* $push = new PushNotification('gcm');
-       $response =  $push->setMessage([
-            'notification' => [
-                    'msg'=>'talleres',
-                    'body'=>'Mensaje de prueba',
-                    'sound' => 'default'
-                    ],
-            'data' => [
-                    'tipo' => 'Notificacion',
-                    'notificacion' => 'Preuba desde wavy backend'
-                    ]
-            ])
-            ->setApiKey(env('APP_KEY_PUSH'))
-            ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
-            ->send()
-            ->getFeedback();
-       dd($response);
+    
 
-
-      
-        //tes de respuesta desde url
-        //detalles
-       
-       */
-/*
-      $dataFields = array(
-        'msg' => 'talleres', 
-        'notificacion' =>  'Nueva Solicitud',
-        'mensage' => 'Su solicitud ha sido registrada, a partir de ahora comenzará a recibir respuesta de los talleres asociados' 
-        );
-      
-       
-         $fields = array(
-            'registration_ids' => ['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'],
-            'data' => $dataFields
-        );
-
-        $res=json_encode($fields);
-      
-        $arrContextOptions=array(
-            "http" => array(
-            "method" => "POST",
-            "header" =>
-                'Authorization: key = AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA'. "\r\n" .
-                'Content-Type: application/json'. "\r\n",
-            "content" => $res,
-            'ignore_errors' => false,
-          ),
-            "ssl"=>array(
-                "allow_self_signed"=>true,
-                "verify_peer"=>false,
-            ),
-       );
-        $arrContextOptions = stream_context_create($arrContextOptions);
-        $result = file_get_contents('https://android.googleapis.com/gcm/send', false, $arrContextOptions);
-
-        dd($result);
-/*
-   
-    $client = new Client();
-      $response =   $client->request('POST','https://android.googleapis.com/gcm/send', [
-            'headers' => [
-                'Authorization' => 'key = AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA',
-                'Content-Type' => 'application/json',
-                'content'  => $res
-            ]
-        ]); */  
-
-     
+    
       $con = Gestor::conexion();
-
       echo "<pre>";
       print_r($con);
       echo "</pre>";
