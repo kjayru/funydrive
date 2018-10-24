@@ -830,7 +830,9 @@ $(document).ready(function () {
         if(response.sistema){
           alert(response.sistem);
         }
+        if(response.rpta=='ok'){
         window.location.reload()
+        }
       })
   })
 
