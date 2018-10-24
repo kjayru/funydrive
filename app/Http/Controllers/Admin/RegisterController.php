@@ -12,6 +12,7 @@ use App\Workshopresponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Gestor;
 
 use Edujugon\PushNotification\PushNotification;
 
@@ -40,7 +41,7 @@ class RegisterController extends Controller
         $user_id = Auth::id();
 
         $user = User::find($user_id);
-
+        $email = $user->email;
         $workshop = new Workshoporder;
 
         $workshop->user_id = $user_id;
@@ -93,7 +94,20 @@ class RegisterController extends Controller
 
         $asociado->save();
 
-        return redirect('/admin/solicitudes');
+        $reg_id = Gestor::keysearch($email);
+            
+            if($reg_id){
+                //send notification
+                $res =  Gestor:: sendNotification(
+                        $reg_id,
+                        'Nueva Solicitud', 
+                        'Su solicitud ha sido registrada, a partir de ahora comenzará a recibir respuesta de los talleres asociados.'
+                        );
+                }else{
+                    $res="No tiene instalado Aplicación";
+                }
+
+        return redirect('/admin/solicitudes')->with(compact($res));
     }
 
     public function registrowork(Request $request)
@@ -103,7 +117,7 @@ class RegisterController extends Controller
         $user_id = Auth::id();
 
         $user = User::find($user_id);
-
+        $email = $user->email;
         $workshop = new Workshoporder;
 
         $workshop->user_id = $user_id;
@@ -182,7 +196,19 @@ class RegisterController extends Controller
 
         $asociado->save();
 
-        return redirect('/admin/solicitudes');
+        $reg_id = Gestor::keysearch($email);
+        if($reg_id){
+            //send notification
+            $res =  Gestor:: sendNotification(
+                    $reg_id,
+                    'Nueva Solicitud', 
+                    'Su solicitud ha sido registrada, a partir de ahora comenzará a recibir respuesta de los talleres asociados.'
+                    );
+            }else{
+                $res="No tiene instalado Aplicación";
+            }
+
+        return redirect('/admin/solicitudes')->with(compact($res));
 
     }
 
@@ -214,26 +240,24 @@ class RegisterController extends Controller
 
         $socio = User::where('id',$request->asociado_id)->first();
 
-       // Mail::to($socio->email)->send(new Talleres($socio));
+            $reg_id = Gestor::keysearch($socio->email);
+            
+            if($reg_id){
+                //send notification
+                $res =  Gestor:: sendNotification(
+                        $reg_id,
+                        'Respuesta Taller', 
+                        'Aquí se incluirá el nombre del taller y el texto: ha respondido a su petición'
+                        );
+            }else{
+                Mail::to($socio->email)->send(new Talleres($socio));
+                $res="No tiene instalado Aplicación";
+            }
+        
+        
+        
+        return response()->json(['rpta' => 'ok','sistema'=>$res]);
 
-        $push = new PushNotification;
-        $response =  $push->setMessage([
-             'notification' => [
-                     'title'=>'talleres',
-                     'body'=>'Se Acepto el trabajo',
-                     'sound' => 'default'
-                     ],
-             'data' => [
-                     'tipo' => 'Notificacion',
-                     'notificacion' => 'Mensaje desde wavy backend'
-                     ]
-             ])
-             ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
-             ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
-             ->send();
- 
-
-        return response()->json(['rpta' => 'ok']);
 
     }
 
@@ -253,24 +277,22 @@ class RegisterController extends Controller
         $socio = User::where('id',$request->cliente_id)->first();
 
 
-        //Mail::to($socio->email)->send(new Rechazo($socio));
-        return response()->json(['rpta' => 'ok']);
+        
 
-        $push = new PushNotification;
-       $response =  $push->setMessage([
-            'notification' => [
-                    'title'=>'talleres',
-                    'body'=>'Se rechazo el trabajo',
-                    'sound' => 'default'
-                    ],
-            'data' => [
-                    'tipo' => 'Notificacion',
-                    'notificacion' => 'Mensaje desde wavy backend'
-                    ]
-            ])
-            ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
-            ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
-            ->send();
+        $reg_id = Gestor::keysearch($socio->email);
+        if($reg_id){
+            //send notification
+            $res =  Gestor:: sendNotification(
+                    $reg_id,
+                    'Petición Anulada', 
+                    'Aquí se incluirá el nombre del taller y el texto: ha rechazado su petición'
+                    );
+        }else{
+            Mail::to($socio->email)->send(new Rechazo($socio));
+            $res="No tiene instalado Aplicación";
+        }
+        
+        return response()->json(['rpta' => 'ok','sistema'=>$res]);
 
     }
 
@@ -290,28 +312,25 @@ class RegisterController extends Controller
           
 
             ]);
-
+        $ord = Workshoporder::where('order_id',$order )->first();
+        $user = User::where('id',$ord->user_id)->first();
         //cambio de fecha
-       // Mail::to($data['email'])->send(new RespondeMensaje($res));
+       // 
 
-        $push = new PushNotification;
-        $response =  $push->setMessage([
-             'notification' => [
-                     'title'=>'talleres',
-                     'body'=>'Se actualizaron el procedimiento de trabajo',
-                     'sound' => 'default'
-                     ],
-             'data' => [
-                     'tipo' => 'Notificacion',
-                     'notificacion' => 'Mensaje desde wavy backend'
-                     ]
-             ])
-             ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
-             ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
-             ->send();
+       $reg_id = Gestor::keysearch($user->email);
+       if($reg_id){
+           //send notification
+           $res =  Gestor:: sendNotification(
+                   $reg_id,
+                   'Respuesta Taller', 
+                   'Aquí se incluirá el nombre del taller y el texto: ha rechazado su petición'
+                   );
+       }else{
+          // Mail::to($data['email'])->send(new RespondeMensaje($user));
+           $res="No tiene instalado Aplicación";
+       }
 
-
-        return response()->json(['rpta' => 'ok']);
+        return response()->json(['rpta' => 'ok','mensaje'=>$res]);
 
     }
 
@@ -319,11 +338,28 @@ class RegisterController extends Controller
 
         $fecha = Workshoporder::where('order_id',$id)->first();
 
-        return response()->json($fecha);
+        
+        $user = User::where('id',$fecha->user_id)->first();
+        //cambio de fecha
+       
+
+       $reg_id = Gestor::keysearch($user->email);
+       if($reg_id){
+           //send notification
+           $res =  Gestor:: sendNotification(
+                   $reg_id,
+                   'Respuesta Taller', 
+                   'Aquí se incluirá el nombre del taller y el texto: ha rechazado su petición'
+                   );
+       }else{
+          // Mail::to($data['email'])->send(new CambioFecha($res));
+           $res="No tiene instalado Aplicación";
+       }
+
+        return response()->json(['fecha'=>$fecha,'sistema'=>$res]);
     }
 
     public function actualizarFecha(Request $request, $order){
-
 
         $fecha = $request->dia." ".$request->hora.":".$request->minuto." ".$request->tiempos;
         
@@ -334,26 +370,25 @@ class RegisterController extends Controller
 
         $mailcliente = User::where('id',$request->cliente_id)->first();
        
-    //cambio de fecha
-       // Mail::to($mailcliente->email)->send(new CambioFecha($res));
+        $ord = Workshoporder::where('order_id',$order)->first();
+        $user = User::where('id',$ord->user_id)->first();
+        //cambio de fecha      
 
-        $push = new PushNotification;
-        $response =  $push->setMessage([
-             'notification' => [
-                     'title'=>'talleres',
-                     'body'=>'Se ha actualizado la fecha del trabajo',
-                     'sound' => 'default'
-                     ],
-             'data' => [
-                     'tipo' => 'Notificacion',
-                     'notificacion' => 'Mensaje desde wavy backend'
-                     ]
-             ])
-             ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
-             ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
-             ->send();
+       $reg_id = Gestor::keysearch($user->email);
+       if($reg_id){
+           //send notification
+           $res =  Gestor:: sendNotification(
+                   $reg_id,
+                   'Respuesta Taller', 
+                   'Aquí se incluirá el nombre del taller y el texto: ha rechazado su petición'
+                   );
+       }else{
+          // Mail::to($data['email'])->send(new CambioFecha($res));
+           $res="No tiene instalado Aplicación";
+       }
 
-        return response()->json(['rpta'=>'ok']);
+        
+        return response()->json(['rpta'=>'ok','sistema'=>$res]);
     }
 
 }

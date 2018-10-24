@@ -129,7 +129,7 @@ class HomeController extends Controller
             $user_id = Auth::id();
          
             $user = User::find($user_id);
-      
+            $email = $user->email;
          
       
             $workshop = new Workshoporder;
@@ -211,8 +211,21 @@ class HomeController extends Controller
             
              $asociado->save();
 
+             $reg_id = Gestor::keysearch($email);
+            
+            if($reg_id){
+                //send notification
+                $res =  Gestor:: sendNotification(
+                    $reg_id,
+                    'Nueva Solicitud', 
+                    'Su solicitud ha sido registrada, a partir de ahora comenzará a recibir respuesta de los talleres asociados.'
+                    );
+                }else{
+                    $res="No tiene instalado Aplicación";
+                }
 
-           return redirect('/admin/solicitudes');
+
+           return redirect('/admin/solicitudes')->with(compact($res));
 
 
         }else{
@@ -352,8 +365,7 @@ class HomeController extends Controller
 
                 );
            */   
-           echo Gestor::keysearch('wiltinoco@gmail.com');
-
+           
             
     }
 }

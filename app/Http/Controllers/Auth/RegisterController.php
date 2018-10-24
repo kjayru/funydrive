@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use App\Gestor;
 
 class RegisterController extends Controller
 {
@@ -67,6 +68,7 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
+        $email = $request->email;
         $this->guard()->login($user);
         if (session('peticion')) {
 
@@ -127,9 +129,22 @@ class RegisterController extends Controller
             $asociado->ws_id = $datos[0]['iduserservice'];
 
             $asociado->save();
+
+            $reg_id = Gestor::keysearch($email);
+            
+            if($reg_id){
+                //send notification
+                $res =  Gestor:: sendNotification(
+                        $reg_id,
+                        'Nueva Solicitud', 
+                        'Su solicitud ha sido registrada, a partir de ahora comenzará a recibir respuesta de los talleres asociados.'
+                        );
+                }else{
+                    $res="No tiene instalado Aplicación";
+                }
         }
 
-        if (session('peticion')) {
+        /*if (session('peticion')) {
             $datos = session('peticion');
 
             $user_id = Auth::id();
@@ -187,9 +202,9 @@ class RegisterController extends Controller
             $asociado->ws_id = $datos[0]['iduserservice'];
 
             $asociado->save();
-        }
+        }*/
         return $this->registered($request, $user)
-        ?: redirect($this->redirectPath());
+        ?: redirect($this->redirectPath())->with(compact($res));
     }
 
     /**

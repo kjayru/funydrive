@@ -97,7 +97,7 @@ class LoginController extends Controller
                 $client = new Client();
                 $client->user_id = $user->id;                
                 $client->save();
-                  Mail::to($email)->send(new NewUser($user));
+                
 
             }catch(\Exception $exception){
                 $success = $exception->getMessage();
@@ -110,10 +110,19 @@ class LoginController extends Controller
             auth()->LoginUsingId($user->id);
 
             //search email
-
-            //send notification
+            $reg_id = Gestor::keysearch($email);
             
-            //or email
+            if($reg_id){
+                //send notification
+                Gestor:: sendNotification(
+                     $reg_id,
+                     'Registro web', 
+                     'Gracias por registrarte a Wavy desde ahora recibiras notificiones.');
+            }else{
+                //or email
+                 Mail::to($email)->send(new NewUser($user));
+            }
+            
 
 
             return redirect(route('admin'));

@@ -92,7 +92,13 @@ $(document).ready(function () {
       }
     }).then(res => res.json())
       .catch(error => console.error('error: ', error))
-      .then(response => console.log('Success: ', response))
+      .then(response => {
+        
+        if(response.sistema){
+          alert(response.sistem);
+        }
+    
+    })
 
     $('#modal-cambiofecha').modal('hide')
       window.location.reload()
@@ -751,7 +757,7 @@ $(document).ready(function () {
       .then(res => res.json())
       .catch(error => console.error('error', error))
       .then(response => {
-       
+         
           let fecha = response.request_date.split(' ');
          
           let gen1 = fecha[0];
@@ -821,8 +827,10 @@ $(document).ready(function () {
     }).then(res => res.json())
       .catch(error => console.error('error: ', error))
       .then(response => {
-
-       // window.location.reload()
+        if(response.sistema){
+          alert(response.sistem);
+        }
+        window.location.reload()
       })
   })
 
@@ -865,7 +873,9 @@ $(document).ready(function () {
     }).then(res => res.json())
       .catch(error => console.error('error: ', error))
       .then(response => {
-        console.log(response)
+        if(response.sistema){
+          alert(response.sistem);
+        }
         window.location.reload()
       })
   })
