@@ -315,8 +315,8 @@ class HomeController extends Controller
 
 
     public function pruebdesarrollo(){
-    //Selecciona teste usuario
-
+    //Selecciona lista de usuario registrados
+  
     
       $con = Gestor::conexion();
       echo "<pre>";
