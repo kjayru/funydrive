@@ -340,7 +340,7 @@ class HomeController extends Controller
         //detalles
        
        */
-
+/*
       $dataFields = array(
         'msg' => 'talleres', 
         'notificacion' =>  'Nueva Solicitud',

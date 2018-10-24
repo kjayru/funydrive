@@ -21,15 +21,14 @@ class Gestor extends Model
     }
 
 
-    function  sendNotification($registration_ids, $message) 
+    public static function  sendNotification($registration_ids, $notificacion, $mensaje) 
     {
 
         $registrationIds = array($registration_ids);
         $msg = array(
-            'message' => $message,
-            'title' => 'notification center',
-            'vibrate' => 1,
-            'sound' => 1
+            'msg' => 'talleres', 
+            'notificacion' =>  $notificacion,
+            'mensage' => $mensaje
         );
 
         $fields = array(
