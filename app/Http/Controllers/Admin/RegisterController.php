@@ -239,8 +239,8 @@ class RegisterController extends Controller
         //data Asociado
 
         $socio = User::where('id',$request->cliente_id)->first();
-        dd($socio);
-         /*
+      
+         
             $reg_id = Gestor::keysearch($socio->email);
             
             if($reg_id){
@@ -255,7 +255,6 @@ class RegisterController extends Controller
                 $push="No tiene instalado Aplicación";
             }
         
-        */
         
         return response()->json(['rpta' => 'ok','sistema'=>$push]);
 
