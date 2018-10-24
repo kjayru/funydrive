@@ -316,10 +316,10 @@ class HomeController extends Controller
 
     public function pruebdesarrollo(){
        //
-      $push = new PushNotification('gcm');
+     /* $push = new PushNotification('gcm');
        $response =  $push->setMessage([
             'notification' => [
-                    'title'=>'talleras',
+                    'msg'=>'talleres',
                     'body'=>'Mensaje de prueba',
                     'sound' => 'default'
                     ],
@@ -339,19 +339,14 @@ class HomeController extends Controller
         //tes de respuesta desde url
         //detalles
        
-       
+       */
 
-      /* $dataFields = array(
-        'message' => 'talleres', 
+      $dataFields = array(
+        'msg' => 'talleres', 
         'notificacion' =>  'Nueva Solicitud',
         'mensage' => 'Su solicitud ha sido registrada, a partir de ahora comenzará a recibir respuesta de los talleres asociados' 
-        );*/
-    /*    $dataFields = array(
-            'message' => 'talleres',
-            'title' => 'notification center',
-            'vibrate' => 1,
-            'sound' => 1
         );
+      
        
          $fields = array(
             'registration_ids' => ['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'],
@@ -377,6 +372,7 @@ class HomeController extends Controller
         $arrContextOptions = stream_context_create($arrContextOptions);
         $result = file_get_contents('https://android.googleapis.com/gcm/send', false, $arrContextOptions);
 
+        dd($result);
 /*
    
     $client = new Client();
