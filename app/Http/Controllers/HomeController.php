@@ -318,9 +318,47 @@ class HomeController extends Controller
     //Selecciona lista de usuario registrados
   
     
-      $con = Gestor::conexion();
+     /* $con = Gestor::conexion();
       echo "<pre>";
       print_r($con);
-      echo "</pre>";
+      echo "</pre>";*/
+
+/*
+     $usuarios =array
+                (
+                    array
+                        (
+                            "email" => "info.funydrive@gmail.com",
+                            "reg_id" => "APA91bE5cgw5FmVR4KCo2uW84dkgGOiYANX0uOvItBo7LghZYzqL6pByBlDltUNDMQLOvemqA4947Wv8umN7sFMzAb218cyv2U8T4HXbRNVs2Sx62QdSTIg"
+                        ),
+
+                    array
+                        (
+                            "email" => "silvialoboblazquez@gmail.com",
+                            "reg_id" => "APA91bGmtIi9wocqmf6n89zAJe19fOMyGmVa5Z24wTVFbXKYwYO0metCSLRITn08BFo6kfzZQf5PiiRBYuB9-rF8PQ-teGmSbxjhUl3NAipTGB7OV_kEEwA"
+                        ),
+
+                    array
+                        (
+                            "email" => "carlagmairena@gmail.com",
+                            "reg_id" => "APA91bGRFiEH7PKD5fMQVbsBNLdQ1dX_RWudElQxtha_ODcTcO1j2BTGqv2gM5CW4_QEW4n6QB5cMwWwAApN3DKyZ1xjiDS_erLRtOH-656mdYYAgqgQos0"
+                        ),
+
+                    array
+                        (
+                            "email" => "wiltinoco@gmail.com",
+                            "reg_id" => "APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak"
+                        )
+
+                );*/
+              
+            $usuarios=Gestor::conexion();
+
+            foreach ($usuarios as $key => $val) {
+                if ($val['email'] === 'wiltinoco@gmail.com') {
+                    print_r($val);
+                }
+            }
+            
     }
 }
