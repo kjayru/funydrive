@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewUser;
 use Illuminate\Support\Facades\Validator;
+use App\Gestor;
 
 use Edujugon\PushNotification\PushNotification;
 
@@ -108,20 +109,11 @@ class LoginController extends Controller
             \DB::commit();
             auth()->LoginUsingId($user->id);
 
-            $response =  $push->setMessage([
-                'notification' => [
-                        'title'=>'talleres',
-                        'body'=>'Realizo su registro por google',
-                        'sound' => 'default'
-                        ],
-                'data' => [
-                        'tipo' => 'Notificacion',
-                        'notificacion' => 'Mensaje desde wavy backend'
-                        ]
-                ])
-                ->setApiKey('AIzaSyD7ol5aQp8Y4RA7R275JqK8elm1tlbdmzA')
-                ->setDevicesToken(['APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak'])
-                ->send();
+            //search email
+
+            //send notification
+            
+            //or email
 
 
             return redirect(route('admin'));
