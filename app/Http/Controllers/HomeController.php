@@ -350,15 +350,10 @@ class HomeController extends Controller
                             "reg_id" => "APA91bGrNFlbgNJCpl0dAEIcFv5eyPe24TH77cNwXhu7IrKano4a_WaidcaVmhvPhcNvEyCMvUagaMnxguNJ_XWUumz-SYOg-wmt5VMUK6zusHzb1trTOak"
                         )
 
-                );*/
-              
-            $usuarios=Gestor::conexion();
+                );
+           */   
+           echo Gestor::keysearch('wiltinoco@gmail.com');
 
-            foreach ($usuarios as $key => $val) {
-                if ($val['email'] === 'wiltinoco@gmail.com') {
-                    print_r($val);
-                }
-            }
             
     }
 }

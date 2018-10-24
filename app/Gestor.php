@@ -58,5 +58,15 @@ class Gestor extends Model
 
     }
 
-   
+   public static function keysearch($email){
+
+    $usuarios=\App\Gestor::conexion();
+
+    foreach ($usuarios as $key => $val) {
+        if ($val['email'] === $email ) {
+            $key =  $val['reg_id'];
+        }
+     }
+     return $key;
+   }
 }
