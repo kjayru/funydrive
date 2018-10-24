@@ -239,24 +239,25 @@ class RegisterController extends Controller
         //data Asociado
 
         $socio = User::where('id',$request->cliente_id)->first();
-
+        dd($socio);
+         /*
             $reg_id = Gestor::keysearch($socio->email);
             
             if($reg_id){
                 //send notification
-                $res =  Gestor:: sendNotification(
+                $push =  Gestor:: sendNotification(
                         $reg_id,
                         'Respuesta Taller', 
                         'Aquí se incluirá el nombre del taller y el texto: ha respondido a su petición'
                         );
             }else{
                 Mail::to($socio->email)->send(new Talleres($socio));
-                $res="No tiene instalado Aplicación";
+                $push="No tiene instalado Aplicación";
             }
         
+        */
         
-        
-        return response()->json(['rpta' => 'ok','sistema'=>$res]);
+        return response()->json(['rpta' => 'ok','sistema'=>$push]);
 
 
     }
