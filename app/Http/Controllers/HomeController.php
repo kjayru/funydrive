@@ -315,7 +315,7 @@ class HomeController extends Controller
 
 
     public function pruebdesarrollo(){
-    
+    //Selecciona teste usuario
 
     
       $con = Gestor::conexion();
