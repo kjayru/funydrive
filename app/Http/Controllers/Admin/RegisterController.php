@@ -238,7 +238,7 @@ class RegisterController extends Controller
             ]);
         //data Asociado
 
-        $socio = User::where('id',$request->asociado_id)->first();
+        $socio = User::where('id',$request->cliente_id)->first();
 
             $reg_id = Gestor::keysearch($socio->email);
             
@@ -274,10 +274,7 @@ class RegisterController extends Controller
 
         Workshoporder::where('order_id', $request->order_id)->update(['status' => 5]);
 
-        $socio = User::where('id',$request->cliente_id)->first();
-
-
-        
+        $socio = User::where('id',$request->cliente_id)->first();   
 
         $reg_id = Gestor::keysearch($socio->email);
         if($reg_id){
@@ -343,20 +340,9 @@ class RegisterController extends Controller
         //cambio de fecha
        
 
-       $reg_id = Gestor::keysearch($user->email);
-       if($reg_id){
-           //send notification
-           $res =  Gestor:: sendNotification(
-                   $reg_id,
-                   'Respuesta Taller', 
-                   'Aquí se incluirá el nombre del taller y el texto: ha rechazado su petición'
-                   );
-       }else{
-          // Mail::to($data['email'])->send(new CambioFecha($res));
-           $res="No tiene instalado Aplicación";
-       }
+       
 
-        return response()->json(['fecha'=>$fecha,'sistema'=>$res]);
+        return response()->json(['fecha'=>$fecha]);
     }
 
     public function actualizarFecha(Request $request, $order){

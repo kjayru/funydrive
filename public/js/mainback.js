@@ -753,12 +753,12 @@ $(document).ready(function () {
     $('#fr-job #type').val(type)
 
 
-    fetch(`getfecha/${order_id}`)
+    fetch(`/admin/getfecha/${order_id}`)
       .then(res => res.json())
       .catch(error => console.error('error', error))
       .then(response => {
          
-          let fecha = response.request_date.split(' ');
+          let fecha = response.fecha.request_date.split(' ');
          
           let gen1 = fecha[0];
           let gen2 = fecha[1];
