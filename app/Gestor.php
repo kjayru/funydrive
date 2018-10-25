@@ -24,7 +24,7 @@ class Gestor extends Model
     public static function  sendNotification($registration_ids, $notificacion, $mensaje) 
     {
 
-        $registrationIds = array($registration_ids);
+       // $registrationIds = array($registration_ids);
         $msg = array(
             'msg' => 'talleres', 
             'notificacion' =>  $notificacion,
@@ -32,7 +32,7 @@ class Gestor extends Model
         );
 
         $fields = array(
-            'registration_ids' => $registrationIds,
+            'registration_ids' => [$registration_ids],
             'data' => $msg
         );
 
@@ -65,6 +65,8 @@ class Gestor extends Model
     foreach ($usuarios as $key => $val) {
         if ($val['email'] === $email ) {
             $key =  $val['reg_id'];
+        }else{
+            $key= NULL;
         }
      }
      return $key;

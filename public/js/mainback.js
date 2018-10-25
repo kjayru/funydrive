@@ -94,14 +94,16 @@ $(document).ready(function () {
       .catch(error => console.error('error: ', error))
       .then(response => {
         
-        if(response.sistema){
-          alert(response.sistem);
+        if(response.rpta==='ok'){
+          alert(response.sistema);
+          $('#modal-cambiofecha').modal('hide')
+          debugger
+           window.location.reload()
         }
     
     })
 
-    $('#modal-cambiofecha').modal('hide')
-      window.location.reload()
+    
   })
 
   $('#datepicker').datepicker({
@@ -827,10 +829,10 @@ $(document).ready(function () {
     }).then(res => res.json())
       .catch(error => console.error('error: ', error))
       .then(response => {
-        if(response.sistema){
-          alert(response.sistem);
-        }
+        console.log(response);
+        debugger
         if(response.rpta=='ok'){
+          alert(response.sistema);
         window.location.reload()
         }
       })
@@ -875,10 +877,13 @@ $(document).ready(function () {
     }).then(res => res.json())
       .catch(error => console.error('error: ', error))
       .then(response => {
-        if(response.sistema){
-          alert(response.sistem);
+        console.log(response);
+        debugger;
+        if(response.rpta === 'ok'){
+          alert(response.sistema);
+          window.location.reload()
         }
-        window.location.reload()
+        
       })
   })
 

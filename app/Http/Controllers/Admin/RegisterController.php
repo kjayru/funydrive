@@ -245,7 +245,7 @@ class RegisterController extends Controller
             
             if($reg_id){
                 //send notification
-                $push =  Gestor:: sendNotification(
+                $push =  Gestor::sendNotification(
                         $reg_id,
                         'Respuesta Taller', 
                         'Aquí se incluirá el nombre del taller y el texto: ha respondido a su petición'
@@ -256,7 +256,7 @@ class RegisterController extends Controller
             }
         
         
-        return response()->json(['rpta' => 'ok','sistema'=>$push]);
+        return response()->json(['rpta' => 'ok','sistema'=>$push,'reg_id'=>$reg_id]);
 
 
     }
@@ -275,8 +275,9 @@ class RegisterController extends Controller
         Workshoporder::where('order_id', $request->order_id)->update(['status' => 5]);
 
         $socio = User::where('id',$request->cliente_id)->first();   
-
+       
         $reg_id = Gestor::keysearch($socio->email);
+        
         if($reg_id){
             //send notification
             $res =  Gestor:: sendNotification(
@@ -285,11 +286,11 @@ class RegisterController extends Controller
                     'Aquí se incluirá el nombre del taller y el texto: ha rechazado su petición'
                     );
         }else{
-            Mail::to($socio->email)->send(new Rechazo($socio));
+           // Mail::to($socio->email)->send(new Rechazo($socio));
             $res="No tiene instalado Aplicación";
         }
-        
-        return response()->json(['rpta' => 'ok','sistema'=>$res]);
+       
+        return response()->json(['rpta' => 'ok','sistema'=>$res,'reg_id'=>$reg_id]);
 
     }
 
@@ -361,6 +362,7 @@ class RegisterController extends Controller
         //cambio de fecha      
 
        $reg_id = Gestor::keysearch($user->email);
+      
        if($reg_id){
            //send notification
            $res =  Gestor:: sendNotification(
@@ -374,7 +376,7 @@ class RegisterController extends Controller
        }
 
         
-        return response()->json(['rpta'=>'ok','sistema'=>$res]);
+        return response()->json(['rpta'=>'ok','sistema'=>$res,'reg_id'=>$reg_id]);
     }
 
 }
