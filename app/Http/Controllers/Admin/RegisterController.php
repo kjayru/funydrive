@@ -240,9 +240,9 @@ class RegisterController extends Controller
 
         $socio = User::where('id',$request->cliente_id)->first();
       
-         
+       
             $reg_id = Gestor::keysearch($socio->email);
-            
+           
             if($reg_id){
                 //send notification
                 $push =  Gestor::sendNotification(

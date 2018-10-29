@@ -111,7 +111,7 @@ class LoginController extends Controller
 
             //search email
             $reg_id = Gestor::keysearch($email);
-            
+          
             if($reg_id){
                 //send notification
                 Gestor:: sendNotification(

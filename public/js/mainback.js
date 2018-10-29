@@ -97,7 +97,7 @@ $(document).ready(function () {
         if(response.rpta==='ok'){
           alert(response.sistema);
           $('#modal-cambiofecha').modal('hide')
-          debugger
+       
            window.location.reload()
         }
     
@@ -830,7 +830,7 @@ $(document).ready(function () {
       .catch(error => console.error('error: ', error))
       .then(response => {
         console.log(response);
-        debugger
+        
         if(response.rpta=='ok'){
           alert(response.sistema);
         window.location.reload()
@@ -878,7 +878,7 @@ $(document).ready(function () {
       .catch(error => console.error('error: ', error))
       .then(response => {
         console.log(response);
-        debugger;
+      
         if(response.rpta === 'ok'){
           alert(response.sistema);
           window.location.reload()
