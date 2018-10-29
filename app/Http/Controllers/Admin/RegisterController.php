@@ -328,7 +328,7 @@ class RegisterController extends Controller
            $res="No tiene instalado Aplicación";
        }
 
-        return response()->json(['rpta' => 'ok','mensaje'=>$res]);
+        return response()->json(['rpta' => 'ok','sistema'=>$res]);
 
     }
 
