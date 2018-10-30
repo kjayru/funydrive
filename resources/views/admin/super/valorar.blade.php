@@ -23,6 +23,7 @@
                         <tr>
                             <th scope="col">#</th>                         
                             <th scope="col">WS_ID</th>
+                            <th scope="col">Order</th>
                             <th scope="col">Response day</th>
                             <th scope="col">Response date</th>                         
                             <th scope="col">Response price</th>
@@ -34,6 +35,7 @@
                             <tr>
                                 <th scope="row">{{ $k+1 }}</th>                              
                                 <td>{{ $wk->ws_id }} </td>
+                                <td>{{ $wk->order_id }} </td>
                                 <td>{{ $wk->response_days }}</td>
                                 <td>{{ $wk->response_date }}</td>
                                 <td>{{ $wk->response_price }}</td>
