@@ -33,7 +33,8 @@
                         <tbody>
                             @foreach(@$tra->workshopresponse as $k => $wk)                                                   
                             <tr>
-                                <th scope="row">{{ $k+1 }}</th>                              
+                                <th scope="row">{{ $k+1 }}</th>  
+                                <td>{{ $wk->id }} </td>                            
                                 <td>{{ $wk->ws_id }} </td>
                                 <td>{{ $wk->order_id }} </td>
                                 <td>{{ $wk->response_days }}</td>
