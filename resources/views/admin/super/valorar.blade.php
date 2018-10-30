@@ -31,7 +31,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach(@@$tra->workshopresponse as $k => $wk)                                                   
+                            @foreach(@$tra->workshopresponse as $k => $wk)                                                   
                             <tr>
                                 <th scope="row">{{ $k+1 }}</th>                              
                                 <td>{{ $wk->ws_id }} </td>
@@ -41,7 +41,7 @@
                                 <td>{{ $wk->response_price }}</td>
                                 <td><a href="#" class="btn btn-xs btn-primary btn-valorar" data-order="{{ @$tra->order_id }}">Valorar</a></td>                               
                             </tr>                          
-                        @endforeach
+                       
                             <tr>
                               <td>Mensajes:</td><td colspan="4">
                                   <ul class="timeline">
@@ -55,9 +55,9 @@
                                             <li>
                                                 <i class="fa fa-envelope bg-blue"></i>
                                                 <div class="timeline-item">
-                                                    <span class="time"><i class="fa fa-clock-o"></i>  </span>
+                                                    
 
-                                                    <h3 class="timeline-header"> Representante  {{ @$wk->user->name }}</h3>
+                                                    <h3 class="timeline-header"> Usuario:  {{ @$wk->user->name }}</h3>
 
                                                     <div class="timeline-body">
                                                        
@@ -74,6 +74,7 @@
                                   </ul>
                               </td>
                             </tr>
+                            @endforeach
                         </tbody>
                 </table> 
                 @endforeach
