@@ -38,7 +38,13 @@
         <a href="/admin/modelo">
             <i class="fa fa-th"></i> <span>Modelo</span>
         </a>
-    </li>
+      </li>
+      <li>
+        <a href="/admin/valoracion">
+            <i class="fa fa-th"></i> <span>Valorar</span>
+        </a>
+      </li>
+
         <li>
               <a  href="{{ route('logout') }}"
               onclick="event.preventDefault();

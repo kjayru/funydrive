@@ -19,7 +19,7 @@ Route::post('/getmodel','HomeController@getModel');
 Route::get('/getservice/{id}/edit','HomeController@getservice');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/verificar', 'HomeController@verifyUser');
-Route::get('/pruebagcm','HomeController@pruebdesarrollo');
+
 
 
 
@@ -78,6 +78,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/estados','Admin\ListrequestController@estados');
     Route::put('/cambioestado/{any}','Admin\ListrequestController@cambioestado');
     Route::get('/valorar','Admin\ListrequestController@getmensajes');
+    Route::get('/valoracion','Admin\ListrequestController@mensajeAdmin');
     Route::put('/setvalorar/{any}','Admin\ListrequestController@setvalorar');
 });
 Route::resource('/servicios','ServiceController');

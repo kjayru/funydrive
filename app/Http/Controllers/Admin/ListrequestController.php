@@ -87,6 +87,16 @@ class ListrequestController extends Controller
         return view('admin.asociados.valorar',['user_id'=>$user_id,'trabajos'=>$trabajos]);
     }
 
+    public function mensajeAdmin(){
+        $user_id = Auth::id();
+        $mirol    = User::navigation();
+        $trabajos = workshoporder::all();
+ 
+        return view('admin.super.valorar',['user_id'=>$user_id,'trabajos'=>$trabajos]);
+    }
+
+    
+
     public function setvalorar(Request $request, $order_id){
         //valoration workshoporder
         $work = workshoporder::where('order_id',$order_id)->first();
