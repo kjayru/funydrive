@@ -18,7 +18,7 @@
             </div>
                 <div class="box-body">
                     @foreach (@$trabajos as $key => $tra)  
-                    {{ count($tra->workshopresponse) }}
+                    
                     @if(count($tra->workshopresponse)>0)                             
                     <table class="table">
                         <thead>
@@ -37,7 +37,7 @@
                             @if($wk->id)                                                  
                             <tr>
                                 <th scope="row">{{ $k+1 }}</th>  
-                                <td>{{ $wk->id }} </td>                            
+                                                       
                                 <td>{{ $wk->ws_id }} </td>
                                 <td>{{ $wk->order_id }} </td>
                                 <td>{{ $wk->response_days }}</td>
