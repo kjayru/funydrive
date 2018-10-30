@@ -17,7 +17,8 @@
             <div class="box-header with-border">                
             </div>
                 <div class="box-body">
-                    @foreach (@$trabajos as $key => $tra)                               
+                    @foreach (@$trabajos as $key => $tra)  
+                    @if($tra->workshopresponse)                             
                     <table class="table">
                         <thead>
                         <tr>
@@ -80,6 +81,7 @@
                             @endforeach
                         </tbody>
                 </table> 
+                @endif
                 @endforeach
            
                 </div>
