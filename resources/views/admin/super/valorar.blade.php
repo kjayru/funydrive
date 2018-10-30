@@ -18,7 +18,7 @@
             </div>
                 <div class="box-body">
                     @foreach (@$trabajos as $key => $tra)  
-                    {{ count($tra->workshopresponse) }}
+                   
                     @if(count($tra->workshopresponse)>0)                             
                     <table class="table">
                         <thead>
