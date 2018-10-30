@@ -31,7 +31,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach(@$tra->workshopresponse as $k => $wk)                                                   
+                            @foreach(@$tra->workshopresponse as $k => $wk) 
+                            @if($wk->id)                                                  
                             <tr>
                                 <th scope="row">{{ $k+1 }}</th>  
                                 <td>{{ $wk->id }} </td>                            
@@ -75,6 +76,7 @@
                                   </ul>
                               </td>
                             </tr>
+                            @endif
                             @endforeach
                         </tbody>
                 </table> 

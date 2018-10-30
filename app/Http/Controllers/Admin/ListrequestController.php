@@ -87,6 +87,7 @@ class ListrequestController extends Controller
         return view('admin.asociados.valorar',['user_id'=>$user_id,'trabajos'=>$trabajos]);
     }
 
+    
     public function mensajeAdmin(){
         $user_id = Auth::id();
         $mirol    = User::navigation();
