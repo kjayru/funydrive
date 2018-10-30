@@ -19,7 +19,7 @@
                 <div class="box-body">
                     @foreach (@$trabajos as $key => $tra)  
                     {{ $tra->workshopresponse }}
-                    @if($tra->workshopresponse)                             
+                    @if($tra->workshopresponse!='')                             
                     <table class="table">
                         <thead>
                         <tr>
