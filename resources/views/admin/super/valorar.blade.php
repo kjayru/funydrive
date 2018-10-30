@@ -18,8 +18,8 @@
             </div>
                 <div class="box-body">
                     @foreach (@$trabajos as $key => $tra)  
-                    {{ $tra->workshopresponse }}
-                    @if(!is_empty($tra->workshopresponse))                             
+                    {{ count($tra->workshopresponse) }}
+                    @if(count($tra->workshopresponse)>0)                             
                     <table class="table">
                         <thead>
                         <tr>
